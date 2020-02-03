@@ -39,12 +39,29 @@ HTTP verbs:
 
 data flows in JSON format
 
-### basic structure of a HTTP request
+## basic structure of a HTTP request
+
+```
+GET http://api.com/company/1/users?page=2
+# route -----------^       ^ ^     ^
+# route parameter ---------' |     |
+# route ---------------------'     |
+# query parameters ----------------'
+```
+
+The POST and PUT methods also use the `body` field.
+
+Another commonly used field is the `Header`.
+
+
+## HTTP Codes
+
+Commonly used HTTP codes:
 
 
 
 
 > Written with [StackEdit](https://stackedit.io/).
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjA1NzY1NTAyOF19
+eyJoaXN0b3J5IjpbMTU5ODk1ODE0NV19
 -->
