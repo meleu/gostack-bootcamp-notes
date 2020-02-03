@@ -106,6 +106,7 @@ docker run --name database -e POSTGRES_PASSWORD=docker -p 5432:5432 -d postgres
 A neat GUI to access a PostgreSQL database (runs on Linux):
 [https://www.electronjs.org/apps/postbird](https://www.electronjs.org/apps/postbird)
 
+## Sequelize
 
 
 
@@ -113,7 +114,7 @@ A neat GUI to access a PostgreSQL database (runs on Linux):
 
 > Written with [StackEdit](https://stackedit.io/).
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE1MjU2NTQ2OCwtMTExMzYzMjQ2MSwtMT
-A2NTEyMDI5OCwtMTUyNTY1NDY4LC0xNTMyNjk3NDMwLDk0MjM5
-NDAzMl19
+eyJoaXN0b3J5IjpbODUwNDA3MDk5LC0xNTI1NjU0NjgsLTExMT
+M2MzI0NjEsLTEwNjUxMjAyOTgsLTE1MzI2OTc0MzAsOTQyMzk0
+MDMyXX0=
 -->
