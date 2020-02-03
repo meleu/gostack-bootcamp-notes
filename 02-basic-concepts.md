@@ -116,7 +116,13 @@ server.get('/company/:id', (req, res) => {
   // ...
 }
 ```
-####
+
+#### body properties
+
+```js
+server.post('/projects', (req, res) => {
+  const { id, title } = req.body;
+```
 
 
 
@@ -125,6 +131,6 @@ server.get('/company/:id', (req, res) => {
 
 > Written with [StackEdit](https://stackedit.io/).
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE1NzQ4Nzg1NzEsLTExNjk0OTM4MDMsLT
-QzMDQ3OTQzM119
+eyJoaXN0b3J5IjpbMTQ1MjIyMTU3NiwtMTE2OTQ5MzgwMywtND
+MwNDc5NDMzXX0=
 -->
