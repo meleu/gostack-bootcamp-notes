@@ -111,7 +111,7 @@ server.get('/company/:id', (req, res) => {
 #### query params
 
 ```js
-server.get('/company/:id', (req, res) => {
+server.get('/users/:id', (req, res) => {
   const { page } = req.query;
   // ...
 }
@@ -120,8 +120,10 @@ server.get('/company/:id', (req, res) => {
 #### body properties
 
 ```js
-server.post('/projects', (req, res) => {
+server.post('/company', (req, res) => {
   const { id, title } = req.body;
+  // ...
+}
 ```
 
 
@@ -131,6 +133,6 @@ server.post('/projects', (req, res) => {
 
 > Written with [StackEdit](https://stackedit.io/).
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTQ1MjIyMTU3NiwtMTE2OTQ5MzgwMywtND
-MwNDc5NDMzXX0=
+eyJoaXN0b3J5IjpbLTE2NDY4MzMzMDEsLTExNjk0OTM4MDMsLT
+QzMDQ3OTQzM119
 -->
