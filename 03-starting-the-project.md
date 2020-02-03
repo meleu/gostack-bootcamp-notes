@@ -72,11 +72,47 @@ Go to the debug section in VSCode and start a new `launch.json`. In this file, r
 }
 ```
 
+## docker
+
+Install docker following the instructions in [https://docs.docker.com/install/](https://docs.docker.com/install/) and don't forget to follow the Post-install instructions.
+
+basic commands:
+
+```
+docker ps                   # list active containers
+docker ps -a                # list available containers in this machine
+docker stop containerName   # quite obvious
+docker start containerName  # idem
+docker log containerName    # idem
+docker run  # ??
+```
+
+## PostgreSQL
+
+Installing a PostgreSQL container:
+
+docker: [https://hub.docker.com/_/postgres](https://hub.docker.com/_/postgres)
+
+install:
+```
+docker run --name database -e POSTGRES_PASSWORD=docker -p 5432:5432 -d postgres
+```
+
+**note**: in the `-p` option, the first number is the port in the actual machine, the number at the right of the `:` is the port of the container.
+
+
+### Postbird
+
+A neat GUI to access a PostgreSQL database (runs on Linux):
+[https://www.electronjs.org/apps/postbird](https://www.electronjs.org/apps/postbird)
+
+
 
 
 
 
 > Written with [StackEdit](https://stackedit.io/).
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE1MzI2OTc0MzAsOTQyMzk0MDMyXX0=
+eyJoaXN0b3J5IjpbLTE1MjU2NTQ2OCwtMTUzMjY5NzQzMCw5ND
+IzOTQwMzJdfQ==
 -->
