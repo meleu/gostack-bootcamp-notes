@@ -132,14 +132,23 @@ server.post('/user', (req, res) => {
 ## nodemon
 
 Using `nodemon` is a nice way to restart your application right after saving your code.
-```shell-s
+```
+yarn add nodemon -D
+```
+then add to your `package.json`:
+```json
+  "scripts": {
+    "dev": "nodemon index.js"
+  }
+```
 
+now, just execute `yarn dev` (ou `npm run dev`).
 
 
 
 
 > Written with [StackEdit](https://stackedit.io/).
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE5MzY2NDQ3NDcsLTExNjk0OTM4MDMsLT
-QzMDQ3OTQzM119
+eyJoaXN0b3J5IjpbMjU0OTMwMjIzLC0xMTY5NDkzODAzLC00Mz
+A0Nzk0MzNdfQ==
 -->
