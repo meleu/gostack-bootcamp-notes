@@ -91,11 +91,11 @@ server.listen(3000)
 
 we can get some HTTP data from the `req` parameter.
 
-Just to remember:
+URL example:
 ```
-GET http://api.com/company/1/users?page=2
-# route -----------^       ^ ^     ^
-# route parameter ---------' |     |
+GET http://api.com/users/1/users?page=2
+# route -----------^     ^ ^     ^
+# route parameter -------' |     |
 # route ---------------------'     |
 # query parameters ----------------'
 ```
@@ -110,5 +110,5 @@ GET http://api.com/company/1/users?page=2
 
 > Written with [StackEdit](https://stackedit.io/).
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEzNDgxNDU3OCwtNDMwNDc5NDMzXX0=
+eyJoaXN0b3J5IjpbLTEzODc2NDk3MjIsLTQzMDQ3OTQzM119
 -->
