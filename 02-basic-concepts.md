@@ -111,7 +111,7 @@ server.get('/company/:id', (req, res) => {
 
 #### query params
 
-example to get the page value from `?page=2`
+example to get the page value from `?page=2`:
 ```js
 server.get('/users/:id', (req, res) => {
   const { page } = req.query;
@@ -121,12 +121,16 @@ server.get('/users/:id', (req, res) => {
 
 #### body properties
 
+example to get the name and email from the body `{ "name": "meleu", "email": "meleu@mailserver.com" }`:
 ```js
-server.post('/company', (req, res) => {
-  const { id, title } = req.body;
+server.post('/user', (req, res) => {
+  const { name, email } = req.body;
   // ...
 }
 ```
+
+## nodemon
+
 
 
 
@@ -135,6 +139,6 @@ server.post('/company', (req, res) => {
 
 > Written with [StackEdit](https://stackedit.io/).
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTUyMjY5MzYwMCwtMTE2OTQ5MzgwMywtND
+eyJoaXN0b3J5IjpbLTE3MDQzMDkyMywtMTE2OTQ5MzgwMywtND
 MwNDc5NDMzXX0=
 -->
