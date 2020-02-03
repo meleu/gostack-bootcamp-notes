@@ -102,10 +102,20 @@ GET http://api.com/company/1/users?page=2
 #### route parameter
 
 ```js
-server.get('
+server.get('/company/:id', (req, res) => {
+  const { id } = req.params;
+  // ...
+}
 ```
 
 #### query params
+
+```js
+server.get('/company/:id', (req, res) => {
+  const { page } = req.query;
+  // ...
+}
+```
 
 
 
@@ -115,5 +125,5 @@ server.get('
 
 > Written with [StackEdit](https://stackedit.io/).
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjE0NTc1NTQ1OCwtNDMwNDc5NDMzXX0=
+eyJoaXN0b3J5IjpbLTExNjk0OTM4MDMsLTQzMDQ3OTQzM119
 -->
