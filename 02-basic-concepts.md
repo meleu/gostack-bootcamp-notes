@@ -58,10 +58,41 @@ Another commonly used field is the `Header`.
 
 Commonly used HTTP codes:
 
+-   1xx: informational
+-   2xx: success
+    -   200: SUCCESS
+    -   201: CREATED
+-   3xx: Redirection
+    -   301: MOVED PERMANENTLY
+    -   302: MOVED
+-   4xx: Client Error
+    -   400: BAD REQUEST
+    -   401: UNAUTHORIZED
+    -   404: NOT FOUND
+-   5xx: Server Error
+    -   500: INTERNAL SERVER ERROR
+
+
+## ExpressJS
+
+**Hello World**
+```
+const express = require('express');
+const server = express();
+
+server.get('/hello', (req, res) => {
+  return res.json({ message: 'Hello World!' });
+});
+
+server.listen(3000)
+```
+
+
+
 
 
 
 > Written with [StackEdit](https://stackedit.io/).
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTU5ODk1ODE0NV19
+eyJoaXN0b3J5IjpbLTQzMDQ3OTQzM119
 -->
