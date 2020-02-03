@@ -101,6 +101,7 @@ GET http://api.com/company/1/users?page=2
 ```
 #### route parameter
 
+example to get the company ID from `/company/:id`
 ```js
 server.get('/company/:id', (req, res) => {
   const { id } = req.params;
@@ -110,6 +111,7 @@ server.get('/company/:id', (req, res) => {
 
 #### query params
 
+example to get the page value from `?page=2`
 ```js
 server.get('/users/:id', (req, res) => {
   const { page } = req.query;
@@ -133,6 +135,6 @@ server.post('/company', (req, res) => {
 
 > Written with [StackEdit](https://stackedit.io/).
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE2NDY4MzMzMDEsLTExNjk0OTM4MDMsLT
-QzMDQ3OTQzM119
+eyJoaXN0b3J5IjpbMTUyMjY5MzYwMCwtMTE2OTQ5MzgwMywtND
+MwNDc5NDMzXX0=
 -->
