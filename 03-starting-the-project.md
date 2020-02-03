@@ -106,10 +106,11 @@ docker run --name database -e POSTGRES_PASSWORD=docker -p 5432:5432 -d postgres
 A neat GUI to access a PostgreSQL database (runs on Linux):
 [https://www.electronjs.org/apps/postbird](https://www.electronjs.org/apps/postbird)
 
+
 ## Sequelize
 
 ```
-yarn add sequelized
+yarn add sequelized pg pg-hstore
 yarn add sequelize-cli -D
 ```
 
@@ -124,12 +125,26 @@ module.exports = {
   'seeders-path': resolve(__dirname, 'src', 'database', 'seeds'),
 ```
 
-
+in `src/config/database.js`:
+```js
+module.exports = {
+  dialect: 'postgres',
+  host: 'localhost',
+  username: 'postgres',
+  password: 'docker',
+  database: 'gobarber',
+  define: {
+    timestamps: true,
+    underscored: true,
+    underscoredAll: true,
+  },
+};
+```
 
 
 > Written with [StackEdit](https://stackedit.io/).
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIwMTQ5OTI4NzEsODUwNDA3MDk5LC0xNT
-I1NjU0NjgsLTExMTM2MzI0NjEsLTEwNjUxMjAyOTgsLTE1MzI2
-OTc0MzAsOTQyMzk0MDMyXX0=
+eyJoaXN0b3J5IjpbLTI1MzIxNTQ3NCwtMjAxNDk5Mjg3MSw4NT
+A0MDcwOTksLTE1MjU2NTQ2OCwtMTExMzYzMjQ2MSwtMTA2NTEy
+MDI5OCwtMTUzMjY5NzQzMCw5NDIzOTQwMzJdfQ==
 -->
