@@ -87,6 +87,10 @@ server.get('/hello', (req, res) => {
 server.listen(3000)
 ```
 
+### getting data from `req`
+
+we can get some data from the `req` parameter:
+
 
 
 
@@ -94,5 +98,5 @@ server.listen(3000)
 
 > Written with [StackEdit](https://stackedit.io/).
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTc3NzA3OTE4MiwtNDMwNDc5NDMzXX0=
+eyJoaXN0b3J5IjpbMTkzMDMxMjYzLC00MzA0Nzk0MzNdfQ==
 -->
