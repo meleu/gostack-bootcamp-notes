@@ -134,6 +134,47 @@ With an ORM we can abstract the database:
 - not used in production
 - if data need to go to production, they should go on a migration, not a seed.
 
+## MVC Architecture
+
+MVC = Model View Controller
+
+Separate the files/directories responsibilities.
+
+
+### Model
+
+- Represents a database abstraction.
+- Used to manipulate data in database tables.
+- A Model do **NOT** have responsibility for the business rule of the application.
+
+
+### Controller
+
+- Starting point of the requests of our application.
+- A route is usually associated with a Controller method.
+- A good portion of the business rules are implemented in the controllers.
+- A controller is a class.
+- Always returns a JSON.
+- Do not calls other controller/method.
+- Every Model has a Controller, but there are Controllers for entities that are not Models.
+- Only 5 methods:
+
+```js
+// example
+class UserController {
+  index() { }  // list all users
+  show() { }   // show details of an user
+  store() { }  // create a new user
+  update() { } // change user's info
+  delete() { } // remove user's entry
+}
+```
+
+### View
+
+- What is returned to the client.
+- In applications that do not use REST APIs, it can be HTML.
+- In our case it'll be a JSON to be sent to the front-end and manipulated by React[Native].
 
 
 
@@ -141,6 +182,6 @@ With an ORM we can abstract the database:
 
 > Written with [StackEdit](https://stackedit.io/).
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEwNjUxMjAyOTgsLTE1MjU2NTQ2OCwtMT
-UzMjY5NzQzMCw5NDIzOTQwMzJdfQ==
+eyJoaXN0b3J5IjpbLTExMTM2MzI0NjEsLTEwNjUxMjAyOTgsLT
+E1MjU2NTQ2OCwtMTUzMjY5NzQzMCw5NDIzOTQwMzJdfQ==
 -->
