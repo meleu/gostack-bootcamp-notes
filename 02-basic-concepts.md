@@ -131,7 +131,8 @@ server.post('/user', (req, res) => {
 
 ## nodemon
 
-Using `nodemon` is a nice way to restart your application right after saving your code
+Using `nodemon` is a nice way to restart your application right after saving your code.
+```shell-s
 
 
 
@@ -139,6 +140,6 @@ Using `nodemon` is a nice way to restart your application right after saving you
 
 > Written with [StackEdit](https://stackedit.io/).
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMzMyODgzOTcsLTExNjk0OTM4MDMsLTQzMD
-Q3OTQzM119
+eyJoaXN0b3J5IjpbLTE5MzY2NDQ3NDcsLTExNjk0OTM4MDMsLT
+QzMDQ3OTQzM119
 -->
