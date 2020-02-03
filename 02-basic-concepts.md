@@ -208,11 +208,13 @@ server.post('/users', checkBodyHasName, (req, res) => {
 });
 ```
 
-**Note**: to use a middleware in all requests,
+**Note**: to use a middleware in all requests, `server.use(middlewareFunction)`
+
+
 
 
 > Written with [StackEdit](https://stackedit.io/).
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTQ5Njk3NzgzNSwtOTg5NTMxOTIwLC0xMT
-Y5NDkzODAzLC00MzA0Nzk0MzNdfQ==
+eyJoaXN0b3J5IjpbLTE2MDI5OTI0MTgsLTk4OTUzMTkyMCwtMT
+E2OTQ5MzgwMywtNDMwNDc5NDMzXX0=
 -->
