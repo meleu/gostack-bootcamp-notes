@@ -210,7 +210,7 @@ server.post('/users', checkBodyHasName, (req, res) => {
 
 **Note**: to use a middleware in all requests, `server.use(middlewareFunction)`
 
-## Sequelize
+## ORM (Sequelize)
 
 ORM = Object-Relational Mapping
 
@@ -282,6 +282,6 @@ class UserController {
 
 > Written with [StackEdit](https://stackedit.io/).
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTY2NTM4NTYwMSwtMTYwMjk5MjQxOCwtOT
+eyJoaXN0b3J5IjpbMTAzMzQ3OTY2MiwtMTYwMjk5MjQxOCwtOT
 g5NTMxOTIwLC0xMTY5NDkzODAzLC00MzA0Nzk0MzNdfQ==
 -->
