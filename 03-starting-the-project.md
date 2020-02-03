@@ -108,13 +108,17 @@ A neat GUI to access a PostgreSQL database (runs on Linux):
 
 ## Sequelize
 
+```
+yarn add sequelized
+yarn add sequelize-cli -D
+```
 
 
 
 
 > Written with [StackEdit](https://stackedit.io/).
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbODUwNDA3MDk5LC0xNTI1NjU0NjgsLTExMT
-M2MzI0NjEsLTEwNjUxMjAyOTgsLTE1MzI2OTc0MzAsOTQyMzk0
-MDMyXX0=
+eyJoaXN0b3J5IjpbLTEyMDg2NDQ4MDUsODUwNDA3MDk5LC0xNT
+I1NjU0NjgsLTExMTM2MzI0NjEsLTEwNjUxMjAyOTgsLTE1MzI2
+OTc0MzAsOTQyMzk0MDMyXX0=
 -->
