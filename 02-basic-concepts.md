@@ -144,11 +144,46 @@ then add to your `package.json`:
 
 now, just execute `yarn dev` (ou `npm run dev`).
 
+## CRUD
 
+```js
+// Create
+server.post('/users', (req, res) => {
+    const { name } = req.body;
+    users.push(name);
+    return res.json(users);
+});
+
+// Read all
+server.get('/users', (req, res) => {
+    return res.json(users);
+});
+
+// Read
+server.get('/users/:id', (req, res) => {
+    const { id } = req.params;
+    return res.json(users[id]);
+});
+
+// Update
+server.put('/users/:id', (req, res) => {
+    const { id } = req.params;
+    const { name } = req.body;
+    users[id] = name;
+    return res.json(users);
+});
+
+// Delete
+server.delete('/users/:id', (req, res) => {
+    const { id } = req.params;
+    users.splice(id, 1);
+    return res.send();
+});
+```
 
 
 > Written with [StackEdit](https://stackedit.io/).
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjU0OTMwMjIzLC0xMTY5NDkzODAzLC00Mz
-A0Nzk0MzNdfQ==
+eyJoaXN0b3J5IjpbMTkyNTM4ODI5MywtMTE2OTQ5MzgwMywtND
+MwNDc5NDMzXX0=
 -->
