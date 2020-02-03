@@ -76,7 +76,7 @@ Commonly used HTTP codes:
 ## ExpressJS
 
 **Hello World**
-```
+```js
 const express = require('express');
 const server = express();
 
@@ -94,5 +94,5 @@ server.listen(3000)
 
 > Written with [StackEdit](https://stackedit.io/).
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTQzMDQ3OTQzM119
+eyJoaXN0b3J5IjpbMTc3NzA3OTE4MiwtNDMwNDc5NDMzXX0=
 -->
