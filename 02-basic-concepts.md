@@ -146,6 +146,7 @@ now, just execute `yarn dev` (ou `npm run dev`).
 
 ## CRUD
 
+dumb example using an array named `users`:
 ```js
 // Create
 server.post('/users', (req, res) => {
@@ -181,9 +182,11 @@ server.delete('/users/:id', (req, res) => {
 });
 ```
 
+see also: https://github.com/meleu/bootcamp-gostack-challenge-01/blob/master/index.js
+
 
 > Written with [StackEdit](https://stackedit.io/).
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTkyNTM4ODI5MywtMTE2OTQ5MzgwMywtND
+eyJoaXN0b3J5IjpbLTU0Mzk2NjgyOCwtMTE2OTQ5MzgwMywtND
 MwNDc5NDMzXX0=
 -->
