@@ -210,11 +210,78 @@ server.post('/users', checkBodyHasName, (req, res) => {
 
 **Note**: to use a middleware in all requests, `server.use(middlewareFunction)`
 
+## Sequelize
 
+ORM = Object-Relational Mapping
+
+With an ORM we can abstract the database:
+
+- tables become models
+- no need to use SQL code (just JavaScript)
+
+
+### Migrations
+
+- database version control.
+- files with instrcutions to create, change and delete tables/fields in a database.
+- each file is a migration and they are sorted by date-time.
+- database updated between all contributors and production.
+- **IMPORTANT** once a migration is shared between contributors and/or production it can **NEVER** be edited again
+- each migrations changes only one table
+
+### Seeds
+
+- populate a database:
+    - for development
+    - for tests
+- not used in production
+- if data need to go to production, they should go on a migration, not a seed.
+
+## MVC Architecture
+
+MVC = Model View Controller
+
+Separate the files/directories responsibilities.
+
+
+### Model
+
+- Represents a database abstraction.
+- Used to manipulate data in database tables.
+- A Model do **NOT** have responsibility for the business rule of the application.
+
+
+### Controller
+
+- Starting point of the requests of our application.
+- A route is usually associated with a Controller method.
+- A good portion of the business rules are implemented in the controllers.
+- A controller is a class.
+- Always returns a JSON.
+- Do not calls other controller/method.
+- Every Model has a Controller, but there are Controllers for entities that are not Models.
+- Only 5 methods:
+
+```js
+// example
+class UserController {
+  index() { }  // list all users
+  show() { }   // show details of an user
+  store() { }  // create a new user
+  update() { } // change user's info
+  delete() { } // remove user's entry
+}
+```
+
+### View
+
+- What is returned to the client.
+- In applications that do not use REST APIs, it can be HTML.
+- In our case it'll be a JSON to be sent to the front-end and manipulated by React[Native].
 
 
 > Written with [StackEdit](https://stackedit.io/).
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE2MDI5OTI0MTgsLTk4OTUzMTkyMCwtMT
-E2OTQ5MzgwMywtNDMwNDc5NDMzXX0=
+eyJoaXN0b3J5IjpbMTY2NTM4NTYwMSwtMTYwMjk5MjQxOCwtOT
+g5NTMxOTIwLC0xMTY5NDkzODAzLC00MzA0Nzk0MzNdfQ==
 -->
