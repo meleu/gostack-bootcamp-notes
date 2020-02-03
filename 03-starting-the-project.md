@@ -118,7 +118,10 @@ file `.sequelizerc`:
 const { resolve } = require('path');
 
 module.exports = {
-  config: resolve(__dirname, 'src', 'config
+  config: resolve(__dirname, 'src', 'config', 'database.js'),
+  'models-path': resolve(__dirname, 'src', 'app', 'models'),
+  'migrations-path': resolve(__dirname, 'src', 'database', 'migrations'),
+  'seeders-path': resolve(__dirname, 'src', 'database', 'seeds'),
 ```
 
 
@@ -126,7 +129,7 @@ module.exports = {
 
 > Written with [StackEdit](https://stackedit.io/).
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIxMTEyMzk3MTgsODUwNDA3MDk5LC0xNT
+eyJoaXN0b3J5IjpbLTIwMTQ5OTI4NzEsODUwNDA3MDk5LC0xNT
 I1NjU0NjgsLTExMTM2MzI0NjEsLTEwNjUxMjAyOTgsLTE1MzI2
 OTc0MzAsOTQyMzk0MDMyXX0=
 -->
