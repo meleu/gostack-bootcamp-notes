@@ -184,11 +184,14 @@ server.delete('/users/:id', (req, res) => {
 
 see also: https://github.com/meleu/bootcamp-gostack-challenge-01/blob/master/index.js
 
+
 ## middleware
+
+
 
 
 > Written with [StackEdit](https://stackedit.io/).
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTA4NzE5ODU5NCwtMTE2OTQ5MzgwMywtND
+eyJoaXN0b3J5IjpbLTk4OTUzMTkyMCwtMTE2OTQ5MzgwMywtND
 MwNDc5NDMzXX0=
 -->
