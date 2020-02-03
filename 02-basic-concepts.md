@@ -32,9 +32,19 @@ Opnionated frameworks:
 
 HTTP verbs:
 
+-  GET http://minhaapi.com/users
+-  POST http://minhaapi.com/users
+-  PUT http://minhaapi.com/users/1
+-  DELETE [http://minhaapi.com/users/1
+
+data flows in JSON format
+
+### basic structure of a HTTP request
+
+
 
 
 > Written with [StackEdit](https://stackedit.io/).
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE1NTI0MTMxNV19
+eyJoaXN0b3J5IjpbMjA1NzY1NTAyOF19
 -->
