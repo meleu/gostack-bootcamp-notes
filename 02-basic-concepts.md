@@ -187,11 +187,32 @@ see also: https://github.com/meleu/bootcamp-gostack-challenge-01/blob/master/ind
 
 ## middleware
 
+It's a function/method executed in a sequence with other functions/methods.
 
+Example:
+
+```js
+// a middleware function
+function checkBodyHasName(req, res, next) {
+  if (!req.body.name) {
+    return res.status(400).json({ error: 'User name is required' });
+  }
+  return next();
+}
+
+// middleware function being used:
+server.post('/users', checkBodyHasName, (req, res) => {
+  const { name } = req.body;
+  users.push(name);
+  return res.json(users);
+});
+```
+
+**Note**: to use a middleware in all requests,
 
 
 > Written with [StackEdit](https://stackedit.io/).
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTk4OTUzMTkyMCwtMTE2OTQ5MzgwMywtND
-MwNDc5NDMzXX0=
+eyJoaXN0b3J5IjpbLTQ5Njk3NzgzNSwtOTg5NTMxOTIwLC0xMT
+Y5NDkzODAzLC00MzA0Nzk0MzNdfQ==
 -->
