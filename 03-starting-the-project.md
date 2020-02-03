@@ -107,12 +107,40 @@ A neat GUI to access a PostgreSQL database (runs on Linux):
 [https://www.electronjs.org/apps/postbird](https://www.electronjs.org/apps/postbird)
 
 
+## Sequelize
+
+ORM = Object-Relational Mapping
+
+With an ORM we can abstract the database:
+
+- tables become models
+- no need to use SQL code (just JavaScript)
+
+
+### Migrations
+
+- database version control.
+- files with instrcutions to create, change and delete tables/fields in a database.
+- each file is a migration and they are sorted by date-time.
+- database updated between all contributors and production.
+- **IMPORTANT** once a migration is shared between contributors and/or production it can **NEVER** be edited again
+- each migrations changes only one table
+
+### Seeds
+
+- populate a database:
+    - for development
+    - for tests
+- not used in production
+- if data need to go to production, they should go on a migration, not a seed.
+
+
 
 
 
 
 > Written with [StackEdit](https://stackedit.io/).
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE1MjU2NTQ2OCwtMTUzMjY5NzQzMCw5ND
-IzOTQwMzJdfQ==
+eyJoaXN0b3J5IjpbLTEwNjUxMjAyOTgsLTE1MjU2NTQ2OCwtMT
+UzMjY5NzQzMCw5NDIzOTQwMzJdfQ==
 -->
