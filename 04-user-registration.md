@@ -90,7 +90,7 @@ class User extends Model {
 export default User;
 ```
 
-**NOTE** the properties of the first argument of `super.ini()` above does NOT need to reflect the database table. You can use fields that are not present on the DB table.
+**NOTE** the properties of the first argument of `super.init()` above does NOT necessarily need to reflect the database table. You can use fields that are not present on the DB table.
 
 ## Model Loader
 
