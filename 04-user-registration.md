@@ -198,3 +198,82 @@ import bcrypt from 'bcryptjs';
 - `this.addHook('beforeSave', callback)` runs the callback function before saving anything in the database.
 - the second argument of `bcrypt.hash()` defines the number of rounds to be used to encrypt the password.
 
+## JWT Authentication
+
+JWT = JSON Web Token
+
+```
+yarn add jsonwebtoken
+```
+
+in `src/app/models/User.js`:
+```js
+// add the following method
+checkPassword(password) {
+  return bcrypt.compare(password, this.password_hash);
+}
+```
+
+create the file `src/config/auth.js`:
+```js
+// generate a secret at https://www.md5online.org/
+export default {
+  secret: '',
+  expiresIn: '7d'
+}
+```
+
+in `src/app/controllers/SessionController.js`:
+```js
+import jwt from 'jsonwebtoken';
+
+import User from '../models/User';
+import authConfig from '../../config/auth';
+
+class SessionController {
+  async store(req, res) {
+    const { email, password } = req.body;
+
+    const user = await User.findOne({
+      where: { email }
+    });
+
+    if (!user) {
+      return res.status(401).json({ error: 'User not found' });
+    }
+
+    if (!(await user.checkPassword(password))) {
+      return res.status(401).json({ error: 'Password does not match' });
+    }
+
+    const { id, name } = user;
+
+    return res.json({
+      user: {
+        id,
+        name,
+        email,
+      },
+      token: jwt.sign(
+        { id },
+        authConfig.secret,
+        { expiresIn: authConfig.expiresIn },
+      )
+    });
+  }
+}
+```
+
+in `src/routes.js`:
+```js
+// import the SessionController
+import SessionController from './app/controllers/SessionController';
+
+// add this route
+routes.post('/sessions', SessionController.store);
+```
+
+Test the authentication with insomnia.
+<!--stackedit_data:
+eyJoaXN0b3J5IjpbLTc1NDYxMzg1OF19
+-->
