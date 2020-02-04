@@ -218,7 +218,7 @@ create the file `src/config/auth.js`:
 ```js
 // generate a secret at https://www.md5online.org/
 export default {
-  secret: '',
+  secret: 'GeneratedHashForThis',
   expiresIn: '7d'
 }
 ```
@@ -275,5 +275,5 @@ routes.post('/sessions', SessionController.store);
 
 Test the authentication with insomnia.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTc1NDYxMzg1OF19
+eyJoaXN0b3J5IjpbMTU1NjA3NzAwMF19
 -->
