@@ -84,7 +84,7 @@ docker ps -a                # list available containers in this machine
 docker stop containerName   # quite obvious
 docker start containerName  # idem
 docker log containerName    # idem
-docker run  # ??
+docker run                  # runs a process in a new container
 ```
 
 ## PostgreSQL
@@ -110,7 +110,7 @@ A neat GUI to access a PostgreSQL database (runs on Linux):
 ## Sequelize
 
 ```
-yarn add sequelized pg pg-hstore
+yarn add sequelize pg pg-hstore
 yarn add sequelize-cli -D
 ```
 
