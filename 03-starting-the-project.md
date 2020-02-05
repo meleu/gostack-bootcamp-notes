@@ -106,6 +106,8 @@ docker run --name database -e POSTGRES_PASSWORD=docker -p 5432:5432 -d postgres
 A neat GUI to access a PostgreSQL database (runs on Linux):
 [https://www.electronjs.org/apps/postbird](https://www.electronjs.org/apps/postbird)
 
+Once connected to the PostegreSQL via Postbird, create a database named `gobarber` (no template, encoding UTF8).
+
 
 ## Sequelize
 
