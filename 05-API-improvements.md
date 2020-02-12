@@ -389,6 +389,12 @@ class AppointmentController {
 
     const { provider_id, date } = req.body;
 
+    if (provider_id === req.userId) {
+      return res
+        .status(400)
+        .json({ error: 'Client and provider must be different users' });
+    }
+
     const isProvider = await User.findOne({
       where: { id: provider_id, provider: true },
     });
@@ -550,3 +556,263 @@ import ScheduleController from './app/controllers/ScheduleController';
 // below the authentication
 routes.get('/schedule', ScheduleController.index);
 ```
+
+## Notifications
+
+### Setting up MongoDB
+
+Download & install the MongoDB container:
+```
+docker run --name mongobarber -p 27017:27017 -d -t mongo
+```
+
+Install mongoose:
+```
+yarn add mongoose
+```
+
+Add these lines in `src/database/index.js`:
+```js
+import mongoose from 'mongoose';
+
+// inside the constructor()
+    this.mongo();
+
+
+// mongo() function
+mongo() {
+  this.mongoConnection = mongoose.connect(
+    'mongodb://localhost:27017/gobarber',
+    { 
+      useNewUrlParser: true,
+      useFindAndModify: false,
+      useUnifiedTopolgy: true,
+    }
+  );
+}
+```
+
+### Notifying new appointments
+
+Create the file `src/schemas/Notification.js`:
+```js
+import mongoose from 'mongoose';
+
+const NotificationSchema = new mongoose.Schema(
+  {
+    content: {
+      type: String,
+      required: true,
+    },
+    user: {
+      type: Number,
+      required: true,
+    },
+    read: {
+      type: Boolean,
+      required: true,
+      default: false,
+    },
+  },
+  {
+    timestamps: true,
+  }
+);
+
+export default mongoose.model('Notification', NotificationSchema);
+```
+
+Edit `src/app/controllers/AppointmentController.js`:
+```js
+// imports section
+import { format } from 'date-fns';
+import pt from 'date-fns/locale/pt';
+import Notification from '../schemas/Notification';
+
+
+// in the store() method, right below Appointment.create()
+    const user = await User.findByPk(req.userId);
+    const formattedDate = format(hourStart, "'dia' dd 'de' MMMM', às' HH:mm", {
+      locale: pt,
+    });
+
+    await Notification.create({
+      content: `Novo agendamento de ${user.name} para ${formattedDate}`,
+      user: provider_id,
+    });
+
+    return res.json(appointment);
+```
+
+Download and install MongoDB Compass Community
+
+Create an appointment with insomnia and check in MongoDB Compass if it was registered.
+
+### Listing notifications
+
+Create the `src/app/controllers/NotificationController.js`:
+```js
+import User from '../models/User';
+import Notification from '../schemas/Notification';
+
+class NotificationController {
+  async index(req, res) {
+    const checkIsProvider = await User.findOne({
+      where: { id: req.userId, provider: true },
+    });
+
+    if (!checkIsProvider) {
+      return res.status(401).json({ error: 'User is not a provider' });
+    }
+
+    const notifications = await Notification.find({ user: req.userId })
+      .sort({ createdAt: 'desc' })
+      .limit(20);
+
+    return res.json(notifications);
+  }
+
+  async update(req, res) {
+    const notification = await Notification.findByIdAndUpdate(
+      req.params.id,
+      { read: true },
+      { new: true }
+    );
+
+    return res.json(notification);
+  }
+}
+
+export default new NotificationController();
+```
+
+Add the route in `src/routes.js`:
+```
+import NotificationController from './app/controllers/NotificationController';
+
+// below authentication line
+routes.get('/notifications', NotificationController.index);
+routes.put('/notifications/:id', NotificationController.update);
+```
+
+## Cancel an appointment
+
+In `src/routes.js`:
+```js
+routes.delete('/appointements/:id', AppointmentController.delete);
+```
+
+In `src/app/controllers/AppointmentController.js` create the `delete()` method:
+```js
+  async delete(req, res) {
+    const appointment = await Appointment.findByPk(req.params.id);
+
+    if (appointment.user_id !== req.userId) {
+      return res
+        .status(401)
+        .json({ error: 'You can only cancel your own appointements' });
+    }
+
+    if (appointment.canceled_at) {
+      return res
+        .status(400)
+        .json({ error: 'This appointment was already canceled' });
+    }
+
+    const timeLimit = subHours(appointment.date, 2);
+
+    if (isBefore(timeLimit, new Date())) {
+      return res.status(400).json({
+        error:
+          'Appointments can only be canceled with more than 2 hours of advance',
+      });
+    }
+
+    appointment.canceled_at = new Date();
+
+    await appointment.save();
+
+    return res.json(appointment);
+  }
+```
+
+
+## Sending emails
+
+Install nodemailer:
+```
+yarn add nodemailer
+```
+
+Create an account at https://mailtrap.io/ (really cool service!)
+
+Create `src/config/mail.js`:
+```js
+export default {
+  host: 'smtp.mailtrap.io',
+  port: 2525,
+  secure: false,
+  auth: {
+    user: '6a2f975bc7f2f5',
+    pass: 'fc7f3bd9d6da0c',
+  },
+  default: {
+    from: 'Equipe GoBarber <noreply@gobarber.com>',
+  },
+};
+```
+
+Create `src/lib/Mail.js`:
+```js
+import nodemailer from 'nodemailer';
+import mailConfig from '../config/mail';
+
+class Mail {
+  constructor() {
+    const { host, port, secure, auth } = mailConfig;
+
+    this.transporter = nodemailer.transport({
+      host,
+      port,
+      secure,
+      auth: auth.user ? auth : null,
+    });
+  }
+
+  sendMail(message) {
+    return this.transporter.sendMail({
+      ...mailConfig.default,
+      ...message,
+    });
+  }
+}
+
+export default new Mail();
+```
+
+Edit the `src/app/controllers/AppointmentController.js` in the method `delete()`:
+```js
+// import Mail lib
+import Mail from '../../lib/Mail';
+
+// replace the 'appointment' atribution with:
+    const appointment = await Appointment.findByPk(req.params.id, {
+      include: [
+        {
+          model: User,
+          as: 'provider',
+          attributes: ['name', 'email'],
+        },
+      ],
+    });
+
+// send the email right after saving the canceled appointment
+    await Mail.sendMail({
+      to: `${appointment.provider.name} <${appointment.provider.email}>`,
+      subject: 'Agendamento cancelado',
+      text: 'Você tem um novo cancelamento',
+    });
+
+```
+
+Test the appointment being canceled with insomnia.
