@@ -816,3 +816,210 @@ import Mail from '../../lib/Mail';
 ```
 
 Test the appointment being canceled with insomnia.
+
+
+### Email templates
+
+```
+yarn add express-handlebars nodemailer-express-handlebars
+```
+
+Create the following directories:
+- `src/app/views`
+    - `emails`
+        - `layouts`
+        - `partials`
+
+Create `src/app/views/emails/partials/footer.hbs`:
+```html
+<br />
+Equipe GoBarber
+```
+
+Create `src/app/views/emails/layouts/default.hbs`:
+```html
+<div style="font-family: Arial, Helvetica, sans-serif; font-size: 16px; line-height: 1.6; color: #222; max-width: 600px;">
+  {{{ body }}}
+  {{> footer }}
+</div>
+```
+
+Create `src/app/views/emails/cancellation.hbs`:
+```html
+<strong>Olá, {{ provider }}</strong>
+<p>Houve um cancelamento de horário, confira os detalhes abaixo:</p>
+<p>
+  <strong>Cliente:</strong> {{ user }} <br />
+  <strong>Data-Hora:</strong> {{ date }} <br />
+  <small>
+    O horário está novamente disponível para agendamentos.
+  </small>
+</p>
+```
+
+In `src/lib/Mail.js`:
+```js
+// import section
+import { resolve } from 'path';
+import expresshbs from 'express-handlebars'
+import nodemailerhbs from 'nodemailer-express-handlebars';
+
+// at the end of constructor()
+    this.configureTemplates();
+
+// create the method
+  configureTemplates() {
+    const viewPath = resolve(__dirname, '..', 'app', 'views', 'emails');
+
+    this.transporter.use(
+      'compile',
+      nodemailerhbs({
+        viewEngine: expresshbs.create({
+          layoutsDir: resolve(viewPath, 'layouts'),
+          partialsDir: resolve(viewPath, 'partials'),
+          defaultLayout: 'default',
+          extname: '.hbs',
+        }),
+        viewPath,
+        extName: '.hbs',
+      })
+    );
+  }
+```
+
+In the method `delete()` of `src/app/controllers/AppointmentController.js`:
+```js
+// get the client name in the appointment declaration:
+    const appointment = await Appointment.findByPk(req.params.id, {
+      include: [
+        {
+          model: User,
+          as: 'provider',
+          attributes: ['name', 'email'],
+        },
+        {
+          model: User,
+          as: 'user',
+          attributes: ['name'],
+        }
+      ],
+    });
+
+// in Mail.sendMail() part:
+    
+```
+
+### Mail queues with Redis (background jobs)
+
+Download & install a Redis container:
+```
+docker run --name redisbarber -p 6379:6379 -d -t redis:alpine
+```
+
+Install bee-queue:
+```
+yarn add bee-queue
+```
+
+Create directory `src/app/jobs` and file `src/app/jobs/CancellationMail.js`:
+```js
+import { format, parseISO } from 'date-fns';
+import pt from 'date-fns/locale/pt';
+import Mail from '../../lib/Mail';
+
+class CancellationMail {
+  get key() {
+    return 'CancellationMail';
+  }
+
+  async handle({ data }) {
+    const { appointment } = data;
+
+    Mail.sendMail({
+      to: `${appointment.provider.name} <${appointment.provider.email}>`,
+      subject: 'Agendamento cancelado',
+      template: 'cancellation',
+      context: {
+        provider: appointment.provider.name,
+        user: appointment.user.name,
+        date: format(
+          parseISO(appointment.date),
+          "'dia' dd 'de' MMMM', às' HH:mm",
+          { locale: pt }
+        ),
+      },
+    });
+  }
+}
+
+export default new CancellationMail();
+```
+
+Create `src/config/redis.js`:
+```js
+export default {
+  host: '127.0.0.1',
+  port: 6379
+}
+```
+
+Create `src/lib/Queue.js`:
+```js
+import Bee from 'bee-queue';
+import CancellationMail from '../app/jobs/CancellationMail';
+import redisConfig from '../config/redis';
+
+const jobs = [CancellationMail];
+
+class Queue {
+  constructor() {
+    this.queues = {};
+    this.init();
+  }
+
+  init() {
+    jobs.forEach(({ key, handle }) => {
+      this.queues[key] = {
+        bee: new Bee(key, { redis: redisConfig }),
+        handle,
+      };
+    });
+  }
+
+  add(queue, job) {
+    return this.queues[queue].bee.createJob(job).save();
+  }
+
+  processQueue() {
+    jobs.forEach(job => {
+      const { bee, handle } = this.queues[job.key];
+      bee.process(handle);
+    });
+  }
+}
+
+export default new Queue();
+```
+
+In `src/app/controllers/AppointmentController.js`:
+```js
+// rather than Mail, let's import Queue
+import CancellationMail from '../jobs/CancellationMail';
+import Queue from '../../lib/Queue';
+
+// rather than Mail.sendMail()...
+await Queue.add(CancellationMail.key, { appointment });
+```
+
+Create `src/queue.js`:
+```js
+import Queue from './lib/Queue';
+
+Queue.processQueue();
+```
+
+In `package.json`, add this line in `"scripts"` property:
+```json
+    "queue": "nodemon src/queue.js"
+```
+
