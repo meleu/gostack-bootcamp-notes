@@ -335,6 +335,7 @@ yarn sequelize db:migrate
 Create an appointment model `src/app/models/Appointment.js`:
 ```js
 import Sequelize, { Model } from 'sequelize';
+import { isBefore, subHours } from 'date-fns';
 
 class Appointment extends Model {
   static init(sequelize) {
@@ -342,6 +343,18 @@ class Appointment extends Model {
       {
         date: Sequelize.DATE,
         canceled_at: Sequelize.DATE,
+        past: {
+          type: Sequelize.VIRTUAL,
+          get() {
+            return isBefore(this.date, new Date());
+          },
+        },
+        cancelable: {
+          type: Sequelize.VIRTUAL,
+          get() {
+            return isBefore(this.date, subHours(this.date, 2));
+          },
+        },
       },
       {
         sequelize,
@@ -482,7 +495,7 @@ import File from '../models/File';
         canceled_at: null,
       },
       order: ['date'],
-      attributes: ['id', 'date'],
+      attributes: ['id', 'date', 'past', 'cancelable'],
       limit: 20,
       offset: (page - 1) * 20,
       include: [
@@ -993,8 +1006,13 @@ class Queue {
   processQueue() {
     jobs.forEach(job => {
       const { bee, handle } = this.queues[job.key];
-      bee.process(handle);
+      bee.on('failed', this.handleFailure).process(handle);
     });
+  }
+
+  handleFailure(job, err) {
+    // TODO: remove the console.log()
+    console.log(`Queue ${job.queue.name}: FAILED`, err);
   }
 }
 
@@ -1021,5 +1039,83 @@ Queue.processQueue();
 In `package.json`, add this line in `"scripts"` property:
 ```json
     "queue": "nodemon src/queue.js"
+```
+
+
+### List provider's availability times
+
+Create `src/app/controllers/AvailableController.js`:
+```js
+import {
+  startOfDay,
+  endOfDay,
+  setSeconds,
+  setMinutes,
+  setHours,
+  isAfter,
+  format,
+} from 'date-fns';
+import { Op } from 'sequelize';
+import Appointment from '../models/Appointment';
+
+class AvailableController {
+  async index(req, res) {
+    const date = Number(req.query.date);
+
+    if (!date || Number.isNaN(date)) {
+      return res.status(400).json({ error: 'Invalid date' });
+    }
+
+    const appointments = await Appointment.findAll({
+      where: {
+        provider_id: req.params.providerId,
+        canceled_at: null,
+        date: { [Op.between]: [startOfDay(date), endOfDay(date)] },
+      },
+    });
+
+    const schedule = [
+      '08:00',
+      '09:00',
+      '10:00',
+      '11:00',
+      '12:00',
+      '13:00',
+      '14:00',
+      '15:00',
+      '16:00',
+      '17:00',
+      '18:00',
+      '19:00',
+      '20:00',
+    ];
+
+    const available = schedule.map(time => {
+      const [hour, minute] = time.split(':');
+      const value = setSeconds(setMinutes(setHours(date, hour), minute), 0);
+
+      return {
+        time,
+        value: format(value, "yyyy-MM-dd'T'HH:mm:ssxxx"),
+        available:
+          isAfter(value, new Date()) &&
+          !appointments.find(a => format(a.date, 'HH:mm') === time),
+      };
+    });
+
+    return res.json(available);
+  }
+}
+
+export default new AvailableController();
+```
+
+In `src/routes`:
+```js
+// importing
+import AvailableController from './app/controllers/AvailableController';
+
+// below authentication
+routes.get('/providers/:providerId/available', AvailableController.index);
 ```
 
