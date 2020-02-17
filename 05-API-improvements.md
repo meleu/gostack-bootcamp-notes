@@ -1119,3 +1119,127 @@ import AvailableController from './app/controllers/AvailableController';
 routes.get('/providers/:providerId/available', AvailableController.index);
 ```
 
+### Handling Exceptions
+
+
+Create an account at https://sentry.io/ and then create a new Project and choose Express.
+
+```
+yarn add express-async-errors youch
+yarn add @sentry/node@5.12.2
+```
+
+Create the `src/config/sentry.js`:
+```js
+export default {
+  dsn: 'https://GivenToken...@sentry.io/12345'
+}
+```
+
+Edit the `src/app.js`:
+```js
+import express from 'express';
+import 'express-async-errors';
+import * as Sentry from '@sentry/node';
+import path from 'path';
+import Youch from 'youch';
+import routes from './routes';
+import sentryConfig from './config/sentry';
+
+import './database';
+
+class App {
+  constructor() {
+    this.server = express();
+
+    Sentry.init(sentryConfig);
+
+    this.middlewares();
+    this.routes();
+    this.exceptionHandler();
+  }
+
+  middlewares() {
+    this.server.use(Sentry.Handlers.requestHandler());
+    this.server.use(express.json());
+    this.server.use(
+      '/files',
+      express.static(path.resolve(__dirname, '..', 'tmp', 'uploads'))
+    );
+  }
+
+  routes() {
+    this.server.use(routes);
+    this.server.use(Sentry.Handlers.errorHandler());
+  }
+
+  exceptionHandler() {
+    this.server.use(async (err, req, res, next) => {
+      const errors = await new Youch(err, req).toJSON();
+      return res.status(500).json(errors);
+    });
+  }
+}
+
+export default new App().server;
+```
+
+### Environment Variables
+
+Install dotenv:
+```
+yarn add dotenv
+```
+
+In the very first line of `src/app.js` **and** in `src/queue.js`:
+```js
+import 'dotenv/config';
+```
+
+In `src/config/database.js` we can't use the `import` notation (sequelize limitation), then use this:
+```js
+require('dotenv/config');
+
+Edit the `src/app.js` in the `exceptionHandler()` method:
+```js
+    this.server.use(async (err, req, res, next) => {
+      if (process.env.NODE_ENV === 'development') {
+				const errors = await new Youch(err, req).toJSON();
+				return res.status(500).json(errors);
+			}
+
+      return res.status(500).json({ error: 'Internal server error' });
+    });
+```
+
+This is the `.env.sample`:
+```
+APP_URL= # src/app/models/File.js
+NODE_ENV= # src/app.js
+
+# auth
+APP_SECRET= # src/config/auth.js
+
+# database - src/config/database.js
+DB_HOST=
+DB_NAME=
+DB_USER=
+DB_PASS=
+
+
+# mongo - src/database/index.js
+MONGO_URL=
+
+# redis - src/config/redis.js
+REDIS_HOST=
+REDIS_PORT=
+
+# email - src/config/mail.js
+MAIL_HOST=
+MAIL_PORT=
+MAIL_USER=
+MAIL_PASS=
+
+# sentry dsn (only for production) - src/config/sentry.js
+SENTRY_DSN=
+```
