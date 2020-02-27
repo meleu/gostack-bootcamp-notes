@@ -158,7 +158,7 @@ Edit `src/database/migrations/XXXXXXX-add-avatar-field-to-users.js`:
 ```js
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable('users', 'avatar_id', {
+    return queryInterface.addColumn('users', 'avatar_id', {
       type: Sequelize.INTEGER,
       references: { model: 'files', key: 'id' },
       onUpdate: 'CASCADE',
@@ -168,7 +168,7 @@ module.exports = {
   },
 
   down: queryInterface => {
-    return queryInterface.dropTable('users', 'avatar_id');
+    return queryInterface.removeColumn('users', 'avatar_id');
   },
 };
 ```
