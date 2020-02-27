@@ -1215,6 +1215,7 @@ Edit the `src/app.js` in the `exceptionHandler()` method:
 This is the `.env.sample`:
 ```
 APP_URL= # src/app/models/File.js
+APP_PORT= # src/server.js
 NODE_ENV= # src/app.js
 
 # auth
