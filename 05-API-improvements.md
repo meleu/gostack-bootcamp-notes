@@ -34,22 +34,6 @@ export default {
 };
 ```
 
-Add multer stuff in `src/routes.js`:
-```js
-// importing multer stuff
-import multer from 'multer';
-import multerConfig from './config/multer';
-
-// importing FileController
-import FileController from './app/controllers/FileController';
-
-
-// instantiate a multer object
-const upload = multer(multerConfig);
-
-// below the authentication middleware call
-routes.post('/files', upload.single('file'), FileController.store);
-```
 
 ### Database table for files
 
@@ -112,6 +96,12 @@ class File extends Model {
       {
         name: Sequelize.STRING,
         path: Sequelize.STRING,
+        url: {
+          type: Sequelize.VIRTUAL,
+          get() {
+            return `http://localhost:3333/files/${this.path}`;
+          },
+        },
       },
       {
         sequelize,
@@ -183,7 +173,7 @@ yarn sequelize db:migrate
 Add `associate` method to `src/app/models/User.js`:
 ```js
 static associate(models) {
-  this.belongsTo(models.File, { foreignKey: 'avatar_id' });
+  this.belongsTo(models.File, { foreignKey: 'avatar_id', as: 'avatar' });
 }
 ```
 
@@ -196,6 +186,39 @@ In `src/database/index.js`:
       .map(model => model.init(this.connection))
       .map(model => model.associate && model.associate(this.connection.models));
   }
+```
+
+### Route for uploading files
+
+Add file's stuff in `src/routes.js`:
+```js
+// importing multer stuff
+import multer from 'multer';
+import multerConfig from './config/multer';
+
+// importing FileController
+import FileController from './app/controllers/FileController';
+
+
+// instantiate a multer object
+const upload = multer(multerConfig);
+
+// below the authentication middleware call
+routes.post('/files', upload.single('file'), FileController.store);
+```
+
+### Serving static files
+
+Make the app able to serve static files: in the `src/app.js`, method `middlewares()`:
+```js
+// import path to resolve the path name
+import path from 'path';
+
+// inside middlewares()
+  this.server.use(
+    '/files',
+    express.static(path.resolve(__dirname, '..', 'tmp', 'uploads'))
+  );
 ```
 
 
@@ -225,39 +248,6 @@ class ProviderController {
 }
 
 export default new ProviderController();
-```
-
-In `src/app/models/User.js`, method `associate()`:
-```js
-  this.belongsTo(models.File, { foreignKey: 'avatar_id', as: 'avatar' });
-```
-
-In `src/app/models/File.js`, method `init()`:
-```js
-  super.init(
-    {
-      name: Sequelize.STRING,
-      path: Sequelize.STRING,
-      url: {
-        type: Sequelize.VIRTUAL,
-        get() {
-          return `http://localhost:3333/files/${this.path}`;
-        },
-      },
-    },
-  // ...
-```
-
-Make the app able to serve static files: in the `src/app.js`, method `middlewares()`:
-```js
-// import path to resolve the path name
-import path from 'path';
-
-// inside middlewares()
-  this.server.use(
-    '/files',
-    express.static(path.resolve(__dirname, '..', 'tmp', 'uploads'))
-  );
 ```
 
 Add a route for `/providers`:
