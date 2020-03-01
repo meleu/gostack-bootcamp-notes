@@ -1,4 +1,4 @@
-# 01 - Toolbox tips
+# Toolbox tips
 
 ## tools
 
