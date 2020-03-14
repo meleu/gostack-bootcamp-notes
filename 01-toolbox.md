@@ -4,9 +4,9 @@
 
 - install node through [nvm](https://github.com/nvm-sh/nvm)
 
-- Visual Studio Code is a pretty neat editor to work with JavaScript. Saved my preferences here: https://github.com/meleu/vscode-preferences
+- Visual Studio Code is a pretty neat editor to work with JavaScript.
     - vim keybindings plugin (I'm much more productive with vim keybindings).
-    - https://github.com/meleu/vscode-preferences
+    -  Saved my preferences here: https://github.com/meleu/vscode-preferences
 
 - https://insomnia.res is a nice software to test REST APIs (runs on Linux)
 
