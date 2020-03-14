@@ -232,6 +232,8 @@ export default App;
 
 ### State and Immutability
 
+Components properties are immutable. So, in order to change `state`'s content, it's mandatory to use `this.setState()` method.
+
 Update the `src/components/TechList.js`:
 ```js
 import React, { Component } from 'react';
@@ -259,11 +261,22 @@ class TechList extends Component {
     });
   }
 
+  handleDelete = tech => {
+    this.setState({ techs: this.state.techs.filter(t => t !== tech) });
+  }
+
   render() {
     return (
       <form onSubmit={this.handleSubmit}>
         <ul>
-          {this.state.techs.map(tech => <li key={tech}>{tech}</li>)}
+          {this.state.techs.map(tech => (
+            <li key={tech}>
+              {tech}
+              <button onClick={() => this.handleDelete(tech)} type="button">
+                Remover
+              </button>
+            </li>
+          ))}
         </ul>
         <input
           type='text'
@@ -280,5 +293,46 @@ export default TechList;
 ```
 
 **Note**: the `handle*` functions needs to be declared as "arrow-functions" in order to have access to `this`.
+
+**Note 2**: the function in `onClick={}` must be an anonymous function calling the method, otherwise the method will be called when the page is loaded (resulting in deleting all items).
+
+
+## React Properties
+
+Separating the `<li>` items from `TechList.js`.
+
+First, create `src/components/TechItem.js`:
+```js
+import React from 'react';
+
+function TechItem({ tech, onDelete }) {
+  return (
+    <li>
+      {tech}
+      <button onClick={onDelete} type="button">Remover</button>
+    </li>
+  );
+}
+
+export default TechItem;
+```
+
+And change the `<ul>` part of `src/components/TechList.js`:
+```js
+// ...
+import TechItem from './TechItem';
+
+// ...
+        <ul>
+          {this.state.techs.map(tech => (
+            <TechItem
+              key={tech}
+              tech={tech}
+              onDelete={() => this.handleDelete(tech)}
+            />
+          ))}
+        </ul>
+// ...
+```
 
 
