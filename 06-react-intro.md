@@ -65,13 +65,15 @@ Add to the `package.json`:
 ```
 **Note**: `--mode production` creates a minified version of `bundle.js`.
 
-```
 Create the `public/bundle.js` automatically by running:
 ```
-yarn dev # or...
 yarn build
 ```
-It will also launch your application, and then check it on your browser.
+
+Launch the application and check it on your browser by running:
+```
+yarn dev
+```
 
 
 Change the `public/index.html`, replacing the `<h1>` line with:
