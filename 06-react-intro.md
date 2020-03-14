@@ -103,7 +103,7 @@ import { render } from 'react-dom';
 
 import App from './App';
 
-render(<App />, document.getElementById('app');
+render(<App />, document.getElementById('app'));
 ```
 
 ## Importing assets
@@ -162,7 +162,7 @@ Add a new rule to `webpack.config.js`:
 
 Put an image file in `src/assets/`.
 
-Test it in the `src/App.js`:
+Call it in the `src/App.js`:
 ```js
 import profile from './assets/file.png';
 
@@ -177,4 +177,108 @@ And then test it with:
 ```
 yarn dev
 ```
+
+## Class Components
+
+```
+yarn add @babel/plugin-proposal-class-properties -D
+```
+
+Add `plugins` property to the `babel.config.js`:
+```js
+  plugins: [
+    '@babel/plugin-proposal-class-properties'
+  ]
+```
+
+### Basic Component
+
+Create the class `src/components/TechList.js`:
+```js
+import React, { Component } from 'react';
+
+class TechList extends Component {
+  state = {
+    techs: [
+      'Node.js',
+      'ReactJS',
+      'React Native'
+    ]
+  };
+
+  render() {
+    return (
+      <ul>
+        {this.state.techs.map(tech => <li key={tech}>{tech}</li>)}
+      </ul>
+    )
+  }
+```
+
+Change the `src/App.js`:
+```js
+import React from 'react';
+import './App.css';
+
+import TechList from './components/TechList';
+
+function App() {
+  return <TechList />
+}
+
+export default App;
+```
+
+
+### State and Immutability
+
+Update the `src/components/TechList.js`:
+```js
+import React, { Component } from 'react';
+
+class TechList extends Component {
+  state = {
+    newTech: '',
+    techs: [
+      'Node.js',
+      'ReactJS',
+      'React Native'
+    ]
+  };
+
+  handleInputChange = e => {
+    this.setState({ newTech: e.target.value });
+  }
+
+  handleSubmit = e => {
+    e.preventDefault(); // avoiding page reload
+
+    this.setState({
+      techs: [... this.state.techs, this.state.newTech],
+      newTech: ''
+    });
+  }
+
+  render() {
+    return (
+      <form onSubmit={this.handleSubmit}>
+        <ul>
+          {this.state.techs.map(tech => <li key={tech}>{tech}</li>)}
+        </ul>
+        <input
+          type='text'
+          onChange={this.handleInputChange}
+          value={this.state.newTech}
+        />
+        <button type="submit">Enviar</button>
+      </form>
+    )
+  }
+}
+
+export default TechList;
+```
+
+**Note**: the `handle*` functions needs to be declared as "arrow-functions" in order to have access to `this`.
+
 
