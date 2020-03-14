@@ -63,7 +63,7 @@ Create `public/index.html` (take advantage of the Emmet to create a html:5 snipp
 Add to the `package.json`:
 ```json
 "scripts": {
-  "build": "webpack --mode production"
+  "build": "webpack --mode production",
   "dev": "webpack-dev-server --mode development"
 },
 ```
@@ -75,5 +75,5 @@ yarn dev # or...
 yarn build
 ```
 
-And then Check it on your browser.
+And then check it on your browser.
 
