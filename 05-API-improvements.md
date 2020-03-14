@@ -1189,16 +1189,16 @@ import 'dotenv/config';
 In `src/config/database.js` we can't use the `import` notation (sequelize limitation), then use this:
 ```js
 require('dotenv/config');
+```
 
 Edit the `src/app.js` in the `exceptionHandler()` method:
 ```js
     this.server.use(async (err, req, res, next) => {
       if (process.env.NODE_ENV === 'development') {
-				const errors = await new Youch(err, req).toJSON();
-				return res.status(500).json(errors);
-			}
-
-      return res.status(500).json({ error: 'Internal server error' });
+        const errors = await new Youch(err, req).toJSON();
+        return res.status(500).json(errors);
+      }
+    return res.status(500).json({ error: 'Internal server error' });
     });
 ```
 
