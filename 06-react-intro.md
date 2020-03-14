@@ -26,7 +26,7 @@ Create `webpack.config.js`:
 const path = require('path');
 
 module.exports = {
-  entry: path.resolve(__dirname, 'src', 'index.js');
+  entry: path.resolve(__dirname, 'src', 'index.js'),
   output: {
     path: path.resolve(__dirname, 'public'),
     filename: 'bundle.js'
@@ -48,11 +48,6 @@ module.exports = {
 };
 ```
 
-Create the `public/bundle.js` automatically by running:
-```
-yarn build
-```
-
 Create `public/index.html` (take advantage of the Emmet to create a html:5 snippet):
 ```html
 <body>
@@ -70,13 +65,13 @@ Add to the `package.json`:
 ```
 **Note**: `--mode production` creates a minified version of `bundle.js`.
 
-Launch your application with either
+```
+Create the `public/bundle.js` automatically by running:
 ```
 yarn dev # or...
 yarn build
 ```
-
-And then check it on your browser.
+It will also launch your application, and then check it on your browser.
 
 
 Change the `public/index.html`, replacing the `<h1>` line with:
