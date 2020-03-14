@@ -9,7 +9,7 @@ To be honest these notes were not written in a way to be "consumed" by others, b
 - [Tools and Basic Setup](01-toolbox.md)
     - [tools](01-toolbox.md#tools)
     - [nodemon + sucrase](01-toolbox.md#nodemon--sucrase)
-        - [debugar via VSCode](01-toolbox.md#debugar-via-vscode)
+        - [debugging via VSCode](01-toolbox.md#debugging-via-vscode)
     - [ESLint + Prettier + EditorConfig](01-toolbox.md#eslint--prettier--editorconfig)
         - [EditorConfig](01-toolbox.md#editorconfig)
     - [ExpressJS](01-toolbox.md#expressjs)
