@@ -48,7 +48,7 @@ Criar o arquivo `.nodemon.json`:
 }
 ```
 
-### debugar via VSCode
+### debugging via VSCode
 
 **NOTE**: sorry, I originally wrote it in portuguese and didn't find enough freetime to translate.
 

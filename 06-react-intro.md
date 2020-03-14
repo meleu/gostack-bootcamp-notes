@@ -1,12 +1,13 @@
 # Introduction to React
 
-## Configuring the structure
+## Creating your first root component
 
 ```
 mkdir dirname
 cd dirname
 yarn init
-yarn add @babel/core @babel/preset-env @babel/preset-react babel-loader webpack webpack-cli webpack-dev-server -D
+yarn add @babel/core @babel/preset-env @babel/preset-react \
+  babel-loader webpack webpack-cli webpack-dev-server -D
 yarn add react react-dom
 ```
 
@@ -76,4 +77,107 @@ yarn build
 ```
 
 And then check it on your browser.
+
+
+Change the `public/index.html`, replacing the `<h1>` line with:
+```html
+<div id="app"></div>
+```
+
+Create the `src/App.js`:
+```js
+import React from 'react';
+
+function App() {
+  return <h1>Hello meleu</h1>
+}
+
+export default App;
+```
+**Question:** Why did you imported `react` if you not even using it?
+
+**Answer:** Because it's needed in order to allow a syntax like `return <h1>Hello meleu</h1>`.
+
+
+Create the `src/index.js`:
+```js
+import React from 'react';
+import { render } from 'react-dom';
+
+import App from './App';
+
+render(<App />, document.getElementById('app');
+```
+
+## Importing assets
+
+### Importing CSS
+
+```
+yarn add style-loader css-loader -D
+```
+
+Edit the `webpack.config.js` adding this rule:
+```js
+{
+  test: /\.css$/,
+  use: [
+    { loader: 'style-loader' },
+    { loader: 'css-loader' },
+  ]
+}
+```
+
+Create the `src/App.css`:
+```css
+body {
+  background: #7159c1;
+  color: #FFF;
+  font-family: Arial, Helvetica, sans-serif;
+}
+```
+
+Just add this line in `src/App.js`:
+```js
+import './App.css';
+```
+
+And then test it with:
+```
+yarn dev
+```
+
+### Importing Images
+
+```
+yarn add file-loader -D
+```
+
+Add a new rule to `webpack.config.js`:
+```js
+{
+  test: /.*\.(gif|png|jpe?g)$/i,
+  use: {
+    loader: 'file-loader'
+  }
+}
+```
+
+Put an image file in `src/assets/`.
+
+Test it in the `src/App.js`:
+```js
+import profile from './assets/file.png';
+
+function App() {
+  return <img src={profile} />
+}
+```
+
+Note: in order to use a variable inside the html code, use the {curly brackets}.
+
+And then test it with:
+```
+yarn dev
+```
 
