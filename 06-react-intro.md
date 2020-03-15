@@ -336,4 +336,42 @@ import TechItem from './TechItem';
 ```
 
 **Note**: passing the `key` is mandatory, and it can't have repeated values.
+## Default Props & PropTypes
 
+### Default Props
+
+To set the default properties of a component use `ComponentName.defaultProps`
+
+Example in `src/components/TechItem.js`:
+```js
+// ... after function TechItem()
+TetchItem.defaultProps = {
+  tech: 'Oculto'
+};
+```
+
+If in a class, just use `static defaultProps`.o
+
+
+### PropTypes
+
+It's a way to validate the properties in a component.
+
+```
+yarn add prop-types
+```
+
+In a component it works like in this example for `src/components/TechItem.js`:
+```js
+// ... right below the defaultProps declaration
+TechItem.propTypes = {
+  tech: PropTypes.string,
+  onDelete: PropTypes.func.isRequired,
+};
+```
+
+And in a class, just use `static propTypes`;
+
+<!--stackedit_data:
+eyJoaXN0b3J5IjpbNTQzNDY1MzQ1XX0=
+-->
