@@ -335,4 +335,5 @@ import TechItem from './TechItem';
 // ...
 ```
 
+**Note**: passing the `key` is mandatory, and it can't have repeated values.
 
