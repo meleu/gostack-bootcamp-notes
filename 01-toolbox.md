@@ -125,7 +125,11 @@ Aplicar eslint em todos arquivos `.js`:
 yarn eslint --fix src --ext .js
 ```
 
-Ir nas configurações do vscode: `Ctrl+Shift+P` e digite `settings json`. E adicionar isso ao `settings.json`:
+Ir nas configurações do vscode: `Ctrl+Shift+P`01 - Toolbox tips
+
+- DevDocs.io is an awesome tool to have documentation at hand and available even while offline. There's also a Desktop app for it: https://devdocs.egoist.moe/
+- https://insomnia.res is a nice software to test REST APIs (runs on Linux)
+- Visual Studio Code is a pretty neat e digite `settings json`. E adicionar isso ao `settings.json`:
 ```json
   "[javascript]": {
     "editor.codeActionsOnSave": {
@@ -263,4 +267,9 @@ Packages used to deal with authentication.
 ```
 yarn add bcryptjs jsonwebtoken yup
 ```
+tor to work with JavaScript. Saved my preferences here: https://github.com/meleu/vscode-preferences
 
+> Written with [StackEdit](https://stackedit.io/).
+<!--stackedit_data:
+eyJoaXN0b3J5IjpbLTE2NTUxNTI4MzJdfQ==
+-->
