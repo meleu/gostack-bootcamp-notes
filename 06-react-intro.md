@@ -363,6 +363,9 @@ yarn add prop-types
 
 In a component it works like in this example for `src/components/TechItem.js`:
 ```js
+// ...
+import PropTypes from 'prop-types';
+
 // ... right below the defaultProps declaration
 TechItem.propTypes = {
   tech: PropTypes.string,
@@ -370,8 +373,208 @@ TechItem.propTypes = {
 };
 ```
 
-And in a class, just use `static propTypes`;
+And if in a class, just use `static propTypes`;
 
-<!--stackedit_data:
-eyJoaXN0b3J5IjpbNTQzNDY1MzQ1XX0=
--->
+
+## Summary
+
+### packages
+
+```
+mkdir dirname
+cd dirname
+yarn init
+yarn add \
+  @babel/core @babel/preset-env @babel/preset-react @babel/plugin-proposal-class-properties \
+  babel-loader webpack webpack-cli webpack-dev-server style-loader css-loader file-loader -D
+yarn add react react-dom prop-types
+```
+
+Add to the `package.json`:
+```js
+"scripts": {
+  "build": "webpack --mode production",
+  "dev": "webpack-dev-server --mode development"
+}
+```
+
+
+### `babel.config.js`:
+
+```js
+module.exports = {
+  presets: [
+    "@babel/preset-env",
+    "@babel/preset-react"
+  ],
+  plugins: [
+    '@babel/plugin-proposal-class-properties'
+  ]
+};
+```
+
+### `webpack.config.js`:
+```js
+const path = require('path');
+
+module.exports = {
+  entry: path.resolve(__dirname, 'src', 'index.js');
+  output: {
+    path: path.resolve(__dirname, 'public');
+    filename: 'bundle.js'
+  },
+  module: {
+    rules: [
+      {
+        test: /.js$/,
+        exclude: /node_modules/,
+        use: {
+          loader: 'babel-loader'
+        }
+      },
+      {
+        test: /\.css$/,
+        use: [
+          { loader: 'style-loader' },
+          { loader: 'css-loader' }
+        ]
+      },
+      {
+        test: /.*\.(gif|png|jpe?g)$/i,
+        use: {
+          loader: 'file-loader'
+        }
+      }
+    ]
+  }
+};
+```
+
+### `public/index.html`:
+```html
+...
+<body>
+  <div id="app"></div>
+  <script src="./bundle.js"></script>
+</body>
+...
+```
+
+### `src/App.css`:
+```css
+body {
+  background: #7159c1;
+  color: #FFF;
+  font-family: Arial, Helvetica, sans-serif;
+}
+```
+
+### `src/App.js`:
+```js
+import React from 'react';
+import './App.css';
+
+import TechList from './components/TechList';
+
+function App() {
+  return <TechList />
+}
+
+export default App;
+```
+
+### `src/index.js`:
+```js
+import React from 'react';
+import { render } from 'react-dom';
+
+import App from './App';
+
+render(<App />, document.getElementById('app'));
+```
+
+### `src/components/TechList.js`:
+```js
+import React, { Component } from 'react';
+
+import TechItem from './TechItem';
+
+class TechList extends Component {
+  state = {
+    newTech: '',
+    techs: [
+      'Node.js',
+      'ReactJS',
+      'React Native'
+    ]
+  };
+
+  handleInputChange = e => {
+    this.setState({ newTech: e.target.value });
+  }
+
+  handleSubmit = e => {
+    e.preventDefault(); // avoiding page reload
+
+    this.setState({
+      techs: [... this.state.techs, this.state.newTech],
+      newTech: ''
+    });
+  }
+
+  handleDelete = tech => {
+    this.setState({ techs: this.state.techs.filter(t => t !== tech) });
+  }
+
+  render() {
+    return (
+      <form onSubmit={this.handleSubmit}>
+        <ul>
+          {this.state.techs.map(tech => (
+            <TechItem
+              key={tech}
+              tech={tech}
+              onDelete={() => this.handleDelete(tech)}
+            />
+          ))}
+        </ul>
+        <input
+          type='text'
+          onChange={this.handleInputChange}
+          value={this.state.newTech}
+        />
+        <button type="submit">Enviar</button>
+      </form>
+    )
+  }
+}
+
+export default TechList;
+```
+
+### `src/components/TechItem.js`:
+```js
+import React from 'react';
+import PropTypes from 'prop-types';
+
+function TechItem({ tech, onDelete }) {
+  return (
+    <li>
+      {tech}
+      <button onClick={onDelete} type="button">Remover</button>
+    </li>
+  );
+}
+
+TechItem.defaultProps = {
+  tech: 'Oculto'
+}
+
+TechItem.propTypes = {
+  tech: PropTypes.string,
+  onDelete: PropTypes.func.isRequired
+};
+
+export default TechItem;
+```
+
