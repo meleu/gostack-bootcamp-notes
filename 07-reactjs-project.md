@@ -88,11 +88,11 @@ rules: {
 }
 ```
 
-Create `prettierrc`:
+Create `.prettierrc`:
 ```json
 {
   "singleQuote": true,
-  "tralingComma": "es5"
+  "trailingComma": "es5"
 }
 ```
 
@@ -123,7 +123,25 @@ function Repository() {
 
 export default Repository;
 ```
-Create `src/routes.js`
 
-02:38
+Create `src/routes.js`:
+```js
+import React from 'react';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
+
+import Main from './pages/Main';
+import Repository from './pages/Repository';
+
+export default function Routes() {
+  return (
+    <BrowserRouter>
+      <Switch>
+        <Route path="/" exact component={Main} />
+        <Route path="/repository" component={Repository} />
+      </Switch>
+    </BrowserRouter>
+  );
+}
+```
+
 
