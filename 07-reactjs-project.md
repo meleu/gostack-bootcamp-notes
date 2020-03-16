@@ -70,7 +70,7 @@ extends: [
   'airbnb',
   'prettier',
   'prettier/react'
-].
+],
 //...
 parser: 'babel-eslint',
 // parserOptions ...
