@@ -11,14 +11,14 @@ In `package.json` delete the `eslintConfig` property.
 Removing PWA stuff in `public`:
 
 - `manifest.json`.
-- `serviceWorker.js`
 - In `index.html`, remove the line:
 ```html
 <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
 ```
 
-Removing other files from `public` that we're going to create from scratch:
+Removing other files from `src` that we're going to create from scratch:
 
+- `serviceWorker.js`
 - `App.css`
 - `App.test.js`
 - `index.css`
@@ -26,7 +26,7 @@ Removing other files from `public` that we're going to create from scratch:
 
 In `src/index.js`, delete the lines importing the `.css` and `servicWorker`, also the `serviceWorker.unregister()`.
 
-In `src/App.js`, delete the lines importing the logo and the `.css`. Also delete everything between `<header>...</header>`. Put a `Hello World` as a placeholder.
+In `src/App.js`, delete the lines importing the logo and the `.css`. Also delete everything between `<header>...</header>`. Put a `<h1>Hello World</h1>` as a placeholder.
 
 
 ## ESLint, Prettier and EditorConfig
