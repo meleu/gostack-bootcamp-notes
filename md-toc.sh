@@ -14,7 +14,7 @@
 # The list of valid markdown extensions were obtained here:
 # https://superuser.com/a/285878
 #
-# meleu - January/2019
+# meleu - March/2020
 
 INVALID_CHARS="'[]/?!:\`.,()*\";{}+=<>~$|#@&â€“â€”"
 VALID_EXTENSIONS='markdown|mdown|mkdn|md|mkd|mdwn|mdtxt|mdtext|text|Rmd|txt'
@@ -23,42 +23,32 @@ USAGE="\nUsage:\n$0 markdownFile.md"
 
 toc() {
   local inputFile="$1"
-  local multiFiles="$2"
   local codeBlock='false'
   local line
   local level
   local title
   local anchor
 
-  if [[ "$multiFiles" = "true" ]]; then
-    while IFS='' read -r line || [[ -n "$line" ]]; do
-      if [[ "$line" = '```'* ]]; then
-        [[ "$codeBlock" = 'false' ]] && codeBlock='true' || codeBlock='false'
-        continue
-      fi
+  while IFS='' read -r line || [[ -n "$line" ]]; do
+    if [[ "$line" = '```'* ]]; then
+      [[ "$codeBlock" = 'false' ]] && codeBlock='true' || codeBlock='false'
+      continue
+    fi
 
-      [[ "$codeBlock" = 'true' ]] && continue
+    [[ "$codeBlock" = 'true' ]] && continue
 
-      title="$(sed -E 's/^#+ //' <<< "$line")"
+    title="$(sed -E 's/^#+ //' <<< "$line")"
 
-      if [[ "$line" = '# '* ]]; then
-        echo "- [${title}](${inputFile})"
-        continue
-      fi
+    if [[ "$line" = '# '* ]]; then
+      echo "- [${title}](${inputFile})"
+      continue
+    fi
 
-      level="$(sed -E 's/^#(#+).*/\1/; s/#/    /g' <<< "$line")"
-      anchor="$(tr '[:upper:] ' '[:lower:]-' <<< "$title" | tr -d "$INVALID_CHARS")"
+    level="$(sed -E 's/^#(#+).*/\1/; s/#/    /g' <<< "$line")"
+    anchor="$(tr '[:upper:] ' '[:lower:]-' <<< "$title" | tr -d "$INVALID_CHARS")"
 
-      echo "${level}- [${title}](${inputFile}#${anchor})"
-    done <<< "$(grep -E '^(#{1,10} |```)' "$inputFile" | tr -d '\r')"
-  else
-    while IFS='' read -r line || [[ -n "$line" ]]; do
-      level="$(sed -E 's/^#(#+).*/\1/; s/#/    /g; s/^    //' <<< "$line")"
-      title="$(sed -E 's/^#+ //' <<< "$line")"
-      anchor="$(tr '[:upper:] ' '[:lower:]-' <<< "$title" | tr -d "$INVALID_CHARS")"
-      echo "${level}- [${title}](#${anchor})"
-    done <<< "$(grep -E '^#{2,10} ' "$inputFile" | tr -d '\r')"
-  fi
+    echo "${level}- [${title}](${inputFile}#${anchor})"
+  done <<< "$(grep -E '^(#{1,10} |```)' "$inputFile" | tr -d '\r')"
 }
 
 validate_file() {
@@ -80,15 +70,9 @@ validate_file() {
 
 main() {
   local mdfile
-
-  if [[ "$#" -le 1 ]]; then
-    mdfile="$1"
+  for mdfile in "$@"; do
     validate_file "$mdfile" && toc "$mdfile" || echo -e "$USAGE"
-  else
-    for mdfile in "$@"; do
-      validate_file "$mdfile" && toc "$mdfile" true || echo -e "$USAGE"
-    done
-  fi
+  done
 }
 
 [[ "$0" == "$BASH_SOURCE" ]] && main "$@"
