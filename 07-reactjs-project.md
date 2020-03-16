@@ -102,7 +102,7 @@ Create `.prettierrc`:
 yarn add react-router-dom
 ```
 
-Create `pages/Main/index.js`:
+Create `src/pages/Main/index.js`:
 ```js
 import React from 'react';
 
@@ -113,7 +113,7 @@ function Main() {
 export default Main;
 ```
 
-Create `pages/Repository/index.js`:
+Create `src/pages/Repository/index.js`:
 ```js
 import React from 'react';
 
@@ -142,6 +142,29 @@ export default function Routes() {
     </BrowserRouter>
   );
 }
+```
+
+Now import and use it in `src/App.js`:
+```js
+import React from 'react';
+import Routes from './routes';
+
+function Repository() {
+  return <Routes />;
+}
+
+export default Repository;
+```
+
+Test those routes with
+```
+yarn start
+```
+
+## Styled Components
+
+```
+yarn add styled-components
 ```
 
 
