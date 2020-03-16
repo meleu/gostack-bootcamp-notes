@@ -147,13 +147,14 @@ export default function Routes() {
 Now import and use it in `src/App.js`:
 ```js
 import React from 'react';
+
 import Routes from './routes';
 
-function Repository() {
+function App() {
   return <Routes />;
 }
 
-export default Repository;
+export default App;
 ```
 
 Test those routes with
@@ -163,8 +164,126 @@ yarn start
 
 ## Styled Components
 
+Styled components allow us to write CSS in JS, nest styles, access component properties, and more...
+
 ```
 yarn add styled-components
 ```
 
+Install `vscode-styled-components` to have syntax highlighting and IntelliSense for css content inside a `.js` file.
+
+
+Create `src/pages/Main/styles.js`:
+```js
+import styled from 'styled-components';
+
+export const Title = styled.h1`
+  // you can write css in js (and use comments)
+  font-size: 24px;
+
+  // access properties
+  color: ${props => (props.error ? 'red' : '#7159c1')};
+  font-family: Arial, Helvetica, sans-serif;
+
+  // nesting styles
+  small {
+    font-size: 14px;
+    color: #333;
+  }
+`;
+```
+
+And in your `src/pages/Main/index.js`:
+```js
+import React from 'react';
+
+import { Title } from './styles';
+
+export default function Main() {
+  return (
+    <Title error>
+      meleu
+      <small>menor</small>
+    </Title>
+  );
+}
+```
+
+## Global Styles
+
+Create `src/styles/global.js`:
+```js
+import { createGlobalStyle } from 'styled-components';
+
+export default createGlobalStyle`
+  * {
+    margin: 0;
+    padding: 0;
+    outline: 0;
+    box-sizing: border-box;
+  }
+
+  html, body, #root {
+    min-height: 100%;
+  }
+
+  body {
+    background: #7159c1;
+    -webkit-font-smoothing: antialiased !important;
+  }
+
+  body, input, button {
+    color: #222;
+    font-size: 14px;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+
+  button {
+    cursor: pointer;
+  }
+`;
+```
+
+
+In `src/App.js`:
+```js
+import React from 'react';
+
+import Routes from './routes';
+import GlobalStyle from './styles/global';
+
+function App() {
+  return (
+    <>
+      <Routes />
+      <GlobalStyle />
+    </>
+  );
+}
+
+export default App;
+```
+
+Make `src/pages/Main/styles.js` to be simply:
+```js
+import styled from 'styled-components';
+
+export const Title = styled.h1`
+  color: #fff;
+`;
+```
+
+
+And `src/pages/Main/index.js` just:
+```js
+import React from 'react';
+
+import { Title } from './styles';
+
+export default function Main() {
+  return <Title>Hello World</Title>;
+}
+```
+
+And go see how it looks (use `yarn start` if necessary).
 
