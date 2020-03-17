@@ -287,3 +287,13 @@ export default function Main() {
 
 And go see how it looks (use `yarn start` if necessary).
 
+
+## Developing an Application
+
+```
+yarn add react-icons
+```
+
+<!--stackedit_data:
+eyJoaXN0b3J5IjpbODgyNjY3NV19
+-->
