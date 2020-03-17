@@ -302,9 +302,10 @@ In `src/pages/Main/index.js`:
 In `src/pages/Main/styles.js`:
 ```js
 07:55
+08:55
 
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMzAwMTM1NjE5LC0xODYwNDc0NTY5LDg4Mj
-Y2NzVdfQ==
+eyJoaXN0b3J5IjpbLTgyMTk1NjkzNSwtMTg2MDQ3NDU2OSw4OD
+I2Njc1XX0=
 -->
