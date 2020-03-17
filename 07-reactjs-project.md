@@ -298,6 +298,13 @@ In `src/pages/Main/index.js`:
 ```js
 05:20
 ```
+
+In `src/pages/Main/styles.js`:
+```js
+07:55
+
+```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE4NjA0NzQ1NjksODgyNjY3NV19
+eyJoaXN0b3J5IjpbMzAwMTM1NjE5LC0xODYwNDc0NTY5LDg4Mj
+Y2NzVdfQ==
 -->
