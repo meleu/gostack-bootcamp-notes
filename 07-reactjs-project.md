@@ -294,6 +294,10 @@ And go see how it looks (use `yarn start` if necessary).
 yarn add react-icons
 ```
 
+In `src/pages/Main/index.js`:
+```js
+05:20
+```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbODgyNjY3NV19
+eyJoaXN0b3J5IjpbLTE4NjA0NzQ1NjksODgyNjY3NV19
 -->
