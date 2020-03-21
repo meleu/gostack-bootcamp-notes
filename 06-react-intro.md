@@ -21,6 +21,39 @@ module.exports = {
 };
 ```
 
+Create `public/index.html` (take advantage of the Emmet to create a html:5 snippet):
+```html
+<body>
+  <div id="app"></div>
+  <script src="./bundle.js"></script>
+</body>
+```
+
+Create the `src/App.js`:
+```js
+import React from 'react';
+
+function App() {
+  return <h1>Hello meleu</h1>
+}
+
+export default App;
+```
+**Question:** Why did you imported `react` if you not even using it?
+
+**Answer:** Because it's needed in order to allow a syntax like `return <h1>Hello meleu</h1>`.
+
+
+Create the `src/index.js`:
+```js
+import React from 'react';
+import { render } from 'react-dom';
+
+import App from './App';
+
+render(<App />, document.getElementById('app'));
+```
+
 Create `webpack.config.js`:
 ```js
 const path = require('path');
@@ -48,13 +81,6 @@ module.exports = {
 };
 ```
 
-Create `public/index.html` (take advantage of the Emmet to create a html:5 snippet):
-```html
-<body>
-  <h1>Hello World</h1>
-  <script src="./bundle.js"></script>
-</body>
-```
 
 Add to the `package.json`:
 ```json
@@ -73,37 +99,6 @@ yarn build
 Launch the application and check it on your browser by running:
 ```
 yarn dev
-```
-
-
-Change the `public/index.html`, replacing the `<h1>` line with:
-```html
-<div id="app"></div>
-```
-
-Create the `src/App.js`:
-```js
-import React from 'react';
-
-function App() {
-  return <h1>Hello meleu</h1>
-}
-
-export default App;
-```
-**Question:** Why did you imported `react` if you not even using it?
-
-**Answer:** Because it's needed in order to allow a syntax like `return <h1>Hello meleu</h1>`.
-
-
-Create the `src/index.js`:
-```js
-import React from 'react';
-import { render } from 'react-dom';
-
-import App from './App';
-
-render(<App />, document.getElementById('app'));
 ```
 
 ## Importing assets
