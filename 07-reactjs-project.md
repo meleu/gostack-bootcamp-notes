@@ -287,3 +287,47 @@ export default function Main() {
 
 And go see how it looks (use `yarn start` if necessary).
 
+
+## Developing an Application
+
+```
+yarn add react-icons
+```
+
+In `src/pages/Main/index.js`:
+```js
+import Reac from 'react';
+import { FaGithubAlt; FaPlus } from 'react-icons/fa';
+
+import { Container, Form, SubmitButton } from './styles';
+
+export default function Main() {
+  return (
+    <Container>
+      <h1>
+        <FaGithubAlt />
+        Repositórios
+      </h1>
+
+      <Form onSubmit={() => {}}>
+        <input type="text" placeholder="Adicionar repositório" />
+
+        <SubmitButton disabled>
+          <FaPlus color="#FFF" size={14} />
+        </SubmitButton>
+      </Form>
+    </Container>
+  );
+}
+```
+
+In `src/pages/Main/styles.js`:
+```js
+07:55
+08:55
+10:55
+```
+<!--stackedit_data:
+eyJoaXN0b3J5IjpbMTM2NDIzNDkyMyw1MTU4NTAxMDYsLTE4Nj
+A0NzQ1NjksODgyNjY3NV19
+-->
