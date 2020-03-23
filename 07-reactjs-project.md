@@ -297,28 +297,51 @@ yarn add react-icons
 
 In `src/pages/Main/index.js`:
 ```js
-import Reac from 'react';
-import { FaGithubAlt; FaPlus } from 'react-icons/fa';
+import React, { Component } from 'react';
+import { FaGithubAlt, FaPlus } from 'react-icons/fa';
 
 import { Container, Form, SubmitButton } from './styles';
 
-export default function Main() {
-  return (
-    <Container>
-      <h1>
-        <FaGithubAlt />
-        Repositórios
-      </h1>
+export default class Main extends Component {
+  state = {
+    newRepo: '',
+  };
 
-      <Form onSubmit={() => {}}>
-        <input type="text" placeholder="Adicionar repositório" />
+  handleInputChange = (e) => {
+    this.setState({ newRepo: e.target.value });
+  };
 
-        <SubmitButton disabled>
-          <FaPlus color="#FFF" size={14} />
-        </SubmitButton>
-      </Form>
-    </Container>
-  );
+  handleSubmit = (e) => {
+    e.preventDefault();
+
+    console.log(this.state.newRepo);
+  };
+
+  render() {
+    const { newRepo } = this.state;
+
+    return (
+      <Container>
+        <h1>
+          <FaGithubAlt />
+          Repositórios
+        </h1>
+
+        <Form onSubmit={this.handleSubmit}>
+          <input
+            type="text"
+            placeholder="Adicionar repositório"
+            value={newRepo}
+            onChange={this.handleInputChange}
+          />
+
+          <SubmitButton>
+            <FaPlus color="#FFF" size={14} />
+          </SubmitButton>
+        </Form>
+      </Container>
+    );
+  }
 }
 ```
 
@@ -374,4 +397,134 @@ export const SubmitButton = styled.button.attrs({
   align-items: center;
 `;
 ```
+
+Install axios:
+```
+yarn add axios
+```
+
+Create `src/services/api.js`:
+```js
+import axios from 'axios';
+
+const api = axios.create({
+  baseURL: 'https://api.github.com',
+});
+
+export default api;
+```
+
+In the `src/pages/Main/index.js`:
+```js
+import React, { Component } from 'react';
+import { FaGithubAlt, FaPlus, FaSpinner } from 'react-icons/fa';
+
+import api from '../../services/api';
+import { Container, Form, SubmitButton } from './styles';
+
+export default class Main extends Component {
+  state = {
+    newRepo: '',
+    repositories: [],
+    loading: false,
+  };
+
+  handleInputChange = (e) => {
+    this.setState({ newRepo: e.target.value });
+  };
+
+  handleSubmit = async (e) => {
+    e.preventDefault();
+
+    this.setState({ loading: true });
+
+    const { newRepo, repositories } = this.state;
+
+    const response = await api.get(`/repos/${newRepo}`);
+
+    const data = {
+      name: response.data.full_name,
+    };
+
+    this.setState({
+      repositories: [...repositories, data],
+      newRepo: '',
+      loading: false,
+    });
+  };
+
+  render() {
+    const { newRepo, loading } = this.state;
+
+    return (
+      <Container>
+        <h1>
+          <FaGithubAlt />
+          Repositórios
+        </h1>
+
+        <Form onSubmit={this.handleSubmit}>
+          <input
+            type="text"
+            placeholder="Adicionar repositório"
+            value={newRepo}
+            onChange={this.handleInputChange}
+          />
+
+          <SubmitButton loading={loading}>
+            {loading ? (
+              <FaSpinner color="#FFF" size={14} />
+            ) : (
+                <FaPlus color="#FFF" size={14} />
+              )}
+          </SubmitButton>
+        </Form>
+      </Container>
+    );
+  }
+}
+```
+
+Add this to the `src/pages/Main/styles.js`:
+```css
+import styled, { keyframes, css } from 'styled-components';
+
+
+// add this before SubmitButton
+const rotate = keyframes`
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+`;
+
+
+// add 'disabled' in SubmitButton signature:
+export const SubmitButton = styled.button.attrs((props) => ({
+  type: 'submit',
+  disabled: props.loading,
+}))`
+
+  // ...
+
+  &[disabled] {
+    cursor: not-allowed;
+    opacity: 0.6;
+  }
+
+  ${(props) =>
+    props.loading &&
+    css`
+      svg {
+        animation: ${rotate} 2s linear infinite;
+      }
+    `}
+`;
+```
+
+
+
 
