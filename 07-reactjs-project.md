@@ -398,6 +398,8 @@ export const SubmitButton = styled.button.attrs({
 `;
 ```
 
+### Adding repositories
+
 Install axios:
 ```
 yarn add axios
@@ -525,6 +527,6 @@ export const SubmitButton = styled.button.attrs((props) => ({
 `;
 ```
 
-
+### Listing repositories
 
 
