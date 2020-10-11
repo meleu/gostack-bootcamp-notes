@@ -5,7 +5,7 @@
 ```
 mkdir dirname
 cd dirname
-yarn init
+yarn init -y
 yarn add @babel/core @babel/preset-env @babel/preset-react \
   babel-loader webpack webpack-cli webpack-dev-server -D
 yarn add react react-dom

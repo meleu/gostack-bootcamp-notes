@@ -1,4 +1,4 @@
-# Basic Concepts
+# Back-end With NodeJS
 
 ## Node.js
 
@@ -30,16 +30,20 @@ Opnionated frameworks:
 
 ## REST APIs
 
+<!-- anki -->
+
 HTTP verbs:
 
--  GET http://minhaapi.com/users
--  POST http://minhaapi.com/users
--  PUT http://minhaapi.com/users/1
--  DELETE [http://minhaapi.com/users/1
+-  `GET http://minhaapi.com/users` - requests something
+-  `POST http://minhaapi.com/users` - sends new data
+-  `PUT http://minhaapi.com/users/1` - sends data for updating
+-  `DELETE http://minhaapi.com/users/1` - requests a deletion
 
-data flows in JSON format
+Data flows in JSON format
 
 ## basic structure of a HTTP request
+
+<!-- anki -->
 
 ```
 GET http://api.com/company/1/users?page=2
@@ -49,12 +53,14 @@ GET http://api.com/company/1/users?page=2
 # query parameters ----------------'
 ```
 
-The POST and PUT methods also use the `body` field.
+The `POST` and `PUT` methods also use the `body` field.
 
 Another commonly used field is the `Header`.
 
 
 ## HTTP Codes
+
+<!-- anki -->
 
 Commonly used HTTP codes:
 
@@ -80,7 +86,7 @@ Commonly used HTTP codes:
 const express = require('express');
 const server = express();
 
-server.get('/hello', (req, res) => {
+server.get('/', (req, res) => {
   return res.json({ message: 'Hello World!' });
 });
 
@@ -137,8 +143,9 @@ yarn add nodemon -D
 ```
 then add to your `package.json`:
 ```json
+  "main": "src/index.js",
   "scripts": {
-    "dev": "nodemon index.js"
+    "dev": "nodemon"
   }
 ```
 
@@ -146,40 +153,81 @@ now, just execute `yarn dev` (ou `npm run dev`).
 
 ## CRUD
 
-dumb example using an array named `users`:
+Dumb backend example using an array named `projects` to store data:
 ```js
-// Create
-server.post('/users', (req, res) => {
-    const { name } = req.body;
-    users.push(name);
-    return res.json(users);
+const express = require('express');
+const { v4: uuid } = require('uuid'); // used to create an universal unique ID
+
+const app = express();
+
+// allows reading request.body in json format
+app.use(express.json());
+
+
+// simulating data persistence
+const projects = [];
+
+// GET: request info from the backend
+app.get('/projects', (request, response) => {
+  const { title } = request.query;
+
+  const results = title
+    ? projects.filter(project => project.title.includes(title))
+    : projects;
+
+  return response.json(results);
 });
 
-// Read all
-server.get('/users', (req, res) => {
-    return res.json(users);
+
+// POST: submit a new entry to the backend
+app.post('/projects', (request, response) => {
+  const { title, owner } = request.body;
+
+  const project = { id: uuid(), title, owner };
+  projects.push(project);
+
+  response.json(project);
 });
 
-// Read
-server.get('/users/:id', (req, res) => {
-    const { id } = req.params;
-    return res.json(users[id]);
+
+// PUT: updates an entry in the backend
+app.put('/projects/:id', (request, response) => {
+  const { id } = request.params;
+  const { title, owner } = request.body;
+
+  const projectIndex = projects.findIndex(project => project.id === id);
+
+  if (projectIndex < 0) {
+    return response.status(404).json({ error: 'Project not found' });
+  }
+
+  project = {
+    id,
+    title,
+    owner,
+  };
+
+  projects[projectIndex] = project;
+
+  return response.json(project);
 });
 
-// Update
-server.put('/users/:id', (req, res) => {
-    const { id } = req.params;
-    const { name } = req.body;
-    users[id] = name;
-    return res.json(users);
+
+// DELETE: delete an entry from the backend
+app.delete('/projects/:id', (request, response) => {
+  const { id } = request.params;
+
+  const projectIndex = projects.findIndex(project => project.id === id);
+  if (projectIndex < 0) {
+    return response.status(404).json({ error: 'Project not found' });
+  }
+
+  projects.splice(projectIndex, 1);
+
+  return response.status(204).send();
 });
 
-// Delete
-server.delete('/users/:id', (req, res) => {
-    const { id } = req.params;
-    users.splice(id, 1);
-    return res.send();
-});
+app.listen(3333, () => console.log('🚀 back-end started!'));
 ```
 
 see also: https://github.com/meleu/bootcamp-gostack-challenge-01/blob/master/index.js
@@ -187,7 +235,12 @@ see also: https://github.com/meleu/bootcamp-gostack-challenge-01/blob/master/ind
 
 ## middleware
 
+It's a "request's interceptor", that can either interrupt the request or
+change request's data.
+
 It's a function/method executed in a sequence with other functions/methods.
+
+Useful for validation.
 
 Example:
 
@@ -210,78 +263,23 @@ server.post('/users', checkBodyHasName, (req, res) => {
 
 **Note**: to use a middleware in all requests, `server.use(middlewareFunction)`
 
-## ORM (Sequelize)
+**Note 2**: use a middleware only in specific routes:
+`server.use('/route/:id', middlewareFunction)`.
 
-ORM = Object-Relational Mapping
+## CORS
 
-With an ORM we can abstract the database:
-
-- tables become models
-- no need to use SQL code (just JavaScript)
-
-
-### Migrations
-
-- database version control.
-- files with instrcutions to create, change and delete tables/fields in a database.
-- each file is a migration and they are sorted by date-time.
-- database updated between all contributors and production.
-- **IMPORTANT** once a migration is shared between contributors and/or production it can **NEVER** be edited again
-- each migrations changes only one table
-
-### Seeds
-
-- populate a database:
-    - for development
-    - for tests
-- not used in production
-- if data need to go to production, they should go on a migration, not a seed.
-
-## MVC Architecture
-
-MVC = Model View Controller
-
-Separate the files/directories responsibilities.
-
-
-### Model
-
-- Represents a database abstraction.
-- Used to manipulate data in database tables.
-- A Model do **NOT** have responsibility for the business rule of the application.
-
-
-### Controller
-
-- Starting point of the requests of our application.
-- A route is usually associated with a Controller method.
-- A good portion of the business rules are implemented in the controllers.
-- A controller is a class.
-- Always returns a JSON.
-- Do not calls other controller/method.
-- Every Model has a Controller, but there are Controllers for entities that are not Models.
-- Only 5 methods:
-
-```js
-// example
-class UserController {
-  index() { }  // list all users
-  show() { }   // show details of an user
-  store() { }  // create a new user
-  update() { } // change user's info
-  delete() { } // remove user's entry
-}
+```
+yarn add cors
 ```
 
-### View
+`index.js`:
+```js
+const cors = require('cors');
+// ...
 
-- What is returned to the client.
-- In applications that do not use REST APIs, it can be HTML.
-- In our case it'll be a JSON to be sent to the front-end and manipulated by React[Native].
+const app = express();
 
+app.use(cors());
+// ...
+```
 
-> Written with [StackEdit](https://stackedit.io/).
-<!--stackedit_data:
-eyJoaXN0b3J5IjpbMTAzMzQ3OTY2MiwtMTYwMjk5MjQxOCwtOT
-g5NTMxOTIwLC0xMTY5NDkzODAzLC00MzA0Nzk0MzNdfQ==
--->
