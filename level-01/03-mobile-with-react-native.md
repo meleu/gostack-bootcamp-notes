@@ -49,4 +49,9 @@ SDK with a lot of ready to use functionalities (camera, video, integrations, etc
 
 There's no need to install an emulator (with an app you can run the app in your device).
 
+Why we won't use Expo in this bootcamp?
+
+- limitations over controlling the native code.
+- manu used libvraries do not support Expo.
+- **Cool!**: Expo released their tools to be used outside from Expo.
 

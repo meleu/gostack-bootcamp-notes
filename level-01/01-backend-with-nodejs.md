@@ -66,17 +66,18 @@ Commonly used HTTP codes:
 
 -   1xx: informational
 -   2xx: success
-    -   200: SUCCESS
-    -   201: CREATED
+    - 200: SUCCESS
+    - 201: CREATED
+    - 204: NO CONTENT
 -   3xx: Redirection
-    -   301: MOVED PERMANENTLY
-    -   302: MOVED
+    - 301: MOVED PERMANENTLY
+    - 302: MOVED
 -   4xx: Client Error
-    -   400: BAD REQUEST
-    -   401: UNAUTHORIZED
-    -   404: NOT FOUND
+    - 400: BAD REQUEST
+    - 401: UNAUTHORIZED
+    - 404: NOT FOUND
 -   5xx: Server Error
-    -   500: INTERNAL SERVER ERROR
+    - 500: INTERNAL SERVER ERROR
 
 
 ## ExpressJS
