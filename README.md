@@ -41,7 +41,7 @@ To be honest these notes were not written in a way to be "consumed" by others, b
     - [Starting a New Project](level-01/03-mobile-with-react-native.md#starting-a-new-project)
     - [Snippets](level-01/03-mobile-with-react-native.md#snippets)
         - [Hello World](level-01/03-mobile-with-react-native.md#hello-world)
-        - [Examploe of `FlatList`](level-01/03-mobile-with-react-native.md#examploe-of-flatlist)
+        - [Example of `FlatList`](level-01/03-mobile-with-react-native.md#example-of-flatlist)
 - [TypeScript](level-01/04-typescript.md)
     - [Why TypeScript?](level-01/04-typescript.md#why-typescript)
     - [Starting a TypeScript project](level-01/04-typescript.md#starting-a-typescript-project)

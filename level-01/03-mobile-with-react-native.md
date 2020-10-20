@@ -118,7 +118,7 @@ const styles = StyleSheet.create({
 ```
 
 
-### Examploe of `FlatList`
+### Example of `FlatList`
 
 Example of `FlatList` use:
 ```jsx
