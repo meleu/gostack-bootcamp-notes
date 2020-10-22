@@ -87,16 +87,16 @@ Commonly used HTTP codes:
 const express = require('express');
 const server = express();
 
-server.get('/', (req, res) => {
-  return res.json({ message: 'Hello World!' });
+server.get('/', (request, response) => {
+  return response.json({ message: 'Hello World!' });
 });
 
 server.listen(3000)
 ```
 
-### getting HTTP data from `req`
+### getting HTTP data from `request`
 
-we can get some HTTP data from the `req` parameter.
+we can get some HTTP data from the `request` parameter.
 
 URL example
 ```
@@ -110,8 +110,8 @@ GET http://api.com/company/1/users?page=2
 
 example to get the company ID from `/company/:id`
 ```js
-server.get('/company/:id', (req, res) => {
-  const { id } = req.params;
+server.get('/company/:id', (request, response) => {
+  const { id } = request.params;
   // ...
 }
 ```
@@ -120,8 +120,8 @@ server.get('/company/:id', (req, res) => {
 
 example to get the page value from `?page=2`:
 ```js
-server.get('/users/:id', (req, res) => {
-  const { page } = req.query;
+server.get('/users/:id', (request, response) => {
+  const { page } = request.query;
   // ...
 }
 ```
@@ -130,8 +130,8 @@ server.get('/users/:id', (req, res) => {
 
 example to get the name and email from the body `{ "name": "meleu", "email": "meleu@mailserver.com" }`:
 ```js
-server.post('/user', (req, res) => {
-  const { name, email } = req.body;
+server.post('/user', (request, response) => {
+  const { name, email } = request.body;
   // ...
 }
 ```
@@ -247,18 +247,18 @@ Example:
 
 ```js
 // a middleware function
-function checkBodyHasName(req, res, next) {
-  if (!req.body.name) {
-    return res.status(400).json({ error: 'User name is required' });
+function checkBodyHasName(request, response, next) {
+  if (!request.body.name) {
+    return response.status(400).json({ error: 'User name is required' });
   }
   return next();
 }
 
 // middleware function being used:
-server.post('/users', checkBodyHasName, (req, res) => {
-  const { name } = req.body;
+server.post('/users', checkBodyHasName, (request, response) => {
+  const { name } = request.body;
   users.push(name);
-  return res.json(users);
+  return response.json(users);
 });
 ```
 

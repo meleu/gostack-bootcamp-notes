@@ -13,7 +13,7 @@ To be honest these notes were not written in a way to be "consumed" by others, b
     - [basic structure of a HTTP request](level-01/01-backend-with-nodejs.md#basic-structure-of-a-http-request)
     - [HTTP Codes](level-01/01-backend-with-nodejs.md#http-codes)
     - [ExpressJS](level-01/01-backend-with-nodejs.md#expressjs)
-        - [getting HTTP data from `req`](level-01/01-backend-with-nodejs.md#getting-http-data-from-req)
+        - [getting HTTP data from `request`](level-01/01-backend-with-nodejs.md#getting-http-data-from-request)
             - [route parameter](level-01/01-backend-with-nodejs.md#route-parameter)
             - [query params](level-01/01-backend-with-nodejs.md#query-params)
             - [body properties](level-01/01-backend-with-nodejs.md#body-properties)
