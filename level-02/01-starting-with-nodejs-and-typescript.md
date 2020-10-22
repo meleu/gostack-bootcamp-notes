@@ -1,5 +1,10 @@
 # Starting With NodeJS and TypeScript
 
+## GoBarber layout
+
+<https://www.figma.com/file/BXCihtXXh9p37lGsENV614/GoBarber?node-id=34%3A1180>
+
+
 ## Project Structure
 
 ```
@@ -344,3 +349,113 @@ module.exports = {
 /*.js
 ```
 
+## Debugging in VS Code
+
+- Click on the VS Code debugging icon.
+- Click `create a launch.json file`.
+
+`.vscode/launch.json`:
+```json
+{
+  "version": "...",
+  "configurations": [
+    {
+      "type": "node",
+      "request": "attach",
+      "protocol": "inspector",
+      "restart": true,
+      "name": "Debug",
+      "skipFiles": [
+        "<node_internals>/**"
+      ],
+      "outFiles": [
+        "${workspaceFolder}/**/*.js"
+      ]
+    }
+  ]
+}
+```
+
+`package.json`:
+```json
+  "dev:server": "ts-node-dev --inspect --transpile-only --ignore node_modules src/server.ts"
+```
+
+Now when launching `dev:server` the debugger will be listening and if you click in the debuggin icon it'll be attached
+to the application's debugger.
+
+Use the `WATCH` to add variables you want to check.
+
+**Note**: when the debugger is attached, the bottom bar becomes red.
+
+## Appointments
+
+- video: <https://app.rocketseat.com.br/node/nivel-02/group/construindo-aplicacao/lesson/cadastro-de-agendamentos>
+- commit: <https://github.com/rocketseat-education/bootcamp-gostack-modulos/commit/56f854a6614f386a27241021e2603a5632a899e1#diff-8232ea036c3319568d81c8bbc7d7b180>
+
+```
+yarn add uuidv4
+```
+
+We can have different route files for different endpoints. And then in an `routes/index.ts` we call
+the specific router as a module and use it like a middleware.
+
+`src/routes/index.ts`:
+```ts
+import { Router } from 'express';
+import appointmentsRouter from './appointments.routes'
+
+const routes = Router();
+
+routes.use('/appointments', appointmentsRouter);
+// ...
+```
+
+Now in the `src/routes/appointments.routes.ts` we can omit the `/appointments`, like in this example:
+```ts
+import { Router } from 'express';
+
+const appointmentsRouter = Router();
+
+// in the route below we omit the '/appointments' part, as it was assigned in
+// the 'routes/index.ts'
+appointmentsRouter.post('/', (request, response) => {
+  // do something
+});
+
+// ...
+```
+
+**Note**: in the video there are some tests with insomnia [3:30].
+
+
+
+## Validating Dates
+
+- video: <https://app.rocketseat.com.br/node/nivel-02/group/construindo-aplicacao/lesson/validando-a-data>
+
+- commit: <https://github.com/rocketseat-education/bootcamp-gostack-modulos/commit/6f85e98c9050c9a5301af5ce09efa56b0471af13#diff-8232ea036c3319568d81c8bbc7d7b180>
+
+```
+yarn add date-fns
+```
+
+The goal is to allow appointments only for "full hours" prevent multiple appointments at the same time.
+
+Methods imported from `date-fns`:
+
+- `parseISO`: parse a string with an ISO-8601 date and return an instance of `Date`.
+- `startOfHour`: return the start of an hour for the given date (0 minutes, 0 seconds). The result will be in the local timezone.
+- `isEqual`: are the given dates equal? (returns boolean)
+
+
+## Appointment Model
+
+- video: <https://app.rocketseat.com.br/node/nivel-02/group/construindo-aplicacao/lesson/model-de-agendamento>
+- commit: <https://github.com/rocketseat-education/bootcamp-gostack-modulos/commit/1b1f12d6d2c342cc4d01492c6d4722a9f957d65d#diff-8232ea036c3319568d81c8bbc7d7b180>
+
+Creating an `Appointment` class and using its constructor when creating a new appointment.
+
+A goal we have is to make the routes files as clean as possible.
+
+**Note**: when we have a data type that will be stored, it's a good practice to create a model for it.
