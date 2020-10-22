@@ -34,6 +34,9 @@ It's useful to edit the `tsconfig.json`:
 }
 ```
 
+When developing with TypeScript, the `ts-node-dev` package is a nice replacement for `nodemon`.
+
+
 ## Interface Examples
 
 ```ts
@@ -59,4 +62,3 @@ export default function createUser({ name, email, password }: CreateUserData) {
   return user;
 }
 ```
-
