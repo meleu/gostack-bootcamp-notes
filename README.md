@@ -6,6 +6,10 @@ To be honest these notes were not written in a way to be "consumed" by others, b
 
 ## Table of Contents
 
+
+### level-01
+<details><summary>01-backend-with-nodejs.md</summary><br>
+
 - [Back-end With NodeJS](level-01/01-backend-with-nodejs.md)
     - [Node.js](level-01/01-backend-with-nodejs.md#nodejs)
     - [frameworks](level-01/01-backend-with-nodejs.md#frameworks)
@@ -21,6 +25,12 @@ To be honest these notes were not written in a way to be "consumed" by others, b
     - [CRUD](level-01/01-backend-with-nodejs.md#crud)
     - [middleware](level-01/01-backend-with-nodejs.md#middleware)
     - [CORS](level-01/01-backend-with-nodejs.md#cors)
+
+</details>
+
+
+<details><summary>02-frontend-with-reactjs.md</summary><br>
+
 - [Front-end With ReactJS](level-01/02-frontend-with-reactjs.md)
     - [Concepts](level-01/02-frontend-with-reactjs.md#concepts)
         - [Declarative vs Imperative programming](level-01/02-frontend-with-reactjs.md#declarative-vs-imperative-programming)
@@ -33,6 +43,12 @@ To be honest these notes were not written in a way to be "consumed" by others, b
     - [State and Immutability](level-01/02-frontend-with-reactjs.md#state-and-immutability)
     - [Importing CSS and Images](level-01/02-frontend-with-reactjs.md#importing-css-and-images)
     - [`useEffect()`](level-01/02-frontend-with-reactjs.md#useeffect)
+
+</details>
+
+
+<details><summary>03-mobile-with-react-native.md</summary><br>
+
 - [Mobile With Reach Native](level-01/03-mobile-with-react-native.md)
     - [Concepts](level-01/03-mobile-with-react-native.md#concepts)
     - [Syntax](level-01/03-mobile-with-react-native.md#syntax)
@@ -42,10 +58,24 @@ To be honest these notes were not written in a way to be "consumed" by others, b
     - [Snippets](level-01/03-mobile-with-react-native.md#snippets)
         - [Hello World](level-01/03-mobile-with-react-native.md#hello-world)
         - [Example of `FlatList`](level-01/03-mobile-with-react-native.md#example-of-flatlist)
+
+</details>
+
+
+<details><summary>04-typescript.md</summary><br>
+
 - [TypeScript](level-01/04-typescript.md)
     - [Why TypeScript?](level-01/04-typescript.md#why-typescript)
     - [Starting a TypeScript project](level-01/04-typescript.md#starting-a-typescript-project)
     - [Interface Examples](level-01/04-typescript.md#interface-examples)
+
+</details>
+
+
+
+### level-02
+<details><summary>01-starting-with-nodejs-and-typescript.md</summary><br>
+
 - [Starting With NodeJS and TypeScript](level-02/01-starting-with-nodejs-and-typescript.md)
     - [GoBarber layout](level-02/01-starting-with-nodejs-and-typescript.md#gobarber-layout)
     - [Project Structure](level-02/01-starting-with-nodejs-and-typescript.md#project-structure)
@@ -61,3 +91,7 @@ To be honest these notes were not written in a way to be "consumed" by others, b
     - [Appointments](level-02/01-starting-with-nodejs-and-typescript.md#appointments)
     - [Validating Dates](level-02/01-starting-with-nodejs-and-typescript.md#validating-dates)
     - [Appointment Model](level-02/01-starting-with-nodejs-and-typescript.md#appointment-model)
+
+</details>
+
+
