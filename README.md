@@ -91,6 +91,8 @@ To be honest these notes were not written in a way to be "consumed" by others, b
     - [Appointments](level-02/01-starting-with-nodejs-and-typescript.md#appointments)
     - [Validating Dates](level-02/01-starting-with-nodejs-and-typescript.md#validating-dates)
     - [Appointment Model](level-02/01-starting-with-nodejs-and-typescript.md#appointment-model)
+    - [Creating Repositories](level-02/01-starting-with-nodejs-and-typescript.md#creating-repositories)
+    - [Listing Appointments](level-02/01-starting-with-nodejs-and-typescript.md#listing-appointments)
 
 </details>
 

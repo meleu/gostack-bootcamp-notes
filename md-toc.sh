@@ -1,6 +1,20 @@
-#!/bin/bash
-# md-toc.sh
+#!/usr/bin/env bash
+# pre-commit
 ############
+# This is the script is supposed to work as a git hook.
+#
+# I use it to update the README.md file of this repo
+# everytime I make a commit.
+#
+# It must be named as '.git/hooks/pre-commit'
+#
+# For more info about Git Hooks: https://githooks.com/
+#
+# meleu: october/2020
+
+readonly REPO_DIR="${GIT_DIR}/.."
+readonly INVALID_CHARS="'[]/?!:\`.,()*\";{}+=<>~$|#@&â€“â€”"
+
 # Generates a Table of Contents getting a markdown file as input.
 #
 # Inspiration for this script:
@@ -13,14 +27,6 @@
 #
 # The list of valid markdown extensions were obtained here:
 # https://superuser.com/a/285878
-#
-# meleu - March/2020
-
-INVALID_CHARS="'[]/?!:\`.,()*\";{}+=<>~$|#@&â€“â€”"
-VALID_EXTENSIONS='markdown|mdown|mkdn|md|mkd|mdwn|mdtxt|mdtext|text|Rmd|txt'
-
-USAGE="\nUsage:\n$0 markdownFile.md"
-
 toc() {
   local inputFile="$1"
   local codeBlock='false'
@@ -51,28 +57,39 @@ toc() {
   done <<< "$(grep -E '^(#{1,10} |```)' "$inputFile" | tr -d '\r')"
 }
 
-validate_file() {
-  local mdfile="$1"
 
-  if [[ -z "$mdfile" ]]; then
-    echo "ERROR: missing input markdown file." >&2
-    return 1
-  elif [[ ! -f "$mdfile" ]]; then
-    echo "ERROR: \"$mdfile\": no such file." >&2
-    return 1
-  elif [[ ! "${mdfile##*.}" =~ ^($VALID_EXTENSIONS)$ ]]; then
-    echo "ERROR: \"$mdfile\": invalid file extension (is it a markdown formatted file?)." >&2
-    echo "Valid extensions: $(tr '|' ' ' <<< "$VALID_EXTENSIONS")" >&2
-    return 1
+updateReadme() {
+  local readme="${GIT_DIR}/../README.md"
+  local file
+  local level
+  local currentLevel
+
+  if [[ ! -f "${readme}" ]]; then
+    echo "${readme}: file not found. Aborting..." >&2
+    exit 1
   fi
-}
 
+  sed -i '1,/^## Table of Contents/!d' "${readme}"
+  echo >> "${readme}"
+  for file in */*.md; do
 
-main() {
-  local mdfile
-  for mdfile in "$@"; do
-    validate_file "$mdfile" && toc "$mdfile" || echo -e "$USAGE"
+    # create a subheading for the directory
+    currentLevel="${file%/*}"
+    if [[ "${currentLevel}" != "${level}" ]]; then
+      level="${currentLevel}"
+      echo -e "\n### ${level}" >> "${readme}"
+    fi
+
+    # create a dropdown list (viewable only on the GitHub repo view)
+    echo -e "<details><summary>${file##*/}</summary><br>\n" >> "${readme}"
+
+    toc "${file}" >> "${readme}"
+
+    echo -e "\n</details>\n\n" >> "${readme}"
   done
+  git add "${readme}"
 }
 
-[[ "$0" == "$BASH_SOURCE" ]] && main "$@"
+
+updateReadme "$@"
+

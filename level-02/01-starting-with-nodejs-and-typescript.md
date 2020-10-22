@@ -459,3 +459,31 @@ Creating an `Appointment` class and using its constructor when creating a new ap
 A goal we have is to make the routes files as clean as possible.
 
 **Note**: when we have a data type that will be stored, it's a good practice to create a model for it.
+
+
+## Creating Repositories
+
+- video: <https://app.rocketseat.com.br/node/nivel-02/group/construindo-aplicacao/lesson/criando-repositorios>
+- commit: <https://github.com/rocketseat-education/bootcamp-gostack-modulos/commit/f8525f5705deffa5b1528c225270531bcf4b1d05#diff-8232ea036c3319568d81c8bbc7d7b180>
+
+Repository is a connection between the data persistence (usually a database) and the application. Something like this:
+
+```
+persistence <--> repository <--> route
+```
+
+**Note**: in this context repository is not a code repository, like the ones used by git.
+
+Usually we have one repository per model.
+
+The repository is the class responsible for the logic to create/find/delete/update data
+
+
+## Listing Appointments
+
+- video: <https://app.rocketseat.com.br/node/nivel-02/group/construindo-aplicacao/lesson/listando-agendamentos-2>
+- commit: <https://github.com/rocketseat-education/bootcamp-gostack-modulos/commit/da3d8363d88f0446f77fad5d057043c669b775d5#diff-8232ea036c3319568d81c8bbc7d7b180>
+
+Just a short lesson to tell that the responsibility to connect to the persistence layer and 
+return all appointments belongs to the repository, not the route.
+
