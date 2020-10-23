@@ -90,7 +90,7 @@ yarn add @typescript-eslint/eslint-plugin@latest eslint-config-airbnb-base@lates
 yarn add eslint-import-resolver-typescript -D
 ```
 
-Create the `.eslingignore` file:
+Create the `.eslintignore` file:
 ```
 /*.js
 node_modules
@@ -321,8 +321,8 @@ Edit the `.eslintrc.json`:
   ],
   // ...
   "plugins": [
-  // ...
-  "prettier"
+    // ...
+    "prettier"
   ],
   "rules": {
     // ...
@@ -339,7 +339,7 @@ Edit the `.eslintrc.json`:
 module.exports = {
   singleQuote: true, 
   trailingComma: 'all',
-	arrowParens: 'avoid',
+  arrowParens: 'avoid',
 }
 ```
 
