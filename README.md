@@ -93,6 +93,8 @@ To be honest these notes were not written in a way to be "consumed" by others, b
     - [Appointment Model](level-02/01-starting-with-nodejs-and-typescript.md#appointment-model)
     - [Creating Repositories](level-02/01-starting-with-nodejs-and-typescript.md#creating-repositories)
     - [Listing Appointments](level-02/01-starting-with-nodejs-and-typescript.md#listing-appointments)
+    - [Working With Data - Data Transfer Object](level-02/01-starting-with-nodejs-and-typescript.md#working-with-data---data-transfer-object)
+    - [The Services Pattern & SOLID](level-02/01-starting-with-nodejs-and-typescript.md#the-services-pattern--solid)
 
 </details>
 

@@ -487,3 +487,83 @@ The repository is the class responsible for the logic to create/find/delete/upda
 Just a short lesson to tell that the responsibility to connect to the persistence layer and 
 return all appointments belongs to the repository, not the route.
 
+
+## Working With Data - Data Transfer Object
+
+- video: <https://app.rocketseat.com.br/node/nivel-02/group/construindo-aplicacao/lesson/trabalhando-com-dados>
+- commit: <https://github.com/rocketseat-education/bootcamp-gostack-modulos/commit/535432384679d814c5bb7f2e2c3e67e824636a5c#diff-8232ea036c3319568d81c8bbc7d7b180>
+
+DTO (Data Transfer Object) is useful to passa data between methods/classes/files/etc.
+
+Before:
+```ts
+class AppointmentsRepository {
+  // ...
+  public create(provider: string, date: Date): Appointment {
+    // ...
+  }
+}
+```
+
+Using DTO:
+```ts
+interface CreateAppointmentDTO {
+  provider: string;
+  date: Date;
+}
+
+class AppointmentsRepository {
+  // ...
+  public create({ provider, date }: CreateAppointmentDTO): Appointment {
+    // ...
+  }
+}
+```
+
+It's particularly useful because you can easily add/remove the number of parameters to be received
+in a method. Also, the editor can help showing the name and the type of the expected parameters.
+
+Another interesting TypeScript feature is the `Omit<Type, Keys>` utility type. In the example below it's
+useful to allow the constructor to be called with an `Appointment` object but without the `id` (which
+is generated during the construction of the new instance):
+```ts
+class Appointment {
+  id: string;
+  provider: string;
+  date: Date;
+
+  constructor({ provider, date }: Omit<Appointment, 'id'>) {
+    // ...
+  }
+}
+```
+
+## The Services Pattern & SOLID
+
+- video: <https://app.rocketseat.com.br/node/nivel-02/group/construindo-aplicacao/lesson/services-and-solid>
+- commit: <https://github.com/rocketseat-education/bootcamp-gostack-modulos/tree/master/nivel-02/01-primeiro-projeto-com-nodejs>
+
+Concepts:
+
+**Model** is how the data is structured.
+
+**Repository** is how the data is persisted. In other words, it's a layer that sits between your project's domain and the database.
+
+**Route** is responsible to get a request, dispatch it to the responsible service, and then provide a response. Probably it handles data transformation too (e.g.: using `parseISO()` to convert a string into a `Date` object).
+
+**Service** is about the business rules.
+
+Services Features:
+- is a class.
+- is responsible for the business rules.
+- has only one and a very specific task to accomplish.
+- has only one public method (usually called `execute` or `run`).
+- doesn't have access to the requests/responses.
+
+Interesting article about the Repository Pattern: <https://culttt.com/2014/09/08/benefits-using-repositories/>
+
+> four main benefits of using The Repository Pattern:
+> 1. Data storage as a mere detail of the overall application.
+> 2. Much easier for testing.
+> 3. One-way dependency.
+> 4. In-memory illusion.
