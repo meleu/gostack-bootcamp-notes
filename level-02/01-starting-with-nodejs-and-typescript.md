@@ -394,7 +394,10 @@ Use the `WATCH` to add variables you want to check.
 - commit: <https://github.com/rocketseat-education/bootcamp-gostack-modulos/commit/56f854a6614f386a27241021e2603a5632a899e1#diff-8232ea036c3319568d81c8bbc7d7b180>
 
 ```
-yarn add uuidv4
+#yarn add uuidv4
+yarn add uuid
+# looks like uuidv4 package is deprecated
+# I got the same results by using "import { v4 } from 'uuid'"
 ```
 
 We can have different route files for different endpoints. And then in an `routes/index.ts` we call
@@ -493,7 +496,7 @@ return all appointments belongs to the repository, not the route.
 - video: <https://app.rocketseat.com.br/node/nivel-02/group/construindo-aplicacao/lesson/trabalhando-com-dados>
 - commit: <https://github.com/rocketseat-education/bootcamp-gostack-modulos/commit/535432384679d814c5bb7f2e2c3e67e824636a5c#diff-8232ea036c3319568d81c8bbc7d7b180>
 
-DTO (Data Transfer Object) is useful to passa data between methods/classes/files/etc.
+DTO (Data Transfer Object) is useful to pass data between methods/classes/files/etc.
 
 Before:
 ```ts
