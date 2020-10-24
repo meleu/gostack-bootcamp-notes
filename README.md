@@ -95,6 +95,12 @@ To be honest these notes were not written in a way to be "consumed" by others, b
     - [Listing Appointments](level-02/01-starting-with-nodejs-and-typescript.md#listing-appointments)
     - [Working With Data - Data Transfer Object](level-02/01-starting-with-nodejs-and-typescript.md#working-with-data---data-transfer-object)
     - [The Services Pattern & SOLID](level-02/01-starting-with-nodejs-and-typescript.md#the-services-pattern--solid)
+    - [My Own Personal Thoughts](level-02/01-starting-with-nodejs-and-typescript.md#my-own-personal-thoughts)
+        - [`models/Appointment.ts`](level-02/01-starting-with-nodejs-and-typescript.md#modelsappointmentts)
+        - [`repositories/AppointmentsRepository.ts`](level-02/01-starting-with-nodejs-and-typescript.md#repositoriesappointmentsrepositoryts)
+        - [`services/CreateAppointmentService.ts`](level-02/01-starting-with-nodejs-and-typescript.md#servicescreateappointmentservicets)
+        - [`routes/*`](level-02/01-starting-with-nodejs-and-typescript.md#routes)
+        - [`server.ts`](level-02/01-starting-with-nodejs-and-typescript.md#serverts)
 
 </details>
 

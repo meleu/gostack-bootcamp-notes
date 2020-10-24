@@ -570,3 +570,53 @@ Interesting article about the Repository Pattern: <https://culttt.com/2014/09/08
 > 2. Much easier for testing.
 > 3. One-way dependency.
 > 4. In-memory illusion.
+
+## My Own Personal Thoughts
+
+Current file structure:
+```
+$ tree src/
+src/
+├── models
+│   └── Appointment.ts
+├── repositories
+│   └── AppointmentsRepository.ts
+├── routes
+│   ├── appointments.routes.ts
+│   └── index.ts
+├── server.ts
+└── services
+    └── CreateAppointmentService.ts
+```
+
+### `models/Appointment.ts`
+
+Describes how the appointment data are structured, and just that.
+
+
+### `repositories/AppointmentsRepository.ts`
+
+A class that represents the collection of appointments and offers methods to create/list/delete/find appointments.
+
+
+### `services/CreateAppointmentService.ts`
+
+A class with only one public method (`execute`) and with a very specific task: take the business rules into consideration and create a valid appointment (if it's not possible, throw an Error).
+
+An instance of this class should be constructed with an instance of `AppointmentsRepository` in which it will store the information.
+
+**Question**: if a client of `CreateAppointmentService` already have an `AppointmentsRepository`, why can't it use the repository's methods to create an appointment?
+**Answer**: because the business rules' logic sits on the service. The client shouldn't be worried about business rules.
+
+
+### `routes/*`
+
+The files taking requests from the user's applications, dispatching them to the respective service, and delivering a response.
+
+**Note**: None of the files previously mentioned is aware about HTTP, ExpressJS or such details.
+
+
+### `server.ts`
+
+Just load the routes and starts the server.
+
