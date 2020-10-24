@@ -544,7 +544,7 @@ class Appointment {
 ## The Services Pattern & SOLID
 
 - video: <https://app.rocketseat.com.br/node/nivel-02/group/construindo-aplicacao/lesson/services-and-solid>
-- commit: <https://github.com/rocketseat-education/bootcamp-gostack-modulos/tree/master/nivel-02/01-primeiro-projeto-com-nodejs>
+- commit: <https://github.com/rocketseat-education/bootcamp-gostack-modulos/commit/6ec88cccbe08907b37c8004269b6462110940b48>
 
 Concepts:
 
