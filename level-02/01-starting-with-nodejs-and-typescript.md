@@ -554,7 +554,7 @@ Concepts:
 
 **Route** is responsible to get a request, dispatch it to the responsible service, and then provide a response. Probably it handles data transformation too (e.g.: using `parseISO()` to convert a string into a `Date` object).
 
-**Service** is about the business rules.
+**Service** is about the business rules. All business rules logic should be in the service.
 
 Services Features:
 - is a class.
@@ -620,3 +620,15 @@ The files taking requests from the user's applications, dispatching them to the 
 
 Just load the routes and starts the server.
 
+## Challenge 5
+
+- challenge: <https://github.com/rocketseat-education/bootcamp-gostack-desafios/tree/master/desafio-fundamentos-nodejs>
+- solution: <https://youtu.be/FYsFvjM6AJM>
+
+Interesting stuff I learned while working in this challenge:
+
+- The `Array.reduce()` takes a "reducer" function as the first parameter and this function reduces the array to just one value. OK, I'm already familiar with how it works, but the interesting thing I learned was that the second parameter passed to `reduce()` (aka `initialValue`) defines the type of the value returned by the function. [Documentation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/Reduce).
+
+- The `Array.includes()` can be an useful way to validate if a string is valid. In this challenge I used this to validate the `type` of a transaction: `!['income', 'outcome'].includes(type)`.
+
+- As said in the "Services" lesson, the service class is where the business rules should be. I had to rethink the first thought of implementing a transacion creation business rule in the repository class.

@@ -101,6 +101,7 @@ To be honest these notes were not written in a way to be "consumed" by others, b
         - [`services/CreateAppointmentService.ts`](level-02/01-starting-with-nodejs-and-typescript.md#servicescreateappointmentservicets)
         - [`routes/*`](level-02/01-starting-with-nodejs-and-typescript.md#routes)
         - [`server.ts`](level-02/01-starting-with-nodejs-and-typescript.md#serverts)
+    - [Challenge 5](level-02/01-starting-with-nodejs-and-typescript.md#challenge-5)
 
 </details>
 
