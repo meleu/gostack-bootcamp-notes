@@ -106,3 +106,15 @@ To be honest these notes were not written in a way to be "consumed" by others, b
 </details>
 
 
+<details><summary>02-starting-the-backend.md</summary><br>
+
+- [Starting the Backend](level-02/02-starting-the-backend.md)
+    - [DataBase Abstractions](level-02/02-starting-the-backend.md#database-abstractions)
+    - [docker](level-02/02-starting-the-backend.md#docker)
+        - [concepts: ](level-02/02-starting-the-backend.md#concepts-)
+    - [Creating a PostgreSQL Container](level-02/02-starting-the-backend.md#creating-a-postgresql-container)
+        - [DB Clients](level-02/02-starting-the-backend.md#db-clients)
+
+</details>
+
+
