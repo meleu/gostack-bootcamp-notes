@@ -179,9 +179,13 @@ export default class CreateAppointments
 <!-- anki -->
 Why migrations? - To assure the database is equal to every developer.
 
+
+
 **IMPORTANT!!!**: You can only change a migration **BEFORE** commiting it to your version control system (git). Otherwise, create a new migration changing the table(s) the you way you need.
 
-**Note**: If wanted, disable the eslint's `class-method-use-this` rule:
+
+
+If wanted, disable the eslint's `class-method-use-this` rule:
 
 `.eslintrc.json`:
 ```json
@@ -195,3 +199,14 @@ Why migrations? - To assure the database is equal to every developer.
 }
 ```
 
+
+## Creating the Appointment Model
+
+- video: <https://app.rocketseat.com.br/node/iniciando-back-end-do-app/group/banco-de-dados/lesson/criando-model-de-agendamento>
+- commit: <https://github.com/rocketseat-education/bootcamp-gostack-modulos/commit/11ed5c8e6678c781f851a1d11af96cf6d3714d7a#diff-2efc37c87c194d03fc0dadbef51f8814>
+
+Using the `Entity` from the typeorm package.
+
+In `tsconfig.json`, enable `experimentalDecorators` e `emitDecoratorMetadata`, and disable `strictPropertyInitialization`.
+
+When using `Entity` there's no need to use the model's constructor.
