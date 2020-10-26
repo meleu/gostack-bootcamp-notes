@@ -66,3 +66,132 @@ docker run --name gostack_postgresql -e POSTGRES_PASSWORD=docker -p 5432:5432 -d
 - Beekeeper Studio: <https://www.beekeeperstudio.io/>
 
 
+## Configuring TypeORM
+
+- video: <https://app.rocketseat.com.br/node/iniciando-back-end-do-app/group/banco-de-dados/lesson/configurando-type-orm>
+- commit: <https://github.com/rocketseat-education/bootcamp-gostack-modulos/commit/83179555b7caad2b6ff788aff0e64ebe66b24f08#diff-2efc37c87c194d03fc0dadbef51f8814>
+
+TypeORM website: <https://typeorm.io/>
+
+```
+yarn add typeorm pg # pg for postgresql driver
+```
+
+Create a database named `gostack_gobarber` (using dbeaver or something).
+
+`ormconfig.json`:
+```json
+{
+  "type": "postgres",
+  "host": "localhost", // host of your database
+  "port": 5432,
+  "username": "postgres",
+  "password": "docker",
+  "database": "gostack_gobarber"
+}
+```
+
+`src/database/index.ts`:
+```ts
+import { createConnection } from 'typeorm';
+
+createConnection();
+```
+
+`src/server.ts`:
+```ts
+import express from 'express';
+import routes from './routes';
+
+import './database'; // <-- this is enough to connect to the DB
+
+const app = express();
+
+app.use(express.json());
+app.use(routes);
+
+app.listen(3333, () => console.log('server started'));
+```
+
+
+## Creating the Appointments Table
+
+- video: <https://app.rocketseat.com.br/node/iniciando-back-end-do-app/group/banco-de-dados/lesson/criando-tabela-de-agendamentos>
+- commit: <https://github.com/rocketseat-education/bootcamp-gostack-modulos/commit/3893bd76a55a451c1e91a9677260530eb4982229#diff-2efc37c87c194d03fc0dadbef51f8814>
+
+1. add `migrations[]` and `cli.migrationsDir` to `ormconfig.json`.
+2. add `scripts.typeorm` to `package.json`.
+
+<!-- anki -->
+
+```
+# create a migration
+yarn typeorm migration:create -n CreateAppointment
+
+# run the migrations
+yarn typeorm migration:run
+
+# revert the migrations
+yarn typeorm migration:revert
+
+# show the executed migrations
+yarn typeorm migration:show
+```
+
+`src/database/migrations/*-CreateAppointments.ts`.
+```ts
+import { MigrationInterface, QueryRunner, Table } from 'typeorm';
+
+export default class CreateAppointments
+  implements MigrationInterface {
+  public async up(queryRunner: QueryRunner): Promise<void> {
+    await queryRunner.createTable(
+      new Table({
+        name: 'appointments',
+        columns: [
+          {
+            name: 'id',
+            type: 'varchar', // using varchar because it'll be an uuid
+            isPrimary: true,
+            generationStrategy: 'uuid',
+          },
+          {
+            name: 'provider',
+            type: 'varchar',
+            isNullable: false,
+          },
+          {
+            name: 'date',
+            type: 'timestamp with time zone',
+            isNullable: false,
+          },
+        ],
+      }),
+    );
+  }
+
+  public async down(queryRunner: QueryRunner): Promise<void> {
+    await queryRunner.dropTable('appointments');
+  }
+}
+```
+
+<!-- anki -->
+Why migrations? - To assure the database is equal to every developer.
+
+**IMPORTANT!!!**: You can only change a migration **BEFORE** commiting it to your version control system (git). Otherwise, create a new migration changing the table(s) the you way you need.
+
+**Note**: If wanted, disable the eslint's `class-method-use-this` rule:
+
+`.eslintrc.json`:
+```json
+{
+  // ...
+  "rules": {
+    "clas-methods-use-this": "off",
+    // ...
+  }
+  // ...
+}
+```
+
