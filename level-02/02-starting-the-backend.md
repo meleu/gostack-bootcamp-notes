@@ -210,3 +210,63 @@ Using the `Entity` from the typeorm package.
 In `tsconfig.json`, enable `experimentalDecorators` e `emitDecoratorMetadata`, and disable `strictPropertyInitialization`.
 
 When using `Entity` there's no need to use the model's constructor.
+
+`src/models/Appointments.ts`:
+```ts
+import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
+
+@Entity('appointments')
+class Appointment {
+  @PrimaryGeneratedColumn('uuid')
+  id: string;
+
+  @Column()
+  provider: string;
+
+  @Column('timestamp with time zone')
+  date: Date;
+}
+
+export default Appointment;
+```
+
+## TypeORM Repositories
+
+- video: <https://app.rocketseat.com.br/node/iniciando-back-end-do-app/group/banco-de-dados/lesson/repositorio-do-type-orm>
+- commit: <https://github.com/rocketseat-education/bootcamp-gostack-modulos/commit/66833fbaca66266169af584d49253aab87ce7124#diff-2efc37c87c194d03fc0dadbef51f8814>
+
+In order to use decorators, TypeORM requires you to use the following package:
+```
+yarn add reflect-metadata
+```
+
+And in the `src/server.ts`:
+```ts
+import 'reflect-metadata';
+```
+
+Also add `entities[]` to `ormconfig.json`.
+
+
+Most of the repositories methods (such as `constructor()`, `all()`, `create()`) are already provided by the TypeORM. We just need to
+extend the `Repository` class. 
+
+`src/repositories/AppointmentsRepository.ts`:
+```ts
+import { EntityRepository, Entity } from 'typeorm';
+
+import Appointment from '../models/Appointment';
+
+@EntityRepository(Appointment)
+class AppointmentsRepository extends Repository<Appointment> {
+  public async findByDate(date: Date): Promise<Appointment | null> {
+    const findAppointment = await this.findOne({
+      where: { date }, // `SELECT * FROM appointments WHERE date = '${date}';`
+    });
+
+    return findAppointment || null;
+  }
+}
+
+export default AppointmentsRepository;
+```
