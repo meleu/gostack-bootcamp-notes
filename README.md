@@ -115,6 +115,16 @@ To be honest these notes were not written in a way to be "consumed" by others, b
     - [Creating the Appointment Model](level-02/02.1-backend-database.md#creating-the-appointment-model)
     - [TypeORM Repositories](level-02/02.1-backend-database.md#typeorm-repositories)
     - [Summary](level-02/02.1-backend-database.md#summary)
+    - [My GoBarber codebase at this point:](level-02/02.1-backend-database.md#my-gobarber-codebase-at-this-point)
+
+</details>
+
+
+<details><summary>02.2-backend-registering-users.md</summary><br>
+
+- [Backend - Registering Users](level-02/02.2-backend-registering-users.md)
+    - [User's Model and Migration](level-02/02.2-backend-registering-users.md#users-model-and-migration)
+    - [My GoBarber codebase at this point:](level-02/02.2-backend-registering-users.md#my-gobarber-codebase-at-this-point)
 
 </details>
 
