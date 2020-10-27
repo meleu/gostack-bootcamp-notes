@@ -19,10 +19,12 @@ mkdir src
 `tsconfig.json`:
 ```json
 {
-  //...
-  "outDir": "./dist",
-  "rootDir": "./src",
-  //...
+  "compilerOptions": {
+    //...
+    "outDir": "./dist",
+    "rootDir": "./src",
+    //...
+  }
 }
 ```
 
@@ -571,9 +573,48 @@ Interesting article about the Repository Pattern: <https://culttt.com/2014/09/08
 > 3. One-way dependency.
 > 4. In-memory illusion.
 
-## My Own Personal Thoughts
+## Summary
 
-Current file structure:
+- [ ] Installing dependencies:
+```
+yarn add express uuid date-fns
+yarn add -D typescript ts-node-dev @types/express @types/uuid 
+```
+- [ ] Install [EditorConfig, ESLint and Prettier](#editorconfig-eslint-and-prettier) stuff.
+
+- [ ] Setup [debugging in VS Code](#debugging-in-vs-code).
+
+- [ ] `package.json`
+```json
+  "scripts": {
+    "build": "tsc",
+    "dev:server": "ts-node-dev --inspect --transpile-only --ignore-watch node_modules src/server.ts"
+  },
+```
+
+- [ ] `tsconfig.json`
+```json
+{
+  "compilerOptions": {
+    //...
+    "outDir": "./dist",
+    "rootDir": "./src",
+    "strictPropertyInitialization": false,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+  }
+}
+```
+
+- [ ] Create the appointments router (at least for GET and POST).
+
+- [ ] Create the Appointments model.
+
+- [ ] Create the AppointmentsRepository (for now the persistence is still in-memory).
+
+- [ ] Create a service to CreateAppointment (it must handle the business rules).
+
+- [ ] Code Files Structure
 ```
 $ tree src/
 src/
@@ -589,19 +630,19 @@ src/
     └── CreateAppointmentService.ts
 ```
 
-### `models/Appointment.ts`
+  - [ ]  `server.ts`: Just load the routes and starts the server.
 
-Describes how the appointment data are structured, and just that.
+  - [ ]  `routes/*`: The files taking requests from the user's applications, dispatching them to the respective service, and delivering a response.
+
+**Note**: Besides `server.ts` and `routes/*.ts`, none of the files below is aware about HTTP, ExpressJS or such details.
+
+  - [ ]  `models/Appointment.ts`: Describes how the appointment data are structured, and just that.
 
 
-### `repositories/AppointmentsRepository.ts`
-
-A class that represents the collection of appointments and offers methods to create/list/delete/find appointments.
+  - [ ]  `repositories/AppointmentsRepository.ts`: A class that represents the collection of appointments and offers methods to create/list/delete/find appointments.
 
 
-### `services/CreateAppointmentService.ts`
-
-A class with only one public method (`execute`) and with a very specific task: take the business rules into consideration and create a valid appointment (if it's not possible, throw an Error).
+  - [ ]  `services/CreateAppointmentService.ts`: A class with only one public method (`execute`) and with a very specific task: take the business rules into consideration and create a valid appointment (if it's not possible, throw an Error).
 
 An instance of this class should be constructed with an instance of `AppointmentsRepository` in which it will store the information.
 
@@ -609,16 +650,10 @@ An instance of this class should be constructed with an instance of `Appointment
 **Answer**: because the business rules' logic sits on the service. The client shouldn't be worried about business rules.
 
 
-### `routes/*`
+# My GoBarber codebase at this point:
 
-The files taking requests from the user's applications, dispatching them to the respective service, and delivering a response.
+<https://github.com/meleu/gobarber/tree/31c499b3df733a8e7224df9d210035699ddc2503>
 
-**Note**: None of the files previously mentioned is aware about HTTP, ExpressJS or such details.
-
-
-### `server.ts`
-
-Just load the routes and starts the server.
 
 ## Challenge 5
 

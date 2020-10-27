@@ -95,12 +95,8 @@ To be honest these notes were not written in a way to be "consumed" by others, b
     - [Listing Appointments](level-02/01-starting-with-nodejs-and-typescript.md#listing-appointments)
     - [Working With Data - Data Transfer Object](level-02/01-starting-with-nodejs-and-typescript.md#working-with-data---data-transfer-object)
     - [The Services Pattern & SOLID](level-02/01-starting-with-nodejs-and-typescript.md#the-services-pattern--solid)
-    - [My Own Personal Thoughts](level-02/01-starting-with-nodejs-and-typescript.md#my-own-personal-thoughts)
-        - [`models/Appointment.ts`](level-02/01-starting-with-nodejs-and-typescript.md#modelsappointmentts)
-        - [`repositories/AppointmentsRepository.ts`](level-02/01-starting-with-nodejs-and-typescript.md#repositoriesappointmentsrepositoryts)
-        - [`services/CreateAppointmentService.ts`](level-02/01-starting-with-nodejs-and-typescript.md#servicescreateappointmentservicets)
-        - [`routes/*`](level-02/01-starting-with-nodejs-and-typescript.md#routes)
-        - [`server.ts`](level-02/01-starting-with-nodejs-and-typescript.md#serverts)
+    - [Summary](level-02/01-starting-with-nodejs-and-typescript.md#summary)
+- [My GoBarber codebase at this point:](level-02/01-starting-with-nodejs-and-typescript.md)
     - [Challenge 5](level-02/01-starting-with-nodejs-and-typescript.md#challenge-5)
 
 </details>
@@ -114,6 +110,10 @@ To be honest these notes were not written in a way to be "consumed" by others, b
         - [concepts: ](level-02/02-starting-the-backend.md#concepts-)
     - [Creating a PostgreSQL Container](level-02/02-starting-the-backend.md#creating-a-postgresql-container)
         - [DB Clients](level-02/02-starting-the-backend.md#db-clients)
+    - [Configuring TypeORM](level-02/02-starting-the-backend.md#configuring-typeorm)
+    - [Creating the Appointments Table](level-02/02-starting-the-backend.md#creating-the-appointments-table)
+    - [Creating the Appointment Model](level-02/02-starting-the-backend.md#creating-the-appointment-model)
+    - [TypeORM Repositories](level-02/02-starting-the-backend.md#typeorm-repositories)
 
 </details>
 
