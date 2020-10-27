@@ -102,18 +102,19 @@ To be honest these notes were not written in a way to be "consumed" by others, b
 </details>
 
 
-<details><summary>02-starting-the-backend.md</summary><br>
+<details><summary>02.1-backend-database.md</summary><br>
 
-- [Starting the Backend](level-02/02-starting-the-backend.md)
-    - [DataBase Abstractions](level-02/02-starting-the-backend.md#database-abstractions)
-    - [docker](level-02/02-starting-the-backend.md#docker)
-        - [concepts: ](level-02/02-starting-the-backend.md#concepts-)
-    - [Creating a PostgreSQL Container](level-02/02-starting-the-backend.md#creating-a-postgresql-container)
-        - [DB Clients](level-02/02-starting-the-backend.md#db-clients)
-    - [Configuring TypeORM](level-02/02-starting-the-backend.md#configuring-typeorm)
-    - [Creating the Appointments Table](level-02/02-starting-the-backend.md#creating-the-appointments-table)
-    - [Creating the Appointment Model](level-02/02-starting-the-backend.md#creating-the-appointment-model)
-    - [TypeORM Repositories](level-02/02-starting-the-backend.md#typeorm-repositories)
+- [Backend - Database](level-02/02.1-backend-database.md)
+    - [DataBase Abstractions](level-02/02.1-backend-database.md#database-abstractions)
+    - [docker](level-02/02.1-backend-database.md#docker)
+        - [concepts: ](level-02/02.1-backend-database.md#concepts-)
+    - [Creating a PostgreSQL Container](level-02/02.1-backend-database.md#creating-a-postgresql-container)
+        - [DB Clients](level-02/02.1-backend-database.md#db-clients)
+    - [Configuring TypeORM](level-02/02.1-backend-database.md#configuring-typeorm)
+    - [Creating the Appointments Table](level-02/02.1-backend-database.md#creating-the-appointments-table)
+    - [Creating the Appointment Model](level-02/02.1-backend-database.md#creating-the-appointment-model)
+    - [TypeORM Repositories](level-02/02.1-backend-database.md#typeorm-repositories)
+    - [Summary](level-02/02.1-backend-database.md#summary)
 
 </details>
 
