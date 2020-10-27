@@ -96,7 +96,7 @@ To be honest these notes were not written in a way to be "consumed" by others, b
     - [Working With Data - Data Transfer Object](level-02/01-starting-with-nodejs-and-typescript.md#working-with-data---data-transfer-object)
     - [The Services Pattern & SOLID](level-02/01-starting-with-nodejs-and-typescript.md#the-services-pattern--solid)
     - [Summary](level-02/01-starting-with-nodejs-and-typescript.md#summary)
-- [My GoBarber codebase at this point:](level-02/01-starting-with-nodejs-and-typescript.md)
+    - [My GoBarber codebase at this point:](level-02/01-starting-with-nodejs-and-typescript.md#my-gobarber-codebase-at-this-point)
     - [Challenge 5](level-02/01-starting-with-nodejs-and-typescript.md#challenge-5)
 
 </details>
