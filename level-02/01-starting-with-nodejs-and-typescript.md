@@ -99,7 +99,7 @@ node_modules
 dist
 ```
 
-Edit `eslintrc.json`:
+Edit `.eslintrc.json`:
 ```json
 {
   // ...
@@ -169,7 +169,7 @@ build
 /src/react-app-env.d.ts
 ```
 
-Edit `eslintrc.json`:
+Edit `.eslintrc.json`:
 ```json
 {
   // ...
