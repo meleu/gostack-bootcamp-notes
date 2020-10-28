@@ -2,11 +2,13 @@
 
 ## Concepts
 
+- video: <https://app.rocketseat.com.br/node/front-end-com-react-js/lesson/conceitos-react-js>
+
 ### Declarative vs Imperative programming
 
 ### babel / webpack
 
-[anki]
+<!-- anki -->
 
 **babel**: Transpile React code into something the browser can understand.
 
@@ -29,6 +31,8 @@ yarn add @babel/cli @babel/plugin-transform-runtime webpack-cli webpack-dev-serv
 
 ### Configuring babel
 
+- video: <https://app.rocketseat.com.br/node/front-end-com-react-js/lesson/configurando-babel-1>
+
 `babel.config.js`:
 ```js
 module.exports = {
@@ -43,6 +47,8 @@ module.exports = {
 ```
 
 ### Configuring webpack
+
+- video: <https://app.rocketseat.com.br/node/front-end-com-react-js/lesson/configurando-webpack-1>
 
 `webpack.config.js`:
 ```js
@@ -72,6 +78,8 @@ module.exports = {
 ```
 
 ### Source files
+
+- video: <https://app.rocketseat.com.br/node/front-end-com-react-js/lesson/componentizacao-1>
 
 `public/index.html`:
 ```html
@@ -116,6 +124,8 @@ render(<App />, document.getElementById('app'));
 
 ## Properties
 
+- video: <https://app.rocketseat.com.br/node/front-end-com-react-js/lesson/propriedades-1>
+
 In React, only parent elements can pass properties to their children.
 
 Example of `App` passing properties to the `Header` component:
@@ -149,6 +159,8 @@ function Header({ title, children }) { // children is autmatically created by Re
 
 ## State and Immutability
 
+- video: <https://app.rocketseat.com.br/node/front-end-com-react-js/lesson/estado-e-imutabilidade-1>
+
 **Note**: when there's an iteration in a React component, the top-level element must have a `key` attribute.
 
 In order to use states, it's necessary to import `useState`:
@@ -171,6 +183,8 @@ By using the `setSomething()`, it makes the React re-render the component.
 
 
 ## Importing CSS and Images
+
+- video: <https://app.rocketseat.com.br/node/front-end-com-react-js/lesson/importando-css-e-imagens>
 
 To allow things like this:
 ```js
