@@ -245,6 +245,9 @@ see also: https://github.com/meleu/bootcamp-gostack-challenge-01/blob/master/ind
 
 ## middleware
 
+- video: <https://app.rocketseat.com.br/node/nivel-01/lesson/middlewares-2>
+- old video: <https://app.rocketseat.com.br/node/ambiente-e-conceitos-5/group/introducao-ao-node/lesson/middlewares-1>
+
 It's a "request's interceptor", that can either interrupt the request or
 change request's data.
 
