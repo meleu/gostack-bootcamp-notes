@@ -124,6 +124,7 @@ To be honest these notes were not written in a way to be "consumed" by others, b
 
 - [Backend - Registering Users](level-02/02.2-backend-registering-users.md)
     - [User's Model and Migration](level-02/02.2-backend-registering-users.md#users-model-and-migration)
+    - [Relations in the Models](level-02/02.2-backend-registering-users.md#relations-in-the-models)
     - [My GoBarber codebase at this point:](level-02/02.2-backend-registering-users.md#my-gobarber-codebase-at-this-point)
 
 </details>
