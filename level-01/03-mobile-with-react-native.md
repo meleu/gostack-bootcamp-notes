@@ -2,13 +2,15 @@
 
 ## Concepts
 
+- vide: <https://app.rocketseat.com.br/node/mobile-com-react-native/lesson/arquitetura-react-native>
+
 What is React Native? A React version for mobile development.
 
 Advantage: multiplatform (Android and iOS)
 
 Architechture: JS -> Metro Bundler (packager) -> bundle -> bridge (connect js and native) -> Android or iOS
 
-## Syntax
+### Syntax
 
 - no HTML tags allowed (only `react-native` components)
 - `View` works like a `div`
@@ -52,7 +54,7 @@ const styles = StyleSheet.create({
 (thanks to yoga)
 
 
-## Expo
+### Expo
 
 SDK with a lot of ready to use functionalities (camera, video, integrations, etc.)
 
@@ -66,11 +68,15 @@ Why we won't use Expo in this bootcamp?
 
 ## React Native Development Environment
 
+- video: <https://app.rocketseat.com.br/node/mobile-com-react-native/lesson/configurando-sdk>
+
 Website with instructions (in portuguese) to install a React Native development environment:
 - https://react-native.rocketseat.dev/
 
 
 ## Starting a New Project
+
+- video: <https://app.rocketseat.com.br/node/mobile-com-react-native/lesson/criando-novo-projeto>
 
 ```
 react-native init mobile

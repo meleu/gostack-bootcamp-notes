@@ -2,6 +2,8 @@
 
 ## Node.js
 
+- video: <https://app.rocketseat.com.br/node/nivel-01/lesson/conceitos-node-js>
+
 Using [nvm](https://github.com/nvm-sh/nvm) is better than install node from your distro's official package (avoid problems with different versions of node).
 
 Use `yarn` instead of `npm` (that comes with node by default) to manage JS packages/dependencies. (**note**: I still didn't find why `yarn` is considered a better option, but let's keep going...)
@@ -16,7 +18,7 @@ Node.js features:
     - background threads
 - non blocking I/O
 
-## frameworks
+### frameworks
 
 ExpressJS (good for starters):
 
@@ -30,6 +32,7 @@ Opnionated frameworks:
 
 ## REST APIs
 
+- video: <https://app.rocketseat.com.br/node/nivel-01/lesson/conceitos-api-rest>
 <!-- anki -->
 
 HTTP verbs:
@@ -42,6 +45,8 @@ HTTP verbs:
 Data flows in JSON format
 
 ## basic structure of a HTTP request
+
+- video: <https://app.rocketseat.com.br/node/nivel-01/lesson/metodos-http>
 
 <!-- anki -->
 
@@ -58,7 +63,7 @@ The `POST` and `PUT` methods also use the `body` field.
 Another commonly used field is the `Header`.
 
 
-## HTTP Codes
+### HTTP Codes
 
 <!-- anki -->
 
@@ -138,6 +143,8 @@ server.post('/user', (request, response) => {
 
 ## nodemon
 
+- video: <https://app.rocketseat.com.br/node/nivel-01/lesson/configurando-nodemon>
+
 Using `nodemon` is a nice way to restart your application right after saving your code.
 ```
 yarn add nodemon -D
@@ -153,6 +160,8 @@ then add to your `package.json`:
 now, just execute `yarn dev` (ou `npm run dev`).
 
 ## CRUD
+
+
 
 Dumb backend example using an array named `projects` to store data:
 ```js
@@ -235,6 +244,9 @@ see also: https://github.com/meleu/bootcamp-gostack-challenge-01/blob/master/ind
 
 
 ## middleware
+
+- video: <https://app.rocketseat.com.br/node/nivel-01/lesson/middlewares-2>
+- old video: <https://app.rocketseat.com.br/node/ambiente-e-conceitos-5/group/introducao-ao-node/lesson/middlewares-1>
 
 It's a "request's interceptor", that can either interrupt the request or
 change request's data.
