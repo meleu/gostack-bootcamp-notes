@@ -12,10 +12,10 @@ To be honest these notes were not written in a way to be "consumed" by others, b
 
 - [Back-end With NodeJS](level-01/01-backend-with-nodejs.md)
     - [Node.js](level-01/01-backend-with-nodejs.md#nodejs)
-    - [frameworks](level-01/01-backend-with-nodejs.md#frameworks)
+        - [frameworks](level-01/01-backend-with-nodejs.md#frameworks)
     - [REST APIs](level-01/01-backend-with-nodejs.md#rest-apis)
     - [basic structure of a HTTP request](level-01/01-backend-with-nodejs.md#basic-structure-of-a-http-request)
-    - [HTTP Codes](level-01/01-backend-with-nodejs.md#http-codes)
+        - [HTTP Codes](level-01/01-backend-with-nodejs.md#http-codes)
     - [ExpressJS](level-01/01-backend-with-nodejs.md#expressjs)
         - [getting HTTP data from `request`](level-01/01-backend-with-nodejs.md#getting-http-data-from-request)
             - [route parameter](level-01/01-backend-with-nodejs.md#route-parameter)
@@ -51,8 +51,8 @@ To be honest these notes were not written in a way to be "consumed" by others, b
 
 - [Mobile With Reach Native](level-01/03-mobile-with-react-native.md)
     - [Concepts](level-01/03-mobile-with-react-native.md#concepts)
-    - [Syntax](level-01/03-mobile-with-react-native.md#syntax)
-    - [Expo](level-01/03-mobile-with-react-native.md#expo)
+        - [Syntax](level-01/03-mobile-with-react-native.md#syntax)
+        - [Expo](level-01/03-mobile-with-react-native.md#expo)
     - [React Native Development Environment](level-01/03-mobile-with-react-native.md#react-native-development-environment)
     - [Starting a New Project](level-01/03-mobile-with-react-native.md#starting-a-new-project)
     - [Snippets](level-01/03-mobile-with-react-native.md#snippets)
