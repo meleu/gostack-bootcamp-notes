@@ -563,7 +563,7 @@ Services Features:
 - is responsible for the business rules.
 - has only one and a very specific task to accomplish.
 - has only one public method (usually called `execute` or `run`).
-- doesn't have access to the requests/responses.
+- on success, return data; on error `throw an Error()` (it doesn't have access to the HTTP (express) layer).
 
 Interesting article about the Repository Pattern: <https://culttt.com/2014/09/08/benefits-using-repositories/>
 
