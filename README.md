@@ -132,3 +132,15 @@ To be honest these notes were not written in a way to be "consumed" by others, b
 </details>
 
 
+<details><summary>02.3-backend-authentication.md</summary><br>
+
+- [Backend - Authentication](level-02/02.3-backend-authentication.md)
+    - [JWT Concepts](level-02/02.3-backend-authentication.md#jwt-concepts)
+    - [Validating Credentials](level-02/02.3-backend-authentication.md#validating-credentials)
+    - [Generating a Token](level-02/02.3-backend-authentication.md#generating-a-token)
+    - [Authenticated Routes](level-02/02.3-backend-authentication.md#authenticated-routes)
+    - [Summary](level-02/02.3-backend-authentication.md#summary)
+
+</details>
+
+
