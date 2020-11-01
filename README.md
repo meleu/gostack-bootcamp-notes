@@ -127,6 +127,8 @@ To be honest these notes were not written in a way to be "consumed" by others, b
     - [Relations in the Models](level-02/02.2-backend-registering-users.md#relations-in-the-models)
     - [Route to Create Users](level-02/02.2-backend-registering-users.md#route-to-create-users)
     - [Encrypting the Password](level-02/02.2-backend-registering-users.md#encrypting-the-password)
+    - [Summary](level-02/02.2-backend-registering-users.md#summary)
+    - [Need More Understanding](level-02/02.2-backend-registering-users.md#need-more-understanding)
     - [My GoBarber codebase at this point:](level-02/02.2-backend-registering-users.md#my-gobarber-codebase-at-this-point)
 
 </details>
