@@ -96,7 +96,7 @@ To be honest these notes were not written in a way to be "consumed" by others, b
     - [Working With Data - Data Transfer Object](level-02/01-starting-with-nodejs-and-typescript.md#working-with-data---data-transfer-object)
     - [The Services Pattern & SOLID](level-02/01-starting-with-nodejs-and-typescript.md#the-services-pattern--solid)
     - [Summary](level-02/01-starting-with-nodejs-and-typescript.md#summary)
-    - [My GoBarber codebase at this point:](level-02/01-starting-with-nodejs-and-typescript.md#my-gobarber-codebase-at-this-point)
+    - [My GoBarber codebase up to this point](level-02/01-starting-with-nodejs-and-typescript.md#my-gobarber-codebase-up-to-this-point)
     - [Challenge 5](level-02/01-starting-with-nodejs-and-typescript.md#challenge-5)
 
 </details>
@@ -115,7 +115,7 @@ To be honest these notes were not written in a way to be "consumed" by others, b
     - [Creating the Appointment Model](level-02/02.1-backend-database.md#creating-the-appointment-model)
     - [TypeORM Repositories](level-02/02.1-backend-database.md#typeorm-repositories)
     - [Summary](level-02/02.1-backend-database.md#summary)
-    - [My GoBarber codebase at this point:](level-02/02.1-backend-database.md#my-gobarber-codebase-at-this-point)
+    - [My GoBarber codebase up to this point](level-02/02.1-backend-database.md#my-gobarber-codebase-up-to-this-point)
 
 </details>
 
@@ -129,7 +129,7 @@ To be honest these notes were not written in a way to be "consumed" by others, b
     - [Encrypting the Password](level-02/02.2-backend-registering-users.md#encrypting-the-password)
     - [Summary](level-02/02.2-backend-registering-users.md#summary)
     - [Need More Understanding](level-02/02.2-backend-registering-users.md#need-more-understanding)
-    - [My GoBarber codebase at this point:](level-02/02.2-backend-registering-users.md#my-gobarber-codebase-at-this-point)
+    - [My GoBarber codebase up to this point](level-02/02.2-backend-registering-users.md#my-gobarber-codebase-up-to-this-point)
 
 </details>
 
@@ -142,6 +142,7 @@ To be honest these notes were not written in a way to be "consumed" by others, b
     - [Generating a Token](level-02/02.3-backend-authentication.md#generating-a-token)
     - [Authenticated Routes](level-02/02.3-backend-authentication.md#authenticated-routes)
     - [Summary](level-02/02.3-backend-authentication.md#summary)
+    - [My GoBarber codebase up to this point](level-02/02.3-backend-authentication.md#my-gobarber-codebase-up-to-this-point)
 
 </details>
 

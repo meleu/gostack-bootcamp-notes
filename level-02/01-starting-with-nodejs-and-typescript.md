@@ -650,7 +650,7 @@ An instance of this class should be constructed with an instance of `Appointment
 **Answer**: because the business rules' logic sits on the service. The client shouldn't be worried about business rules.
 
 
-## My GoBarber codebase at this point:
+## My GoBarber codebase up to this point
 
 <https://github.com/meleu/gobarber/tree/31c499b3df733a8e7224df9d210035699ddc2503>
 
