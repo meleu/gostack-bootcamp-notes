@@ -79,7 +79,7 @@ For node, let's use the 6.8.0 version, as the new ones have some inconveniences.
 yarn add eslint@6.8.0 -D
 yarn eslint --init
 # 1. To check syntax, find problems and enforce code style
-# 2. JavaScript modules (impot/export)
+# 2. JavaScript modules (import/export)
 # 3. None of these
 # 4. (use TypeScript?) Yes
 # 5. (mark only Node with space bar and then Enter)
