@@ -147,3 +147,43 @@ To be honest these notes were not written in a way to be "consumed" by others, b
 </details>
 
 
+<details><summary>02.4-backend-images-upload.md</summary><br>
+
+- [Backend - Images Upload](level-02/02.4-backend-images-upload.md)
+    - [File Upload](level-02/02.4-backend-images-upload.md#file-upload)
+        - [Handling Uploads](level-02/02.4-backend-images-upload.md#handling-uploads)
+        - [Create the `avatar` field for Users](level-02/02.4-backend-images-upload.md#create-the-avatar-field-for-users)
+    - [Updating the Avatar](level-02/02.4-backend-images-upload.md#updating-the-avatar)
+    - [Serving Static Files](level-02/02.4-backend-images-upload.md#serving-static-files)
+    - [Summary](level-02/02.4-backend-images-upload.md#summary)
+    - [My GoBarber codebase up to this point](level-02/02.4-backend-images-upload.md#my-gobarber-codebase-up-to-this-point)
+
+</details>
+
+
+<details><summary>99-backend-summary.md</summary><br>
+
+- [Backend Summary](level-02/99-backend-summary.md)
+    - [Development Environment](level-02/99-backend-summary.md#development-environment)
+        - [EditorConfig](level-02/99-backend-summary.md#editorconfig)
+        - [ESLint](level-02/99-backend-summary.md#eslint)
+            - [Node](level-02/99-backend-summary.md#node)
+        - [Prettier](level-02/99-backend-summary.md#prettier)
+            - [Solving conflicts between ESLint and Prettier.](level-02/99-backend-summary.md#solving-conflicts-between-eslint-and-prettier)
+    - [Debugging in VS Code](level-02/99-backend-summary.md#debugging-in-vs-code)
+    - [Docker & Data Base](level-02/99-backend-summary.md#docker--data-base)
+        - [QueryFailedError: function uuid_generate_v4() does not exist](level-02/99-backend-summary.md#queryfailederror-function-uuid_generate_v4-does-not-exist)
+    - [Kickstarting the Code](level-02/99-backend-summary.md#kickstarting-the-code)
+    - [Handling Errors](level-02/99-backend-summary.md#handling-errors)
+    - [TypeORM](level-02/99-backend-summary.md#typeorm)
+    - [Users](level-02/99-backend-summary.md#users)
+        - [API Endpoints](level-02/99-backend-summary.md#api-endpoints)
+        - [Registering Users](level-02/99-backend-summary.md#registering-users)
+        - [Authentication](level-02/99-backend-summary.md#authentication)
+            - [Requesting a Token](level-02/99-backend-summary.md#requesting-a-token)
+            - [Authentication Middleware](level-02/99-backend-summary.md#authentication-middleware)
+    - [Uploading The Avatar](level-02/99-backend-summary.md#uploading-the-avatar)
+
+</details>
+
+
