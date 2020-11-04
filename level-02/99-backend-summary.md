@@ -367,7 +367,7 @@ yarn add -D @types/jsonwebtoken
 
 #### Authentication Middleware
 
-- Create `src/middlewares/ensureAuthenticated.ts` to check if the token given in the `request.headers.authorization` is valid (remember to deal with the `Bearer: `).
+- Create `src/middlewares/ensureAuthenticated.ts` (suggestion for a better name: `authenticationMiddleware`) to check if the token given in the `request.headers.authorization` is valid (remember to deal with the `Bearer: `).
   - Create the `src/@types/express.d.ts`:
 ```ts
 declare namespace Express {
