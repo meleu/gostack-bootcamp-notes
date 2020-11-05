@@ -161,28 +161,24 @@ To be honest these notes were not written in a way to be "consumed" by others, b
 </details>
 
 
-<details><summary>99-backend-summary.md</summary><br>
+<details><summary>99-gobarber-backend-summary.md</summary><br>
 
-- [Backend Summary](level-02/99-backend-summary.md)
-    - [Development Environment](level-02/99-backend-summary.md#development-environment)
-        - [EditorConfig](level-02/99-backend-summary.md#editorconfig)
-        - [ESLint](level-02/99-backend-summary.md#eslint)
-            - [Node](level-02/99-backend-summary.md#node)
-        - [Prettier](level-02/99-backend-summary.md#prettier)
-            - [Solving conflicts between ESLint and Prettier.](level-02/99-backend-summary.md#solving-conflicts-between-eslint-and-prettier)
-    - [Debugging in VS Code](level-02/99-backend-summary.md#debugging-in-vs-code)
-    - [Docker & Data Base](level-02/99-backend-summary.md#docker--data-base)
-        - [QueryFailedError: function uuid_generate_v4() does not exist](level-02/99-backend-summary.md#queryfailederror-function-uuid_generate_v4-does-not-exist)
-    - [Kickstarting the Code](level-02/99-backend-summary.md#kickstarting-the-code)
-    - [Handling Errors](level-02/99-backend-summary.md#handling-errors)
-    - [TypeORM](level-02/99-backend-summary.md#typeorm)
-    - [Users](level-02/99-backend-summary.md#users)
-        - [API Endpoints](level-02/99-backend-summary.md#api-endpoints)
-        - [Registering Users](level-02/99-backend-summary.md#registering-users)
-        - [Authentication](level-02/99-backend-summary.md#authentication)
-            - [Requesting a Token](level-02/99-backend-summary.md#requesting-a-token)
-            - [Authentication Middleware](level-02/99-backend-summary.md#authentication-middleware)
-    - [Uploading The Avatar](level-02/99-backend-summary.md#uploading-the-avatar)
+- [GoBarber Backend Summary](level-02/99-gobarber-backend-summary.md)
+    - [Development Environment](level-02/99-gobarber-backend-summary.md#development-environment)
+    - [Kickstarting the Code](level-02/99-gobarber-backend-summary.md#kickstarting-the-code)
+        - [EditorConfig](level-02/99-gobarber-backend-summary.md#editorconfig)
+        - [ESLint](level-02/99-gobarber-backend-summary.md#eslint)
+            - [Node](level-02/99-gobarber-backend-summary.md#node)
+        - [Prettier](level-02/99-gobarber-backend-summary.md#prettier)
+            - [Solving conflicts between ESLint and Prettier.](level-02/99-gobarber-backend-summary.md#solving-conflicts-between-eslint-and-prettier)
+    - [Debugging in VS Code](level-02/99-gobarber-backend-summary.md#debugging-in-vs-code)
+    - [Docker & Data Base](level-02/99-gobarber-backend-summary.md#docker--data-base)
+        - [QueryFailedError: function uuid_generate_v4() does not exist](level-02/99-gobarber-backend-summary.md#queryfailederror-function-uuid_generate_v4-does-not-exist)
+    - [Handling Errors](level-02/99-gobarber-backend-summary.md#handling-errors)
+    - [TypeORM](level-02/99-gobarber-backend-summary.md#typeorm)
+    - [Users](level-02/99-gobarber-backend-summary.md#users)
+        - [API Endpoints](level-02/99-gobarber-backend-summary.md#api-endpoints)
+        - [Registering Users](level-02/99-gobarber-backend-summary.md#registering-users)
 
 </details>
 

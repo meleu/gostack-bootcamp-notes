@@ -8,7 +8,8 @@
 ## Project Structure
 
 ```
-mkdir projeto
+mkdir projectName
+cd projectName
 yarn init -y
 yarn add express
 yarn add typescript @types/express ts-node-dev -D
