@@ -1,4 +1,4 @@
-# Backend Summary
+# GoBarber Backend Summary
 
 The goal here is to quickly achieve the final code of this module of the course but in a shorter path than the one taken during the course.
 
@@ -9,6 +9,45 @@ Pre-requisites:
 - VS Code
 - Insomnia
 - Docker
+
+## Kickstarting the Code
+
+```
+mkdir gobarber
+cd gobarber
+yarn init -y
+yarn add express
+yarn add -D typescript @types/express ts-node-dev
+yarn tsc --init # generates the tsconfig.json
+mkdir -p src/routes
+```
+
+- Add this options to `tsconfig.json`:
+```json
+{
+  "compilerOptions": {
+    "outDir": "./dist",
+    "rootDir": "./src",
+    "strictPropertyInitialization": false,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+  }
+}
+```
+
+- Add this entry to `package.json`:
+```json
+{
+  "scripts": {
+    "build": "tsc",
+    "dev:server": "ts-node-dev --transpile-only --ignore-watch node_modules src/server.ts"
+  },
+}
+```
+
+- Create the `src/routes/index.ts` and make it answer with a 'Hello World' message in a JSON.
+
+- Create the `src/server.ts` and make it use the `routes/index` before launching the server.
 
 
 ### EditorConfig
@@ -78,6 +117,7 @@ Edit `.eslintrc.json`:
   ],
   // ...
   "rules": {
+    "class-methods-use-this": "off",
     "import/extensions": [
       "error",
       "ignorePackages",
@@ -99,8 +139,6 @@ Edit `.eslintrc.json`:
 Restart VS Code
 
 ### Prettier
-
-It's the same for NodeJS, ReactJS and React Native.
 
 ```
 yarn add prettier eslint-config-prettier eslint-plugin-prettier -D
@@ -218,24 +256,9 @@ Then run this command inside PostgreSQL, in the `gostack_gobarber` database:
 CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
 ```
 
-## Kickstarting the Code
-
-```
-$ tree src/
-src/
-├── routes
-│   └── index.ts
-└── server.ts
-```
-
-The `server` uses the `routes/index` and launches the express server.
-
-And the `routes/index` answer with a 'Hello World' message in a JSON.
-
-
 ## Handling Errors
 
-Let's handle the errors right from the start.
+TODO: Let's handle the errors right from the start.
 
 
 ## TypeORM
@@ -325,7 +348,7 @@ yarn typeorm migration:create -n CreateUsers
 - run the migration:
 ```
 yarn typeorm migration:run
-``
+```
 
 - Check in the DBeaver if the table was really created.
 
@@ -384,7 +407,111 @@ declare namespace Express {
 
 ## Uploading The Avatar
 
-TODO...
+- Install:
+```
+yarn add multer
+yarn add -D @types/multer
+```
+
+- Create `src/config/upload.ts` to config some stuff for multer.
+
+- Create a `PATCH /users/avatar` route in `src/routes/users.routes.ts`
+  - Use `multer.single()` middleware to get the file and save it in the server
+
+- Test it with insomnia
+  - invalid token
+  - valid token and valid file
+
+- Create the `src/services/UpdateUserAvatarService.ts`:
+  - get the user data from the db (throw error if not found)
+  - if user's avatar is not null, delete the old file
+  - set the path to the new file as `user.avatar`
+
+- Edit the `src/routes/users.routes.ts` in order to use the `UpdateUserAvatarService.ts`.
+
+- Test with insomnia.
+  - no file
+  - valid token and valid file
+  - delete the file in `/tmp` dir and try to send a new one
+    - fix the problem using `fs.existsSync()`
+
+- Edit the `src/server.ts` to serve the image files statically.
+
+- Test in a browser.
+
+## Appointments
+
+- Create the `src/routes/appointments.routes.ts`
+  - Make it answer a 'Hello World'
+  - Use `appointments.routes` in the `routes/index`.
+  - Test it with insomnia.
+
+### Appointments Table
+
+- migration
+```
+yarn typeorm migration:create -n CreateAppointments
+```
+- Columns to be created
+  - id
+  - provider_id
+  - date
+  - created_at
+  - updated_at
+
+- run the migration:
+```
+yarn typeorm migration:run
+```
+
+- Check in the DBeaver if the table was really created.
 
 
+### Appointments Model
+
+- Create the `src/models/Appointments.ts`.
+  - Add this to the Appointments model:
+```ts
+  @ManyToOne(() => User)
+  @JoinColumn({ name: 'provider_id' })
+  provider: User
+```
+
+### Appointments Repository
+
+- Create `src/repositories/AppointmentsRepository.ts`
+
+
+### CreateAppointmentService
+
+- Create the `src/services/CreateAppointmentService.ts`
+
+- Call the service in the `appointments.routes`.
+
+- Test with insomnia
+  - Create some appointments
+  - List all appointments
+  - Turn off the server and then test again to check if the previously created appointments persisted.
+
+
+
+
+
+
+
+
+
+
+
+### Validating Dates
+
+- Install:
+```
+yarn add date-fns
+```
+
+- migration
+- model
+  - relation with users table
+- routes (authenticated)
 
