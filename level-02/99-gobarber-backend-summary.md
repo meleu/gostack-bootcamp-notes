@@ -268,11 +268,6 @@ Then run this command inside PostgreSQL, in the `gostack_gobarber` database:
 CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
 ```
 
-## Handling Errors
-
-TODO: Let's handle the errors right from the start.
-
-
 ## TypeORM
 
 - Install:
@@ -341,6 +336,7 @@ Import `user.routes` in `routes/index` and use it.
 
 Test the endpoints with insomnia.
 
+
 ### Registering Users
 
 - migration
@@ -370,7 +366,7 @@ yarn typeorm migration:run
 ```
 yarn add bcryptjs
 yarn add -D @types/bcryptjs
-``
+```
 
 - Create the `src/services/CreateUserService` and handle these business rules before persisting data:
   - password, name, email not empty
@@ -378,6 +374,15 @@ yarn add -D @types/bcryptjs
   - encrypt password (using `{ hash } from 'bcryptjs'`)
 
 - In the `users.routes`, make use of the `CreateUserService` and create a new user. **Note**: do not give the password in the response.
+
+
+### Handling Errors
+
+- Create the `src/errors/AppError.ts`.
+
+- Add the global exception handler in the `src/server.ts`.
+
+- Test the exception handler by trying to creat an user with invalid input.
 
 
 ### Authentication

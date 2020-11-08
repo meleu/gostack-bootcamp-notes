@@ -161,6 +161,17 @@ To be honest these notes were not written in a way to be "consumed" by others, b
 </details>
 
 
+<details><summary>02.5-backend-handling-exceptions.md</summary><br>
+
+- [Backend - Handling Exceptions](level-02/02.5-backend-handling-exceptions.md)
+    - [Creating the AppError Class](level-02/02.5-backend-handling-exceptions.md#creating-the-apperror-class)
+    - [Dealing with Errors](level-02/02.5-backend-handling-exceptions.md#dealing-with-errors)
+    - [Summary](level-02/02.5-backend-handling-exceptions.md#summary)
+    - [My GoBarber codebase up to this point](level-02/02.5-backend-handling-exceptions.md#my-gobarber-codebase-up-to-this-point)
+
+</details>
+
+
 <details><summary>99-gobarber-backend-summary.md</summary><br>
 
 - [GoBarber Backend Summary](level-02/99-gobarber-backend-summary.md)
@@ -175,11 +186,21 @@ To be honest these notes were not written in a way to be "consumed" by others, b
     - [Debugging in VS Code](level-02/99-gobarber-backend-summary.md#debugging-in-vs-code)
     - [Docker & Data Base](level-02/99-gobarber-backend-summary.md#docker--data-base)
         - [QueryFailedError: function uuid_generate_v4() does not exist](level-02/99-gobarber-backend-summary.md#queryfailederror-function-uuid_generate_v4-does-not-exist)
-    - [Handling Errors](level-02/99-gobarber-backend-summary.md#handling-errors)
     - [TypeORM](level-02/99-gobarber-backend-summary.md#typeorm)
     - [Users](level-02/99-gobarber-backend-summary.md#users)
         - [API Endpoints](level-02/99-gobarber-backend-summary.md#api-endpoints)
         - [Registering Users](level-02/99-gobarber-backend-summary.md#registering-users)
+        - [Handling Errors](level-02/99-gobarber-backend-summary.md#handling-errors)
+        - [Authentication](level-02/99-gobarber-backend-summary.md#authentication)
+            - [Requesting a Token](level-02/99-gobarber-backend-summary.md#requesting-a-token)
+            - [Authentication Middleware](level-02/99-gobarber-backend-summary.md#authentication-middleware)
+    - [Uploading The Avatar](level-02/99-gobarber-backend-summary.md#uploading-the-avatar)
+    - [Appointments](level-02/99-gobarber-backend-summary.md#appointments)
+        - [Appointments Table](level-02/99-gobarber-backend-summary.md#appointments-table)
+        - [Appointments Model](level-02/99-gobarber-backend-summary.md#appointments-model)
+        - [Appointments Repository](level-02/99-gobarber-backend-summary.md#appointments-repository)
+        - [CreateAppointmentService](level-02/99-gobarber-backend-summary.md#createappointmentservice)
+        - [Validating Dates](level-02/99-gobarber-backend-summary.md#validating-dates)
 
 </details>
 
