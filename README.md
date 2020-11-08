@@ -165,6 +165,7 @@ To be honest these notes were not written in a way to be "consumed" by others, b
 
 - [GoBarber Backend Summary](level-02/99-gobarber-backend-summary.md)
     - [Development Environment](level-02/99-gobarber-backend-summary.md#development-environment)
+    - [GitHub Repository](level-02/99-gobarber-backend-summary.md#github-repository)
     - [Kickstarting the Code](level-02/99-gobarber-backend-summary.md#kickstarting-the-code)
         - [EditorConfig](level-02/99-gobarber-backend-summary.md#editorconfig)
         - [ESLint](level-02/99-gobarber-backend-summary.md#eslint)

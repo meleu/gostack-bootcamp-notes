@@ -10,16 +10,24 @@ Pre-requisites:
 - Insomnia
 - Docker
 
+## GitHub Repository
+
+I recommend starting with a github repository so we can get a commit history of our project. So, go to github and create a new repo.
+
 ## Kickstarting the Code
 
+Clone your repo and start coding!
 ```
-mkdir gobarber
-cd gobarber
+git clone https://github.com/{USERNAME}/gobarber
+code gobarber
+```
+
+Once in the project's directory, install the initial packages:
+```
 yarn init -y
 yarn add express
 yarn add -D typescript @types/express ts-node-dev
 yarn tsc --init # generates the tsconfig.json
-mkdir -p src/routes
 ```
 
 - Add this options to `tsconfig.json`:
@@ -87,7 +95,7 @@ For node, let's use the 6.8.0 version, as the new ones have some inconveniences.
 yarn add eslint@6.8.0 -D
 yarn eslint --init
 # 1. To check syntax, find problems and enforce code style
-# 2. JavaScript modules (impot/export)
+# 2. JavaScript modules (import/export)
 # 3. None of these
 # 4. (use TypeScript?) Yes
 # 5. (mark only Node with space bar and then Enter)
