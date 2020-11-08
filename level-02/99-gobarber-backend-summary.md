@@ -250,6 +250,10 @@ docker run --name gostack_postgresql -e POSTGRES_PASSWORD=docker -p 5432:5432 -d
 - Install DBeaver: <https://dbeaver.io/>
 
 - Through DBeaver, create a database named `gostack_gobarber`.
+Via SQL it would be like this:
+```
+create database gobarber_project;
+```
 
 
 ### QueryFailedError: function uuid_generate_v4() does not exist
