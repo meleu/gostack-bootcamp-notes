@@ -185,7 +185,6 @@ To be honest these notes were not written in a way to be "consumed" by others, b
             - [Solving conflicts between ESLint and Prettier.](level-02/99-gobarber-backend-summary.md#solving-conflicts-between-eslint-and-prettier)
     - [Debugging in VS Code](level-02/99-gobarber-backend-summary.md#debugging-in-vs-code)
     - [Docker & Data Base](level-02/99-gobarber-backend-summary.md#docker--data-base)
-        - [QueryFailedError: function uuid_generate_v4() does not exist](level-02/99-gobarber-backend-summary.md#queryfailederror-function-uuid_generate_v4-does-not-exist)
     - [TypeORM](level-02/99-gobarber-backend-summary.md#typeorm)
     - [Users](level-02/99-gobarber-backend-summary.md#users)
         - [API Endpoints](level-02/99-gobarber-backend-summary.md#api-endpoints)

@@ -256,18 +256,6 @@ create database gobarber_project;
 ```
 
 
-### QueryFailedError: function uuid_generate_v4() does not exist
-
-**IMPORTANT**: if while running a migration you receive this error:
-```
-QueryFailedError: function uuid_generate_v4() does not exist
-```
-
-Then run this command inside PostgreSQL, in the `gostack_gobarber` database:
-```
-CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
-```
-
 ## TypeORM
 
 - Install:
@@ -359,6 +347,20 @@ yarn typeorm migration:run
 ```
 
 - Check in the DBeaver if the table was really created.
+
+---
+
+**IMPORTANT**: if while running a migration you receive this error:
+```
+QueryFailedError: function uuid_generate_v4() does not exist
+```
+
+Then run this command inside PostgreSQL, in the `gostack_gobarber` database:
+```
+CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
+```
+
+---
 
 - Create the `src/models/User.ts`.
 
