@@ -190,6 +190,7 @@ To be honest these notes were not written in a way to be "consumed" by others, b
         - [API Endpoints](level-02/99-gobarber-backend-summary.md#api-endpoints)
         - [Registering Users](level-02/99-gobarber-backend-summary.md#registering-users)
         - [Handling Errors](level-02/99-gobarber-backend-summary.md#handling-errors)
+        - [Password Encryption](level-02/99-gobarber-backend-summary.md#password-encryption)
         - [Authentication](level-02/99-gobarber-backend-summary.md#authentication)
             - [Requesting a Token](level-02/99-gobarber-backend-summary.md#requesting-a-token)
             - [Authentication Middleware](level-02/99-gobarber-backend-summary.md#authentication-middleware)

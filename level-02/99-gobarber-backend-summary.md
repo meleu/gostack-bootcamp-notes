@@ -359,19 +359,13 @@ CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
 
 - Create the `src/models/User.ts`.
 
-- Install bcrypt in order to encrypt user's password before persisting it:
-```
-yarn add bcryptjs
-yarn add -D @types/bcryptjs
-```
-
 - Create the `src/services/CreateUserService` and handle these business rules before persisting data:
   - password, name, email not empty
   - email is valid
-  - encrypt password (using `{ hash } from 'bcryptjs'`)
+  - password.length > 6
+  - etc.
 
-- In the `users.routes`, make use of the `CreateUserService` and create a new user. **Note**: do not give the password in the response.
-
+- Test with insomnia giving invalid input (it'll break the app when throwing errors).
 
 ### Handling Errors
 
@@ -380,6 +374,21 @@ yarn add -D @types/bcryptjs
 - Add the global exception handler in the `src/server.ts`.
 
 - Test the exception handler by trying to creat an user with invalid input.
+
+
+### Password Encryption
+
+- Install bcrypt in order to encrypt user's password before persisting it:
+```
+yarn add bcryptjs
+yarn add -D @types/bcryptjs
+```
+
+- In the `src/services/CreateUserService` and handle these business rules before persisting data:
+  - encrypt password (using `{ hash } from 'bcryptjs'`)
+
+- In the `users.routes`, make use of the `CreateUserService` and create a new user. **Note**: do not give the password in the response.
+
 
 
 ### Authentication
