@@ -428,7 +428,9 @@ declare namespace Express {
 - Make use of the `ensureAuthenticated` middleware in the `/users/avatar` endpoint.
 
 
-## Uploading The Avatar
+## Updating The Avatar
+
+### Upload The File
 
 - Install:
 ```
@@ -445,6 +447,13 @@ yarn add -D @types/multer
   - invalid token
   - valid token and valid file
 
+- Edit the `src/server.ts` to serve the image files statically.
+
+- Test in a browser.
+
+
+### Updating the `avatar` field
+
 - Create the `src/services/UpdateUserAvatarService.ts`:
   - get the user data from the db (throw error if not found)
   - if user's avatar is not null, delete the old file
@@ -457,10 +466,6 @@ yarn add -D @types/multer
   - valid token and valid file
   - delete the file in `/tmp` dir and try to send a new one
     - fix the problem using `fs.existsSync()`
-
-- Edit the `src/server.ts` to serve the image files statically.
-
-- Test in a browser.
 
 ## Appointments
 
