@@ -7,6 +7,8 @@ The goal here is to quickly achieve the final code of this module of the course 
 Pre-requisites:
 
 - VS Code
+- NodeJS (recommended: nvm)
+- yarn
 - Insomnia
 - Docker
 
@@ -53,9 +55,7 @@ yarn tsc --init # generates the tsconfig.json
 }
 ```
 
-- Create the `src/routes/index.ts` and make it answer with a 'Hello World' message in a JSON.
-
-- Create the `src/server.ts` and make it use the `routes/index` before launching the server.
+- Create the `src/server.ts` answering with a 'Hello World!'.
 
 
 ### EditorConfig
@@ -92,7 +92,7 @@ For node, let's use the 6.8.0 version, as the new ones have some inconveniences.
 [TODO: what are the inconveniences in the new version of eslint?]
 
 ```
-yarn add eslint@6.8.0 -D
+yarn -D add eslint@6.8.0
 yarn eslint --init
 # 1. To check syntax, find problems and enforce code style
 # 2. JavaScript modules (import/export)
@@ -104,8 +104,8 @@ yarn eslint --init
 # 8. JSON
 # 9. (install with npm?) No
 # copy the packages shown on the question 9 above and then...
-yarn add @typescript-eslint/eslint-plugin@latest eslint-config-airbnb-base@latest eslint-plugin-import@^2.21.2 @typescript-eslint/parser@latest -D
-yarn add eslint-import-resolver-typescript -D
+yarn add -D @typescript-eslint/eslint-plugin@latest eslint-config-airbnb-base@latest eslint-plugin-import@^2.21.2 @typescript-eslint/parser@latest
+yarn add -D eslint-import-resolver-typescript
 ```
 
 Create the `.eslintignore` file:
@@ -149,7 +149,7 @@ Restart VS Code
 ### Prettier
 
 ```
-yarn add prettier eslint-config-prettier eslint-plugin-prettier -D
+yarn add -D prettier eslint-config-prettier eslint-plugin-prettier
 ```
 
 Edit the `.eslintrc.json`:
@@ -184,11 +184,6 @@ module.exports = {
 }
 ```
 
-`.eslintignore`:
-```
-# ...
-/*.js
-```
 
 ## Debugging in VS Code
 
@@ -263,7 +258,7 @@ create database gobarber_project;
 yarn add typeorm pg reflect-metadata
 ```
 
-- Add typeorm to the `packages.json`:
+- Add typeorm to the `package.json`:
 ```json
 "scripts": {
   "typeorm": "ts-node-dev ./node_modules/typeorm/cli.js"
