@@ -341,7 +341,7 @@ Edit the `.eslintrc.json`:
 ```js
 module.exports = {
   singleQuote: true, 
-  trailingComma: 'all',
+  trailingComma: 'es5',
   arrowParens: 'avoid',
 }
 ```
