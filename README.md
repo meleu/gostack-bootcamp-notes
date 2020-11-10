@@ -202,7 +202,6 @@ To be honest these notes were not written in a way to be "consumed" by others, b
         - [Appointments Model](level-02/99-gobarber-backend-summary.md#appointments-model)
         - [Appointments Repository](level-02/99-gobarber-backend-summary.md#appointments-repository)
         - [CreateAppointmentService](level-02/99-gobarber-backend-summary.md#createappointmentservice)
-        - [Validating Dates](level-02/99-gobarber-backend-summary.md#validating-dates)
 
 </details>
 

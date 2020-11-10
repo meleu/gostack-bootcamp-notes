@@ -512,6 +512,11 @@ yarn typeorm migration:run
 
 ### CreateAppointmentService
 
+- Install:
+```
+yarn add date-fns
+```
+
 - Create the `src/services/CreateAppointmentService.ts`
 
 - Call the service in the `appointments.routes`.
@@ -520,26 +525,3 @@ yarn typeorm migration:run
   - Create some appointments
   - List all appointments
   - Turn off the server and then test again to check if the previously created appointments persisted.
-
-
-
-
-
-
-
-
-
-
-
-### Validating Dates
-
-- Install:
-```
-yarn add date-fns
-```
-
-- migration
-- model
-  - relation with users table
-- routes (authenticated)
-
