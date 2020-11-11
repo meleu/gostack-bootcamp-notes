@@ -172,36 +172,43 @@ To be honest these notes were not written in a way to be "consumed" by others, b
 </details>
 
 
-<details><summary>99-gobarber-backend-summary.md</summary><br>
+<details><summary>02.99-gobarber-backend-summary.md</summary><br>
 
-- [GoBarber Backend Summary](level-02/99-gobarber-backend-summary.md)
-    - [Development Environment](level-02/99-gobarber-backend-summary.md#development-environment)
-    - [GitHub Repository](level-02/99-gobarber-backend-summary.md#github-repository)
-    - [Kickstarting the Code](level-02/99-gobarber-backend-summary.md#kickstarting-the-code)
-        - [EditorConfig](level-02/99-gobarber-backend-summary.md#editorconfig)
-        - [ESLint](level-02/99-gobarber-backend-summary.md#eslint)
-            - [Node](level-02/99-gobarber-backend-summary.md#node)
-        - [Prettier](level-02/99-gobarber-backend-summary.md#prettier)
-            - [Solving conflicts between ESLint and Prettier.](level-02/99-gobarber-backend-summary.md#solving-conflicts-between-eslint-and-prettier)
-    - [Debugging in VS Code](level-02/99-gobarber-backend-summary.md#debugging-in-vs-code)
-    - [Docker & Data Base](level-02/99-gobarber-backend-summary.md#docker--data-base)
-    - [TypeORM](level-02/99-gobarber-backend-summary.md#typeorm)
-    - [Users](level-02/99-gobarber-backend-summary.md#users)
-        - [API Endpoints](level-02/99-gobarber-backend-summary.md#api-endpoints)
-        - [Registering Users](level-02/99-gobarber-backend-summary.md#registering-users)
-        - [Handling Errors](level-02/99-gobarber-backend-summary.md#handling-errors)
-        - [Password Encryption](level-02/99-gobarber-backend-summary.md#password-encryption)
-        - [Authentication](level-02/99-gobarber-backend-summary.md#authentication)
-            - [Requesting a Token](level-02/99-gobarber-backend-summary.md#requesting-a-token)
-            - [Authentication Middleware](level-02/99-gobarber-backend-summary.md#authentication-middleware)
-    - [Updating The Avatar](level-02/99-gobarber-backend-summary.md#updating-the-avatar)
-        - [Upload The File](level-02/99-gobarber-backend-summary.md#upload-the-file)
-        - [Updating the `avatar` field](level-02/99-gobarber-backend-summary.md#updating-the-avatar-field)
-    - [Appointments](level-02/99-gobarber-backend-summary.md#appointments)
-        - [Appointments Table](level-02/99-gobarber-backend-summary.md#appointments-table)
-        - [Appointments Model](level-02/99-gobarber-backend-summary.md#appointments-model)
-        - [Appointments Repository](level-02/99-gobarber-backend-summary.md#appointments-repository)
-        - [CreateAppointmentService](level-02/99-gobarber-backend-summary.md#createappointmentservice)
+- [GoBarber Backend Summary](level-02/02.99-gobarber-backend-summary.md)
+    - [Development Environment](level-02/02.99-gobarber-backend-summary.md#development-environment)
+    - [GitHub Repository](level-02/02.99-gobarber-backend-summary.md#github-repository)
+    - [Kickstarting the Code](level-02/02.99-gobarber-backend-summary.md#kickstarting-the-code)
+        - [EditorConfig](level-02/02.99-gobarber-backend-summary.md#editorconfig)
+        - [ESLint](level-02/02.99-gobarber-backend-summary.md#eslint)
+            - [Node](level-02/02.99-gobarber-backend-summary.md#node)
+        - [Prettier](level-02/02.99-gobarber-backend-summary.md#prettier)
+            - [Solving conflicts between ESLint and Prettier.](level-02/02.99-gobarber-backend-summary.md#solving-conflicts-between-eslint-and-prettier)
+    - [Debugging in VS Code](level-02/02.99-gobarber-backend-summary.md#debugging-in-vs-code)
+    - [Docker & Data Base](level-02/02.99-gobarber-backend-summary.md#docker--data-base)
+    - [TypeORM](level-02/02.99-gobarber-backend-summary.md#typeorm)
+    - [Users](level-02/02.99-gobarber-backend-summary.md#users)
+        - [API Endpoints](level-02/02.99-gobarber-backend-summary.md#api-endpoints)
+        - [Registering Users](level-02/02.99-gobarber-backend-summary.md#registering-users)
+        - [Handling Errors](level-02/02.99-gobarber-backend-summary.md#handling-errors)
+        - [Password Encryption](level-02/02.99-gobarber-backend-summary.md#password-encryption)
+        - [Authentication](level-02/02.99-gobarber-backend-summary.md#authentication)
+            - [Requesting a Token](level-02/02.99-gobarber-backend-summary.md#requesting-a-token)
+            - [Authentication Middleware](level-02/02.99-gobarber-backend-summary.md#authentication-middleware)
+    - [Updating The Avatar](level-02/02.99-gobarber-backend-summary.md#updating-the-avatar)
+        - [Upload The File](level-02/02.99-gobarber-backend-summary.md#upload-the-file)
+        - [Updating the `avatar` field](level-02/02.99-gobarber-backend-summary.md#updating-the-avatar-field)
+    - [Appointments](level-02/02.99-gobarber-backend-summary.md#appointments)
+        - [Appointments Table](level-02/02.99-gobarber-backend-summary.md#appointments-table)
+        - [Appointments Model](level-02/02.99-gobarber-backend-summary.md#appointments-model)
+        - [Appointments Repository](level-02/02.99-gobarber-backend-summary.md#appointments-repository)
+        - [CreateAppointmentService](level-02/02.99-gobarber-backend-summary.md#createappointmentservice)
+
+</details>
+
+
+<details><summary>02.X-backend-challenge.md</summary><br>
+
+- [](level-02/02.X-backend-challenge.md#)
 
 </details>
 
