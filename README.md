@@ -206,9 +206,22 @@ To be honest these notes were not written in a way to be "consumed" by others, b
 </details>
 
 
-<details><summary>02.X-backend-challenge.md</summary><br>
+<details><summary>03-backend-challenge.md</summary><br>
 
-- [](level-02/02.X-backend-challenge.md#)
+- [Challenge 6](level-02/03-backend-challenge.md)
+    - [Random Notes](level-02/03-backend-challenge.md#random-notes)
+    - [Migrations](level-02/03-backend-challenge.md#migrations)
+    - [Importing CSV Files](level-02/03-backend-challenge.md#importing-csv-files)
+
+</details>
+
+
+
+### level-03
+<details><summary>03.01-react-first-project.md</summary><br>
+
+- [React - First Project](level-03/03.01-react-first-project.md)
+    - [Starting the Project](level-03/03.01-react-first-project.md#starting-the-project)
 
 </details>
 
