@@ -140,7 +140,7 @@ To be honest these notes were not written in a way to be "consumed" by others, b
     - [JWT Concepts](level-02/02.3-backend-authentication.md#jwt-concepts)
     - [Validating Credentials](level-02/02.3-backend-authentication.md#validating-credentials)
     - [Generating a Token](level-02/02.3-backend-authentication.md#generating-a-token)
-    - [Authenticated Routes](level-02/02.3-backend-authentication.md#authenticated-routes)
+    - [Authenticated Routes / Authentication Middleware](level-02/02.3-backend-authentication.md#authenticated-routes--authentication-middleware)
     - [Summary](level-02/02.3-backend-authentication.md#summary)
     - [My GoBarber codebase up to this point](level-02/02.3-backend-authentication.md#my-gobarber-codebase-up-to-this-point)
 
@@ -210,8 +210,6 @@ To be honest these notes were not written in a way to be "consumed" by others, b
 
 - [Challenge 6](level-02/03-backend-challenge.md)
     - [Random Notes](level-02/03-backend-challenge.md#random-notes)
-    - [Migrations](level-02/03-backend-challenge.md#migrations)
-    - [Importing CSV Files](level-02/03-backend-challenge.md#importing-csv-files)
 
 </details>
 
