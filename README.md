@@ -220,6 +220,15 @@ To be honest these notes were not written in a way to be "consumed" by others, b
 
 - [React - First Project](level-03/03.01-react-first-project.md)
     - [Starting the Project](level-03/03.01-react-first-project.md#starting-the-project)
+    - [Creating Routes](level-03/03.01-react-first-project.md#creating-routes)
+    - [Using Styled Components](level-03/03.01-react-first-project.md#using-styled-components)
+    - [Styling the Dashboard](level-03/03.01-react-first-project.md#styling-the-dashboard)
+    - [Connecting the API](level-03/03.01-react-first-project.md#connecting-the-api)
+    - [Handling Errors](level-03/03.01-react-first-project.md#handling-errors)
+    - [Saving Data in the localStorage](level-03/03.01-react-first-project.md#saving-data-in-the-localstorage)
+    - [Browsing Between Routes](level-03/03.01-react-first-project.md#browsing-between-routes)
+    - [Styling Details](level-03/03.01-react-first-project.md#styling-details)
+    - [Listing Issues](level-03/03.01-react-first-project.md#listing-issues)
 
 </details>
 

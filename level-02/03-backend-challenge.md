@@ -74,6 +74,9 @@ class ImportTransactionsService {
 
     const csvStream = fs.createReadStream(filePath);
 
+    const transactions: CSVTrasaction[] = [];
+    const categories: string[] = [];
+
     csvStream
       .pipe(csvParse({ from_line: 2 }))
       .on('data', line => {
@@ -92,10 +95,6 @@ class ImportTransactionsService {
           category,
         });
       })
-
-    const transactions: CSVTrasaction[] = [];
-    const categories: string[] = [];
-
 
     await new Promise(resolve => {
       parseCSV.on('end', resolve);
