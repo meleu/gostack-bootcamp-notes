@@ -220,6 +220,9 @@ To be honest these notes were not written in a way to be "consumed" by others, b
 
 - [React - First Project](level-03/03.01-react-first-project.md)
     - [Starting the Project](level-03/03.01-react-first-project.md#starting-the-project)
+    - [ESLint](level-03/03.01-react-first-project.md#eslint)
+        - [Prettier](level-03/03.01-react-first-project.md#prettier)
+            - [Solving conflicts between ESLint and Prettier.](level-03/03.01-react-first-project.md#solving-conflicts-between-eslint-and-prettier)
     - [Creating Routes](level-03/03.01-react-first-project.md#creating-routes)
     - [Using Styled Components](level-03/03.01-react-first-project.md#using-styled-components)
     - [Styling the Dashboard](level-03/03.01-react-first-project.md#styling-the-dashboard)
