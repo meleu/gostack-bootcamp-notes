@@ -216,22 +216,35 @@ To be honest these notes were not written in a way to be "consumed" by others, b
 
 
 ### level-03
-<details><summary>03.01-react-first-project.md</summary><br>
+<details><summary>01-react-first-project.md</summary><br>
 
-- [React - First Project](level-03/03.01-react-first-project.md)
-    - [Starting the Project](level-03/03.01-react-first-project.md#starting-the-project)
-    - [ESLint](level-03/03.01-react-first-project.md#eslint)
-        - [Prettier](level-03/03.01-react-first-project.md#prettier)
-            - [Solving conflicts between ESLint and Prettier.](level-03/03.01-react-first-project.md#solving-conflicts-between-eslint-and-prettier)
-    - [Creating Routes](level-03/03.01-react-first-project.md#creating-routes)
-    - [Using Styled Components](level-03/03.01-react-first-project.md#using-styled-components)
-    - [Styling the Dashboard](level-03/03.01-react-first-project.md#styling-the-dashboard)
-    - [Connecting the API](level-03/03.01-react-first-project.md#connecting-the-api)
-    - [Handling Errors](level-03/03.01-react-first-project.md#handling-errors)
-    - [Saving Data in the localStorage](level-03/03.01-react-first-project.md#saving-data-in-the-localstorage)
-    - [Browsing Between Routes](level-03/03.01-react-first-project.md#browsing-between-routes)
-    - [Styling Details](level-03/03.01-react-first-project.md#styling-details)
-    - [Listing Issues](level-03/03.01-react-first-project.md#listing-issues)
+- [React - First Project](level-03/01-react-first-project.md)
+    - [Starting the Project](level-03/01-react-first-project.md#starting-the-project)
+    - [ESLint](level-03/01-react-first-project.md#eslint)
+        - [Prettier](level-03/01-react-first-project.md#prettier)
+            - [Solving conflicts between ESLint and Prettier.](level-03/01-react-first-project.md#solving-conflicts-between-eslint-and-prettier)
+    - [Creating Routes](level-03/01-react-first-project.md#creating-routes)
+    - [Using Styled Components](level-03/01-react-first-project.md#using-styled-components)
+    - [Styling the Dashboard](level-03/01-react-first-project.md#styling-the-dashboard)
+    - [Connecting the API](level-03/01-react-first-project.md#connecting-the-api)
+    - [Handling Errors](level-03/01-react-first-project.md#handling-errors)
+    - [Saving Data in the localStorage](level-03/01-react-first-project.md#saving-data-in-the-localstorage)
+    - [Browsing Between Routes](level-03/01-react-first-project.md#browsing-between-routes)
+    - [Styling Details](level-03/01-react-first-project.md#styling-details)
+    - [Listing Issues](level-03/01-react-first-project.md#listing-issues)
+
+</details>
+
+
+<details><summary>02.1-frontend-pages.md</summary><br>
+
+- [React - Pages Structure](level-03/02.1-frontend-pages.md)
+    - [Starting the Project](level-03/02.1-frontend-pages.md#starting-the-project)
+    - [Global Styles](level-03/02.1-frontend-pages.md#global-styles)
+    - [Login Page](level-03/02.1-frontend-pages.md#login-page)
+    - [Isolating Components](level-03/02.1-frontend-pages.md#isolating-components)
+    - [Sign Up Page](level-03/02.1-frontend-pages.md#sign-up-page)
+    - [Using Unform](level-03/02.1-frontend-pages.md#using-unform)
 
 </details>
 

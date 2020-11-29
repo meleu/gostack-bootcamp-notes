@@ -12,7 +12,7 @@
 #
 # meleu: october/2020
 
-readonly REPO_DIR="${GIT_DIR}/.."
+readonly REPO_DIR="$(git rev-parse --git-dir)/.."
 readonly INVALID_CHARS="'[]/?!:\`.,()*\";{}+=<>~$|#@&â€“â€”"
 
 # Generates a Table of Contents getting a markdown file as input.
@@ -59,7 +59,7 @@ toc() {
 
 
 updateReadme() {
-  local readme="${GIT_DIR}/../README.md"
+  local readme="${REPO_DIR}/README.md"
   local file
   local level
   local currentLevel
