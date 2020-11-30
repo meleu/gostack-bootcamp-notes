@@ -220,6 +220,7 @@ To be honest these notes were not written in a way to be "consumed" by others, b
 
 - [React - First Project](level-03/01-react-first-project.md)
     - [Starting the Project](level-03/01-react-first-project.md#starting-the-project)
+    - [Editor Config](level-03/01-react-first-project.md#editor-config)
     - [ESLint](level-03/01-react-first-project.md#eslint)
         - [Prettier](level-03/01-react-first-project.md#prettier)
             - [Solving conflicts between ESLint and Prettier.](level-03/01-react-first-project.md#solving-conflicts-between-eslint-and-prettier)
@@ -240,6 +241,11 @@ To be honest these notes were not written in a way to be "consumed" by others, b
 
 - [React - Pages Structure](level-03/02.1-frontend-pages.md)
     - [Starting the Project](level-03/02.1-frontend-pages.md#starting-the-project)
+        - [Editor Config](level-03/02.1-frontend-pages.md#editor-config)
+        - [ESLint](level-03/02.1-frontend-pages.md#eslint)
+        - [Prettier](level-03/02.1-frontend-pages.md#prettier)
+        - [`.eslintrc.json`](level-03/02.1-frontend-pages.md#eslintrcjson)
+        - [Solving conflicts between ESLint and Prettier.](level-03/02.1-frontend-pages.md#solving-conflicts-between-eslint-and-prettier)
     - [Global Styles](level-03/02.1-frontend-pages.md#global-styles)
     - [Login Page](level-03/02.1-frontend-pages.md#login-page)
     - [Isolating Components](level-03/02.1-frontend-pages.md#isolating-components)

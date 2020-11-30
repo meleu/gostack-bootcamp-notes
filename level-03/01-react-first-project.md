@@ -12,6 +12,7 @@ rm README.md
 cd src
 rm App.css App.test.tsx index.css logo.svg serviceWorker.ts
 # remove the references to the deleted files in index.tsx and App.tsx
+# write an React.FC with a 'Hello World' in the App.tsx
 cd ../public
 rm favicon.ico logo192.png logo512.png manifest.json
 # remove the references to the deleted files in index.html
@@ -21,6 +22,20 @@ rm favicon.ico logo192.png logo512.png manifest.json
 ```html
 <meta name="theme-color" content="#3a3a3a" />
 <title>GitHub Explorer</title>
+```
+
+## Editor Config
+
+```txt
+root = true
+
+[*]
+indent_style = space
+indent_size = 2
+charset = utf-8
+trim_trailing_whitespace = true
+insert_final_newline = true
+end_of_line = lf
 ```
 
 ## ESLint
@@ -36,9 +51,9 @@ In the `package.json` **REMOVE** this part:
 },
 ```
 
-Install eslint 6.8.0 and initialize it:
+Install eslint and initialize it:
 ```
-yarn add eslint@6.8.0 -D
+yarn add eslint
 yarn eslint --init
 # 1. To check syntax, find problems and enforce code style
 # 2. JavaScript modules (impot/export)
