@@ -251,6 +251,11 @@ To be honest these notes were not written in a way to be "consumed" by others, b
     - [Isolating Components](level-03/02.1-frontend-pages.md#isolating-components)
     - [Sign Up Page](level-03/02.1-frontend-pages.md#sign-up-page)
     - [Using Unform](level-03/02.1-frontend-pages.md#using-unform)
+    - [Input Usability](level-03/02.1-frontend-pages.md#input-usability)
+    - [Validating Input](level-03/02.1-frontend-pages.md#validating-input)
+    - [Showing the Validation Errors](level-03/02.1-frontend-pages.md#showing-the-validation-errors)
+    - [Creating Errors' Tooltips](level-03/02.1-frontend-pages.md#creating-errors-tooltips)
+    - [Validating Login](level-03/02.1-frontend-pages.md#validating-login)
 
 </details>
 
